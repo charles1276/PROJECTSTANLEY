@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 5f;
 
     public float jumpHeight = 10f;
-    private float jumpRequestedTime = 0f;
+    private float jumpRequestedTime = -1f;
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
     [SerializeField] private float coyotetime = 0.2f;
 
