@@ -35,20 +35,10 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocityX = moveInput;
 
         // manage coyote time
-        if (isGrounded())
-        {
-            coyotetime = 0.2f;
-        }
-        else
-        {
-            coyotetime -= Time.deltaTime;
-        }
+        updateCoyoteTime();
 
         // handle jump
-        if (coyotetime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
-        {
-            rb.linearVelocityY = jumpHeight;
-        }
+        attemptJump();
     }
 
     public void Move(InputAction.CallbackContext ctx)
@@ -66,5 +56,28 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+    }
+
+    // update coyote time based on whether the player is grounded
+    private void updateCoyoteTime()
+    {
+        if (isGrounded())
+        {
+            coyotetime = 0.2f;
+        }
+        else
+        {
+            coyotetime -= Time.deltaTime;
+        }
+    }
+
+    // attempt to jump
+    // jump if conditions are met
+    private void attemptJump()
+    {
+        if (coyotetime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
+        {
+            rb.linearVelocityY = jumpHeight;
+        }
     }
 }
