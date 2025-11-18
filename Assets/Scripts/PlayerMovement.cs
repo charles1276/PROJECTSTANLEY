@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 10f;
     private float jumpRequestedTime = -1f;
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
-    [SerializeField] private float coyotetime = 0.2f;
+    [SerializeField] private float coyoteTime = 0.2f;
 
     private float moveInput;
 
@@ -71,11 +71,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGrounded())
         {
-            coyotetime = 0.2f;
+            coyoteTime = 0.2f;
         }
         else
         {
-            coyotetime -= Time.deltaTime;
+            coyoteTime -= Time.deltaTime;
         }
     }
 
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     // jump if conditions are met
     private void attemptJump()
     {
-        if (coyotetime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
+        if (coyoteTime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
         {
             rb.linearVelocityY = jumpHeight;
         }
