@@ -55,7 +55,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private bool isGrounded()
     {
-        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
+        // perform raycast downwards to check for ground
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + Vector2.down, Vector2.down, .01f, jumpableGround);
+
+        // debugging ray :3c
+        Debug.DrawRay((Vector2)transform.position + Vector2.down, Vector2.down * .01f, Color.red, 0.1f);
+        return hit.collider != null;
+
+
+        //return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 
     // update coyote time based on whether the player is grounded
