@@ -6,14 +6,19 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    [Header("Movement")]
     public float movementSpeed = 5f;
 
     public float jumpHeight = 10f;
+    private float jumpRequestedTime = 0f;
+    private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
+    [SerializeField] private float coyotetime = 0.2f;
 
     private float moveInput;
 
     private CapsuleCollider2D coll;
 
+    [Header("Mask for Ground Detection")]
     [SerializeField] private LayerMask jumpableGround;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,7 +31,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // handle horizontal movement
         rb.linearVelocityX = moveInput;
+
+        // manage coyote time
+        if (isGrounded())
+        {
+            coyotetime = 0.2f;
+        }
+        else
+        {
+            coyotetime -= Time.deltaTime;
+        }
+
+        // handle jump
+        if (coyotetime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
+        {
+            rb.linearVelocityY = jumpHeight;
+        }
     }
 
     public void Move(InputAction.CallbackContext ctx)
@@ -36,9 +58,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if(ctx.ReadValue<float>() == 1 && isGrounded())
+        if(ctx.ReadValue<float>() == 1)
         {
-            rb.linearVelocityY = jumpHeight;
+            jumpRequestedTime = Time.time;
         }
     }
     private bool isGrounded()
