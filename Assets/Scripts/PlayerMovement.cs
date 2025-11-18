@@ -12,10 +12,15 @@ public class PlayerMovement : MonoBehaviour
 
     private float moveInput;
 
+    private CapsuleCollider2D coll;
+
+    [SerializeField] private LayerMask jumpableGround;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -31,9 +36,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext ctx)
     {
-        if(ctx.ReadValue<float>() == 1)
+        if(ctx.ReadValue<float>() == 1 && isGrounded())
         {
             rb.linearVelocityY = jumpHeight;
         }
+    }
+    private bool isGrounded()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpableGround);
     }
 }
