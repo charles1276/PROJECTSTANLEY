@@ -7,11 +7,12 @@ public class MagnetPull : MonoBehaviour
 
     bool willAttract = false;
 
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Magnet") && willAttract == true)
         {
-            Vector2 direction = (transform.position - collision.transform.position).normalized;
+            Vector2 direction = (transform.parent.position - collision.transform.position).normalized;
             Rigidbody2D rb = collision.GetComponent<Rigidbody2D>();
             rb.linearVelocity = direction * speed;
         }
