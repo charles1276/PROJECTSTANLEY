@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 5f;
     public float sprintMultiplier = 1.6f;
 
+    private bool canWallJump;
+
     public float jumpHeight = 10f;
     private float jumpRequestedTime = -1f;
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // input variables
     private float moveInput;
     private bool isSprinting;
+
 
     private CapsuleCollider2D coll;
 

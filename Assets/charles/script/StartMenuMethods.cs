@@ -5,7 +5,7 @@ public class StartMenuMethods : MonoBehaviour
 {
     public void startbutton(string sceneName)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("sceneName");
+        SceneManager.LoadScene(sceneName);
     }
     public void quitbutton()
     {
@@ -14,10 +14,10 @@ public class StartMenuMethods : MonoBehaviour
     }
     public void credtsbutton() 
     {        
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Credits");
+        SceneManager.LoadScene("Credits");
     }
-    public void backbutton()
+    public void backbutton(string sceneName)
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("main menu");
+        SceneManager.LoadScene(sceneName);
     }
 }
