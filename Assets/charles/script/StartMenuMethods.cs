@@ -16,4 +16,8 @@ public class StartMenuMethods : MonoBehaviour
     {        
         UnityEngine.SceneManagement.SceneManager.LoadScene("Credits");
     }
+    public void backbutton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("main menu");
+    }
 }
