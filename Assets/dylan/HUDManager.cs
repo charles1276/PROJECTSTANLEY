@@ -12,7 +12,8 @@ public class StatsBar
     // constructor (class initializer)
     public StatsBar(GameObject ui, float smoothing = 5f)
     {
-        emptyFill = ui.transform.Find("emptyfill").GetComponent<RectTransform>();
+        GameObject fill = ui.transform.Find("fill").gameObject;
+        emptyFill = fill.transform.Find("emptyfill").GetComponent<RectTransform>();
         currentFill = 1f;
 
         fillSmoothing = smoothing;
@@ -25,21 +26,29 @@ public class StatsBar
         currentFill = Mathf.Lerp(currentFill, percentage, Time.deltaTime * fillSmoothing);
 
         // update the position of the empty fill based on the current fill amount
-        emptyFill.localPosition = new Vector3(dist * currentFill, 0, 0);
+        emptyFill.anchoredPosition = new Vector3(dist - (int)(dist * currentFill), 0, 0);
     }
 }
 
 public class HUDManager : MonoBehaviour
 {
+    private GameObject player;
+
+    [Header("UI Elements")]
     [SerializeField] private GameObject staminaBarUI;
     [SerializeField] private GameObject powerBarUI;
 
+    [Header("Stat Bars")]
     public StatsBar staminaBar;
     public StatsBar powerBar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // find the player
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        // define statistic bars
         staminaBar = new StatsBar(staminaBarUI);
         powerBar = new StatsBar(powerBarUI);
     }
@@ -47,6 +56,7 @@ public class HUDManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        staminaBar.setFillAmount(player.GetComponent<PlayerStats>().getStaminaPercentage());
+        powerBar.setFillAmount(player.GetComponent<PlayerStats>().getPowerPercentage());
     }
 }

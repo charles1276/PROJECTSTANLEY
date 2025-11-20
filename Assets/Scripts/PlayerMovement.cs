@@ -21,17 +21,18 @@ public class PlayerMovement : MonoBehaviour
 
     private CapsuleCollider2D coll;
 
-    [Header("Statistics")]
-    public float stamina = 100f; // drains when sprinting
-    public float power = 100f;   // drains over time
-    public float powerDrainRate = 1f;
-
     [Header("Mask for Ground Detection")]
     [SerializeField] private LayerMask jumpableGround;
+
+    private PlayerStats stats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        // get reference to player stats
+        stats = GetComponent<PlayerStats>();
+
+        // get reference to rigidbody and collider
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
     }
@@ -57,27 +58,7 @@ public class PlayerMovement : MonoBehaviour
     // FixedUpdate is called at a fixed interval and is independent of frame rate
     private void FixedUpdate()
     {
-        if (isSprinting)
-        {
-            stamina -= 10f;
-
-            // min stamina cap
-            if (stamina <= 0f)
-            {
-                stamina = 0f;
-                isSprinting = false;
-            }
-        }
-        else
-        {
-            stamina += 5f;
-
-            // max stamina cap
-            if (stamina >= 100f)
-            {
-                stamina = 100f;
-            }
-        }
+        attemptSprint();
     }
 
     public void Move(InputAction.CallbackContext ctx)
@@ -95,15 +76,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Sprint(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && stamina > 0f)
+        if (ctx.performed)
         {
             isSprinting = true;
-            print("ugh");
         }
         if (ctx.canceled)
         {
             isSprinting = false;
-            print("ahh");
         }
     }
 
@@ -141,6 +120,22 @@ public class PlayerMovement : MonoBehaviour
         if (coyoteTime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
         {
             rb.linearVelocityY = jumpHeight;
+        }
+    }
+
+    private void attemptSprint()
+    {
+        // only sprint if the player has stamina
+        if (!stats.canSprint()) { return; }
+
+        // drain stamina while sprinting
+        if (isSprinting)
+        {
+            stats.drainStamina();
+        }
+        else
+        {
+            stats.regenStamina();
         }
     }
 }
