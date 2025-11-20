@@ -9,12 +9,18 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float movementSpeed = 5f;
 
+    private bool canWallJump;
+
     public float jumpHeight = 10f;
     private float jumpRequestedTime = -1f;
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
     [SerializeField] private float coyoteTime = 0.2f;
 
     private float moveInput;
+
+    private int facingDirection = 1;
+
+    [SerializeField] Vector2 wallJumpDirection;
 
     private CapsuleCollider2D coll;
 
