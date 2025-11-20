@@ -29,11 +29,13 @@ public class InputHandler : MonoBehaviour
             raycastHit2D = Physics2D.Raycast(mouseRay.origin, mouseRay.direction);
             clickObject = raycastHit2D ? raycastHit2D.collider.transform : null;
 
-            if (clickObject.CompareTag("Magnet"))
+            if (clickObject.CompareTag("Magnet") && Mathf.Abs(transform.position.x - clickObject.transform.position.x) <= attractDistance && Mathf.Abs(transform.position.y - clickObject.transform.position.y) <= attractDistance)
             {
                 willAttract = !willAttract;
             }
+            
         }
+        
         if (willAttract && clickObject != null && clickObject.CompareTag("Magnet"))
         
         {
@@ -42,9 +44,9 @@ public class InputHandler : MonoBehaviour
             {
                 Rigidbody2D rb = clickObject.GetComponent<Rigidbody2D>();
                 rb.linearVelocity = direction * speed;
-                Debug.Log(direction);
 
             }
         }
+        
     }
 }
