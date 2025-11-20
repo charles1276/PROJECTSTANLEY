@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class WeightManagement : MonoBehaviour
 {
+    // IMPORTANT NOTE: This script should be attached to a GameObject that has a Rigidbody2D component.
+
     // thresholds for weight levels
     [Header("Weight Thresholds")]
     [Tooltip("Mass above this value is considered heavy.")]
@@ -9,16 +11,17 @@ public class WeightManagement : MonoBehaviour
     [Tooltip("Mass above this value is considered medium.")]
     public float mediumThreshold = 2.0f;
 
-    // weight level of the object (1 = light, 2 = medium, 3 = heavy)
-    private int weightLevel;
-
-    public int FindWeightLevel(Rigidbody2D rb)
+    // determine weight level based on Rigidbody2D mass
+    public byte FindWeightLevel(Rigidbody2D rb)
     {
+        // weight level of the object (1 = light, 2 = medium, 3 = heavy)
+        byte weightLevel = 0;
+
         if (rb != null)
         {
             if (rb.mass > heavyThreshold)
             {
-                weightLevel = 3; // Heavy
+                weightLevel = 1; // Heavy
             }
             else if (rb.mass > mediumThreshold)
             {
@@ -26,7 +29,7 @@ public class WeightManagement : MonoBehaviour
             }
             else
             {
-                weightLevel = 1; // Light
+                weightLevel = 3; // Light
             }
         }
 

@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
 
     private CapsuleCollider2D coll;
 
+    [Header("Statistics")]
+    public float stamina = 100f;
+    public float power = 100f;
+    public float powerDrainRate = 1f;
+
     [Header("Mask for Ground Detection")]
     [SerializeField] private LayerMask jumpableGround;
 
