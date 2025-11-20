@@ -21,9 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private bool isSprinting;
 
-    private int facingDirection = 1;
-
-    [SerializeField] Vector2 wallJumpDirection;
 
     private CapsuleCollider2D coll;
 
