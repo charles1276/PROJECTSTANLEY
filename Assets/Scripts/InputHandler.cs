@@ -5,13 +5,15 @@ public class InputHandler : MonoBehaviour
 {
     bool willAttract = false;
 
+    [SerializeField] float attractDistance = 1f;
+
     Vector3 mousePosition;
 
     RaycastHit2D raycastHit2D;
 
     Transform clickObject;
 
-    public float speed = 5f;
+    [SerializeField] float speed = 5f;
     void Start()
     {
 
@@ -33,10 +35,16 @@ public class InputHandler : MonoBehaviour
             }
         }
         if (willAttract && clickObject != null && clickObject.CompareTag("Magnet"))
+        
         {
             Vector2 direction = (transform.position - clickObject.transform.position).normalized;
-            Rigidbody2D rb = clickObject.GetComponent<Rigidbody2D>();
-            rb.linearVelocity = direction * speed;
+            if(Mathf.Abs(transform.position.x - clickObject.transform.position.x) <= attractDistance && Mathf.Abs(transform.position.y - clickObject.transform.position.y) <= attractDistance)
+            {
+                Rigidbody2D rb = clickObject.GetComponent<Rigidbody2D>();
+                rb.linearVelocity = direction * speed;
+                Debug.Log(direction);
+
+            }
         }
     }
 }
