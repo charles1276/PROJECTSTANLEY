@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private bool isSprinting;
 
-
     private CapsuleCollider2D coll;
 
     [Header("Mask for Ground Detection")]
@@ -128,12 +127,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void attemptSprint()
     {
-        // only sprint if the player has stamina
-        if (!stats.canSprint()) { return; }
-
         // drain stamina while sprinting
-        if (isSprinting)
+        if (isSprinting && rb.linearVelocityX != 0)
         {
+            // only sprint if the player has stamina
+            if (!stats.canSprint()) { return; }
+
             stats.drainStamina();
         }
         else
