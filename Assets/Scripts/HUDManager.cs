@@ -7,12 +7,15 @@ public class StatsBar
     private float currentFill;
     private float fillSmoothing; // higher value means faster smoothing
 
-    private int dist = 37;
+    private int dist;
 
     // constructor (class initializer)
     public StatsBar(GameObject ui, float smoothing = 5f)
     {
         GameObject fill = ui.transform.Find("fill").gameObject;
+        Rect fillSize = fill.GetComponent<RectTransform>().rect;
+        dist = (int)(fillSize.width + fillSize.height - 1);
+
         emptyFill = fill.transform.Find("emptyfill").GetComponent<RectTransform>();
         currentFill = 1f;
 
@@ -26,7 +29,7 @@ public class StatsBar
         currentFill = Mathf.Lerp(currentFill, percentage, Time.deltaTime * fillSmoothing);
 
         // update the position of the empty fill based on the current fill amount
-        emptyFill.anchoredPosition = new Vector3(dist - (int)(dist * currentFill), 0, 0);
+        emptyFill.anchoredPosition = new Vector3(Mathf.Ceil(dist * currentFill) - dist, 0, 0);
     }
 }
 
