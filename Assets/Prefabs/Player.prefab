@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 4415097338619274828}
   - component: {fileID: 7510798486981834305}
   - component: {fileID: 386931249064734666}
-  - component: {fileID: -1413630141341410856}
-  - component: {fileID: 5401125210642922243}
+  - component: {fileID: 2012613358230480041}
+  - component: {fileID: 9079374910092918546}
+  - component: {fileID: 6629340211680660710}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -280,7 +281,19 @@ MonoBehaviour:
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2012613358230480041}
+        m_TargetAssemblyTypeName: MagnetHandler, Assembly-CSharp
+        m_MethodName: Attract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 3a741863-5d95-4b2d-bb6a-20b2e98b751d
     m_ActionName: 'Player/Attract[/Keyboard/r]'
   - m_PersistentCalls:
@@ -299,6 +312,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fad2d03f-5920-4e49-b3f1-d83a693b244b
     m_ActionName: 'Player/Sprint[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2012613358230480041}
+        m_TargetAssemblyTypeName: MagnetHandler, Assembly-CSharp
+        m_MethodName: Repel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: af47e50e-10dd-428e-87b9-3ff43f454738
+    m_ActionName: 'Player/Repel[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -323,7 +352,7 @@ MonoBehaviour:
   jumpableGround:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &-1413630141341410856
+--- !u!114 &2012613358230480041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -337,8 +366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willAttract: 0
   attractDistance: 1
-  speed: 3
---- !u!114 &5401125210642922243
+  speed: 5
+--- !u!114 &9079374910092918546
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -355,6 +384,20 @@ MonoBehaviour:
   staminaRegenRate: 5
   maxPower: 100
   powerDrainRate: 1
+--- !u!114 &6629340211680660710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046760900981843949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 647fd4a8f3161aa4b9661092edeeb5b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polarity: 1
+  weight: 0
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0

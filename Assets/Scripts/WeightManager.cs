@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeightManagement : MonoBehaviour
+public class WeightManager : MonoBehaviour
 {
     // IMPORTANT NOTE: This script should be attached to a GameObject that has a Rigidbody2D component.
 

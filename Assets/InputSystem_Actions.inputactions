@@ -95,6 +95,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Repel",
+                    "type": "Button",
+                    "id": "af47e50e-10dd-428e-87b9-3ff43f454738",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -453,7 +462,7 @@
                 {
                     "name": "",
                     "id": "2abc790f-4676-4ce1-9c40-18294f4efb59",
-                    "path": "<Keyboard>/#(R)",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -480,6 +489,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fbd5337b-c307-47c3-8aa9-995b21cc9112",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Repel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
