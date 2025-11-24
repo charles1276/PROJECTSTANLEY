@@ -17,9 +17,16 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
     [SerializeField] private float coyoteTime = 0.2f;
 
+    //wall jump variables
+    public Transform wallPoint;
+    private bool canJumpWall, isTouchingWall;
+
+
     // input variables
     private float moveInput;
     private bool isSprinting;
+
+    private float wallJumpCooldown = 0f;
 
     private CapsuleCollider2D coll;
 
@@ -49,12 +56,49 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocityX *= sprintMultiplier;
         }
+        wallJumpCooldown -= Time.deltaTime;
+
+
 
         // manage coyote time
         updateCoyoteTime();
 
         // handle jump
         attemptJump();
+
+        //flip direction
+        if (rb.linearVelocityX > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (rb.linearVelocityX < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+
+        // wall jump detection
+        canJumpWall = Physics2D.OverlapCircle(wallPoint.position, 0.2f, jumpableGround);
+        isTouchingWall = false;
+        if (canJumpWall && isGrounded() == false)
+        {
+            if (transform.localScale.x == 1f && moveInput > 0)
+            {
+                isTouchingWall = true;
+            }
+            else if (transform.localScale.x == -1f && moveInput < 0)
+            {
+                isTouchingWall = true;
+            }
+            else
+            {
+                isTouchingWall = false;
+            }
+        }
+        if(isTouchingWall && wallJumpCooldown <= 0f)
+        {
+                       coyoteTime = 0.2f;
+            wallJumpCooldown = 2f;
+        }
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate
