@@ -14,11 +14,21 @@ public class TriggerZoneForObject : MonoBehaviour
     {
         if (dooropen = true)
         {
-            if (targetObject.transform.position.y <= 5f)
+            if (targetObject.transform.localScale.x <= 1.8f)
+            {
+                Vector3 localScale = targetObject.transform.localScale;
+                localScale.x += .00125f;
+                targetObject.transform.localScale = localScale;
+            }
+            if (targetObject.transform.position.x <= 108.25f)
             {
                 Vector3 pos = targetObject.transform.position;
-                pos.y += .5f;
+                pos.x += .000625f;
                 targetObject.transform.position = pos;
+
+                Vector3 post = targetObject.transform.position;
+                post.z = 1f;
+                targetObject.transform.position = post;
             }
         }
     }
