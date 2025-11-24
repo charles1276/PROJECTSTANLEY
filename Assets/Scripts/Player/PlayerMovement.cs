@@ -58,9 +58,7 @@ public class PlayerMovement : MonoBehaviour
         }
         wallJumpCooldown -= Time.deltaTime;
 
-
-
-        rb.linearVelocityX += movementForce;
+        rb.AddForce(new Vector2(movementForce, 0f));
         rb.linearVelocityX *= friction; // friction
 
         // manage coyote time
