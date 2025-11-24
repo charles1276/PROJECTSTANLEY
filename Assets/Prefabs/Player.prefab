@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd3bb90cde30f640ae67d6ebb4f8b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 1
   sprintMultiplier: 1.6
   jumpHeight: 10
   coyoteTime: 0.2
@@ -364,9 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b681c75dce7054692237f43b47cf15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  willAttract: 0
-  attractDistance: 1
-  speed: 5
+  attractDistance: 10
+  speed: 1
 --- !u!114 &9079374910092918546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   polarity: 1
-  weight: 0
+  weight: 1
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,12 +7,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     [Header("Movement")]
-    public float movementSpeed = 5f;
-    public float sprintMultiplier = 1.6f;
+    [SerializeField] private float movementSpeed = 5f;
+    [SerializeField] private float sprintMultiplier = 1.6f;
+    [SerializeField] private float friction = 0.9f;
 
     private bool canWallJump;
 
-    public float jumpHeight = 10f;
+    [SerializeField] private float jumpHeight = 10f;
     private float jumpRequestedTime = -1f;
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
     [SerializeField] private float coyoteTime = 0.2f;
@@ -43,12 +44,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // handle horizontal movement
-        rb.linearVelocityX = moveInput;
-
+        float movementForce = moveInput;
         if (isSprinting)
         {
-            rb.linearVelocityX *= sprintMultiplier;
+            movementForce *= sprintMultiplier;
         }
+
+        rb.linearVelocityX += movementForce;
+        rb.linearVelocityX *= friction; // friction
 
         // manage coyote time
         updateCoyoteTime();

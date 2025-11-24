@@ -1,3 +1,4 @@
+using Unity.Jobs;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -12,6 +13,7 @@ public class MagnetHandler : MonoBehaviour
 
     // polarity
     private ObjectPolarity attractionPolarity;
+    private Vector2 attractionVector;
 
     // reference to object properties
     private ObjectProperties properties;
@@ -61,16 +63,23 @@ public class MagnetHandler : MonoBehaviour
 
         // grab mouse position and raycast
         Vector3 mousePosition = Input.mousePosition;
+        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
 
         RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction);
         clickObject = hit ? hit.collider.transform : null; // get clicked object
 
+        // if no object clicked, do nothing
+        if (hit.collider == null)
+        {
+            return;
+        }
+
         // check distance from player to clicked object
-        Vector2 dist = transform.position - clickObject.transform.position;
+        attractionVector = mouseWorldPosition - transform.position;
 
         // if distance is greater than attractDistance, do nothing
-        if (dist.magnitude > attractDistance)
+        if (attractionVector.magnitude > attractDistance)
         {
             return;
         }
@@ -86,8 +95,8 @@ public class MagnetHandler : MonoBehaviour
             {
                 // player and object are equal weight
                 case "Equal":
-                    movePlayer(0.5f);
-                    moveObject(0.5f);
+                    movePlayer();
+                    moveObject();
                     break;
 
                 // player is heavier
@@ -106,18 +115,18 @@ public class MagnetHandler : MonoBehaviour
     // apply force to player
     private void movePlayer(float speedMult = 1)
     {
-        applyForce(gameObject, (clickObject.position - transform.position).normalized, speedMult);
+        applyForce(gameObject, attractionVector.normalized, speedMult);
     }
 
     // apply force to clicked object
     private void moveObject(float speedMult = 1)
     {
-        applyForce(clickObject.gameObject, (transform.position - clickObject.position).normalized, speedMult);
+        applyForce(clickObject.gameObject, -attractionVector.normalized, speedMult);
     }
 
     private void applyForce(GameObject obj, Vector2 direction, float speedMult)
     {
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
-        rb.linearVelocity = direction * speed * (int)attractionPolarity;
+        rb.linearVelocity += direction * speed * speedMult * (int)attractionPolarity;
     }
 }
