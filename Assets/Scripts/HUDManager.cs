@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // stats bar class
-public class StatssBar
+public class StatsBar
 {
     private RectTransform emptyFill;
     private float currentFill;
