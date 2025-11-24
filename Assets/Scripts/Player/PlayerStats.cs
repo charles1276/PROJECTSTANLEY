@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Power")]
     public float maxPower = 100f;
     public float powerDrainRate = 1f;
-    private float power;   // drains over time
+    private float power;   // drains with magnet usage
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
