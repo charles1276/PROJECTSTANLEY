@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float sprintMultiplier = 1.6f;
     [SerializeField] private float friction = 0.9f;
+    private float originalFriction;
 
     private bool canWallJump;
 
@@ -37,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
+        // store original friction
+        originalFriction = friction;
+
         // get reference to player stats
         stats = GetComponent<PlayerStats>();
 
@@ -56,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             movementForce *= sprintMultiplier;
         }
 
-        rb.AddForce(new Vector2(movementForce, 0f));
+        rb.AddForce(new Vector2(movementForce, 0f) * rb.mass);
         rb.linearVelocityX *= friction; // friction
 
         // manage coyote time
@@ -164,5 +168,17 @@ public class PlayerMovement : MonoBehaviour
         {
             stats.regenStamina();
         }
+    }
+
+    // ignore friction effect
+    public void startIgnoreFriction()
+    {
+        rb.linearVelocityX /= friction;
+    }
+
+    // reset friction effect
+    public void stopIgnoreFriction()
+    {
+        rb.linearVelocityX *= friction;
     }
 }

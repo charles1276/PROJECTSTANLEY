@@ -38,7 +38,7 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Neutral;
             unassignClickedObject();
-            print("neu");
+            //print("neu");
         }
     }
 
@@ -49,13 +49,13 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Negative;
             assignClickedObject();
-            print("neg");
+            //print("neg");
         }
         if (ctx.canceled)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             unassignClickedObject();
-            print("neu");
+            //print("neu");
         }
     }
 
@@ -97,6 +97,9 @@ public class MagnetHandler : MonoBehaviour
             return;
         }
 
+        Vector3 mousePosition = Input.mousePosition;
+        mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
         // check distance from player to clicked object
         attractionVector = mouseWorldPosition - transform.position;
 
@@ -114,6 +117,9 @@ public class MagnetHandler : MonoBehaviour
 
             // multiplied by -1 so that like polarities repel and opposite polarities attract
             attractionBehavior = -1 * (int)attractionPolarity * (int)clickObjectProperties.polarity;
+            //print(attractionPolarity);
+            //print(clickObjectProperties.polarity);
+            //print(attractionBehavior);
 
             // compare weights
             string objPlayerInteraction = ObjectProperties.CompareWeights(properties.weight, clickObjectProperties.weight);
@@ -142,14 +148,14 @@ public class MagnetHandler : MonoBehaviour
     // apply force to player
     private void movePlayer(float speedMult = 1)
     {
-        Vector2 attractionForce = attractionVector.normalized * speed * speedMult * (int)attractionPolarity;
+        Vector2 attractionForce = attractionVector.normalized * speed * speedMult * attractionBehavior;
         applyForce(gameObject, attractionForce);
     }
 
     // apply force to clicked object
     private void moveObject(float speedMult = 1)
     {
-        Vector2 attractionForce = -attractionVector.normalized * speed * speedMult * (int)attractionPolarity;
+        Vector2 attractionForce = -attractionVector.normalized * speed * speedMult * attractionBehavior;
         applyForce(clickObject.gameObject, attractionForce);
     }
 
@@ -157,7 +163,7 @@ public class MagnetHandler : MonoBehaviour
     {
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
-        print(obj.name.ToString() + ": " + force.ToString());
+        //print(obj.name.ToString() + ": " + force.ToString());
 
         // multiplied by mass to make the "force" acceleration
         rb.AddForce(force * rb.mass);

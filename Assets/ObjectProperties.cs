@@ -36,4 +36,18 @@ public class ObjectProperties : MonoBehaviour
             return "Less";
         }
     }
+
+    private void Start()
+    {
+        //Debug.Log("Object Polarity: " + polarity);
+        //Debug.Log("Object Weight: " + weight);
+
+        ResetMass();
+    }
+
+    public void ResetMass()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.mass = (int)weight; // reset mass based on weight enum
+    }
 }
