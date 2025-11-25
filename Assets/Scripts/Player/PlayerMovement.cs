@@ -90,11 +90,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isWallJumping)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (rb.linearVelocity.x > 0.1f)
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            else if (rb.linearVelocity.x < 0.1f)
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
             }
@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canWallJump)
         {
-            isWallJumping = true;
+            isWallJumping = false;
             wallJumpDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
 
