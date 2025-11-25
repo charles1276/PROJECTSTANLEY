@@ -1,6 +1,8 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +22,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float coyoteTime = 0.2f;
 
     //wall jump variables
-    public Transform wallPoint;
+    [SerializeField] private Transform wallPoint;
+    private float gravityStore;
+    private bool isWallJumping;
+    private float wallJumpDirection;
+    private float wallJumpingTime = 0.2f;
+    private float wallJumpingCounter;
+    private float wallJumpingDuration = 0.4f;
+    private Vector2 wallJumpForce = new Vector2(8f, 12f);
 
 
 
@@ -48,6 +57,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
 
+        // store gravity scale
+        gravityStore = rb.gravityScale;
+
     }
 
     // Update is called once per frame
@@ -73,15 +85,21 @@ public class PlayerMovement : MonoBehaviour
 
 
             //flip direction
-            if (rb.linearVelocityX > 0)
+            Stuck();
+            WallJump();
+
+        if (!isWallJumping)
+        {
+            if (Input.GetKeyDown(KeyCode.D))
             {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+                transform.localScale = new Vector3(1f, 1f, 1f);
             }
-            else if (rb.linearVelocityX < 0)
+            else if (Input.GetKeyDown(KeyCode.A))
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
             }
-        
+        }
+
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate
@@ -114,6 +132,62 @@ public class PlayerMovement : MonoBehaviour
         {
             isSprinting = false;
         }
+    }
+    private bool IsWalled()
+    {
+        return Physics2D.OverlapCircle(wallPoint.position, 0.2f, jumpableGround);
+    }
+
+    private void Stuck()
+    {
+        if (IsWalled() && !isGrounded())
+        {
+            canWallJump = true;
+            rb.gravityScale = 0f;
+            rb.linearVelocity = Vector2.zero;
+        }
+        else
+        {
+            canWallJump = false;
+            rb.gravityScale = gravityStore;
+
+        }
+    }
+
+    private void WallJump()
+    {
+        if (canWallJump)
+        {
+            isWallJumping = false;
+            wallJumpDirection = -transform.localScale.x;
+            wallJumpingCounter = wallJumpingTime;
+
+            CancelInvoke(nameof(StopWallJump));
+        }
+        else
+        {
+            wallJumpingCounter -= Time.deltaTime;
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && wallJumpingCounter > 0f)
+        {
+            isWallJumping = true;
+            rb.gravityScale = gravityStore;
+            rb.linearVelocity = new Vector2(wallJumpForce.x * wallJumpDirection, wallJumpForce.y);
+            wallJumpingCounter = 0f;
+
+            if(transform.localScale.x != wallJumpDirection)
+            {   
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1;
+                transform.localScale = localScale;
+            }
+            Invoke(nameof(StopWallJump), wallJumpingDuration);
+        }
+    }
+
+    private void StopWallJump()
+    {
+        isWallJumping = false;
     }
 
     private bool isGrounded()
@@ -152,6 +226,7 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocityY = jumpHeight;
 
         }
+        
     }
 
     private void attemptSprint()
