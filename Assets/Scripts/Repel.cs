@@ -12,12 +12,12 @@ public class Repel : MonoBehaviour
 
     Transform clickObject;
 
-    private InputHandler at;
+    private MagnetHandler at;
 
     [SerializeField] float speed = 5f;
     void Awake()
     {
-        at = GetComponent<InputHandler>();
+        at = GetComponent<MagnetHandler>();
     }
     void Update()
     {
@@ -34,7 +34,7 @@ public class Repel : MonoBehaviour
             if (clickObject.CompareTag("Magnet") && Mathf.Abs(transform.position.x - clickObject.transform.position.x) <= repelDistance && Mathf.Abs(transform.position.y - clickObject.transform.position.y) <= repelDistance)
             {
                 willRepel = !willRepel;
-                at.willAttract = false;
+                //at.willAttract = false;
             }
 
         }
