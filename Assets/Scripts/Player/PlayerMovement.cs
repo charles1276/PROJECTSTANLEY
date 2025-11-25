@@ -56,9 +56,7 @@ public class PlayerMovement : MonoBehaviour
             movementForce *= sprintMultiplier;
         }
 
-
-
-        rb.linearVelocityX += movementForce;
+        rb.AddForce(new Vector2(movementForce, 0f));
         rb.linearVelocityX *= friction; // friction
 
         // manage coyote time

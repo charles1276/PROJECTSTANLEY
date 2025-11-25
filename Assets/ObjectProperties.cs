@@ -16,7 +16,6 @@ public enum Weight
 
 public class ObjectProperties : MonoBehaviour
 {
-
     [Tooltip("Polarity of the object affecting magnet interactions.")]
     public ObjectPolarity polarity = ObjectPolarity.Positive;
     public Weight weight = Weight.Medium;
@@ -28,7 +27,7 @@ public class ObjectProperties : MonoBehaviour
         {
             return "Equal";
         }
-        else if (weight1 > weight2)
+        else if ((int)weight1 > (int)weight2)
         {
             return "Greater";
         }
