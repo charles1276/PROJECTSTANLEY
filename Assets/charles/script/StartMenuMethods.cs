@@ -10,7 +10,7 @@ public class StartMenuMethods : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-    public void quitbutton()
+    public void Quitbutton()
     {
         Debug.Log("Quit the game");
         Application.Quit();
@@ -20,15 +20,10 @@ public class StartMenuMethods : MonoBehaviour
     {        
         SceneManager.LoadScene("Credits");
     }
-    //this is going to be used to bring you back to the main menu from other scenes
-    public void backbutton(string sceneName)
+    
+    public void restartbutton()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public IEnumerator RestartCoroutine(string sceneName)
-    {
-        SceneManager.LoadScene("main menu");
-        yield return new WaitForSecondsRealtime(0.5f);
-        SceneManager.LoadScene(sceneName);
-    }
+   
 }

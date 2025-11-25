@@ -8,7 +8,7 @@ public class TriggerZoneForObject : MonoBehaviour
     private bool dooropen=false;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       dooropen=true;
+       dooropen = true;
     }
     private void Update()
     {
@@ -25,11 +25,11 @@ public class TriggerZoneForObject : MonoBehaviour
                 Vector3 pos = targetObject.transform.position;
                 pos.x += .000625f;
                 targetObject.transform.position = pos;
-
-                Vector3 post = targetObject.transform.position;
-                post.z = 1f;
-                targetObject.transform.position = post;
             }
+            if (targetObject.transform.localScale.x >= 1.8f && targetObject.transform.position.x >= 108.25f)
+            { 
+                targetObject.GetComponent<BoxCollider2D>().enabled = false;
+             }
         }
     }
 }
