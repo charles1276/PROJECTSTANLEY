@@ -20,14 +20,12 @@ public class PlayerMovement : MonoBehaviour
 
     //wall jump variables
     public Transform wallPoint;
-    private bool canJumpWall, isTouchingWall;
+
 
 
     // input variables
     private float moveInput;
     private bool isSprinting;
-
-    private float wallJumpCooldown = 0f;
 
     private CapsuleCollider2D coll;
 
@@ -45,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
         // get reference to rigidbody and collider
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<CapsuleCollider2D>();
+
     }
 
     // Update is called once per frame
@@ -56,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
         {
             movementForce *= sprintMultiplier;
         }
-        wallJumpCooldown -= Time.deltaTime;
 
 
 
@@ -69,39 +67,19 @@ public class PlayerMovement : MonoBehaviour
         // handle jump
         attemptJump();
 
-        //flip direction
-        if (rb.linearVelocityX > 0)
-        {
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        }
-        else if (rb.linearVelocityX < 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
 
-        // wall jump detection
-        canJumpWall = Physics2D.OverlapCircle(wallPoint.position, 0.2f, jumpableGround);
-        isTouchingWall = false;
-        if (canJumpWall && isGrounded() == false)
-        {
-            if (transform.localScale.x == 1f && moveInput > 0)
+
+
+            //flip direction
+            if (rb.linearVelocityX > 0)
             {
-                isTouchingWall = true;
+            transform.localScale = new Vector3(1f, 1f, 1f);
             }
-            else if (transform.localScale.x == -1f && moveInput < 0)
+            else if (rb.linearVelocityX < 0)
             {
-                isTouchingWall = true;
+                transform.localScale = new Vector3(-1f, 1f, 1f);
             }
-            else
-            {
-                isTouchingWall = false;
-            }
-        }
-        if(isTouchingWall && wallJumpCooldown <= 0f)
-        {
-                       coyoteTime = 0.2f;
-            wallJumpCooldown = 2f;
-        }
+        
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate
@@ -112,7 +90,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext ctx)
     {
-        moveInput = ctx.ReadValue<Vector2>().x * movementSpeed;
+            moveInput = ctx.ReadValue<Vector2>().x * movementSpeed;
+        
     }
 
     public void Jump(InputAction.CallbackContext ctx)
@@ -169,6 +148,7 @@ public class PlayerMovement : MonoBehaviour
         if (coyoteTime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
         {
             rb.linearVelocityY = jumpHeight;
+
         }
     }
 

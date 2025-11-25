@@ -348,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1
   sprintMultiplier: 1.6
+  friction: 0.9
   jumpHeight: 10
   coyoteTime: 0.2
   wallPoint: {fileID: 0}
