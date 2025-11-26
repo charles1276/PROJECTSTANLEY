@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (canWallJump)
         {
-            isWallJumping = true;
+            isWallJumping = false;
             wallJumpDirection = -transform.localScale.x;
             wallJumpingCounter = wallJumpingTime;
 
@@ -184,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(StopWallJump), wallJumpingDuration);
         }
     }
+
     private void StopWallJump()
     {
         isWallJumping = false;

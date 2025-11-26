@@ -403,6 +403,10 @@ PrefabInstance:
       propertyPath: wallPoint
       value: 
       objectReference: {fileID: 1865169544}
+    - target: {fileID: 386931249064734666, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
+      propertyPath: movementSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3046760900981843949, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -449,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7532404401029011218, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.39
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 7532404401029011218, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: m_LocalPosition.y
