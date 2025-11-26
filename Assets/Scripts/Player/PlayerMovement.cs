@@ -90,11 +90,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isWallJumping)
         {
-            if (rb.linearVelocity.x > 0.1f)
+            if (Input.GetKeyDown(KeyCode.D))
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
             }
-            else if (rb.linearVelocity.x < 0.1f)
+            else if (Input.GetKeyDown(KeyCode.A))
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
             }
@@ -184,6 +184,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(StopWallJump), wallJumpingDuration);
         }
     }
+
     private void StopWallJump()
     {
         isWallJumping = false;

@@ -5,12 +5,16 @@ using UnityEngine.InputSystem;
 
 public class MagnetHandler : MonoBehaviour
 {
-    [SerializeField] private float attractDistance = 1f;
+    [Tooltip("Angle range (in radians) within which the magnet will attract/repel objects.")]
+    [Range(0f, 1f)]
+    [SerializeField] private float attractionAngleRange = 10f;
+    [SerializeField] private float attractionRange = 1f;
     [SerializeField] private float speed = 5f;
 
     // track clicked object
     private Vector3 mouseWorldPosition;
     private Transform clickObject;
+    private int magnetsLayer;
 
     // polarity
     private ObjectPolarity attractionPolarity;
@@ -22,6 +26,7 @@ public class MagnetHandler : MonoBehaviour
 
     void Start()
     {
+        magnetsLayer = LayerMask.GetMask("Magnets", "AnchoredMagnets");
         properties = gameObject.GetComponent<ObjectProperties>();
     }
 
@@ -32,12 +37,11 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Positive;
             assignClickedObject();
-            print("pos");
+            //print("pos");
         }
-        if (ctx.canceled)
+        if (ctx.canceled && attractionPolarity == ObjectPolarity.Positive)
         {
             attractionPolarity = ObjectPolarity.Neutral;
-            unassignClickedObject();
             //print("neu");
         }
     }
@@ -51,10 +55,9 @@ public class MagnetHandler : MonoBehaviour
             assignClickedObject();
             //print("neg");
         }
-        if (ctx.canceled)
+        if (ctx.canceled && attractionPolarity == ObjectPolarity.Negative)
         {
             attractionPolarity = ObjectPolarity.Neutral;
-            unassignClickedObject();
             //print("neu");
         }
     }
@@ -66,13 +69,39 @@ public class MagnetHandler : MonoBehaviour
         mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
 
-        RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction);
+        // i have no idea what the 1f does here but it works so
+        RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, magnetsLayer);
         clickObject = hit ? hit.collider.transform : null; // get clicked object
     }
 
     private void unassignClickedObject()
     {
         clickObject = null;
+    }
+
+    private bool checkGroundObstruction()
+    {
+        // raycast to check for walls
+        RaycastHit2D magnetsCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Magnets", "AnchoredMagnets", "Ground"));
+        RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Ground"));
+        Debug.DrawRay(transform.position, attractionVector.normalized * attractionRange, Color.red);
+
+        // if a wall is in the way, do nothing
+        // does this by checking if both raycasts hit the same collider (meaning no magnet obstructed a wall)
+        if (groundCheck.collider == magnetsCheck.collider)
+        {
+            print("Magnet influence blocked by walls.");
+            return true;
+        }
+
+        // reassign clicked object if magnet collides 
+        // only needed if multiple magnets can be in a line
+        if (magnetsCheck.collider != null)
+        {
+            clickObject = magnetsCheck.collider.transform;
+        }
+
+        return false;
     }
 
     void Update()
@@ -83,13 +112,7 @@ public class MagnetHandler : MonoBehaviour
             return;
         }
 
-        //// grab mouse position and raycast
-        //Vector3 mousePosition = Input.mousePosition;
-        //Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        //Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
-
-        //RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction);
-        //clickObject = hit ? hit.collider.transform : null; // get clicked object
+        // put magnetism display logic here later
 
         // if no object clicked, do nothing
         if (clickObject == null)
@@ -100,14 +123,29 @@ public class MagnetHandler : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+
         // check distance from player to clicked object
         attractionVector = mouseWorldPosition - transform.position;
 
-        // if distance is greater than attractDistance, do nothing
-        if (attractionVector.magnitude > attractDistance)
+        // if distance is greater than attractionRange, do nothing
+        if (attractionVector.magnitude > attractionRange)
         {
-            unassignClickedObject();
+            print("too far away, :3");
             return;
+        }
+
+        // check for ground obstruction
+        if (checkGroundObstruction())
+        {
+            print("blockd by wall., >wo");
+            return;
+        }
+
+        Vector3 objToPlayerDirection = (clickObject.position - transform.position).normalized;
+        // if object not within range
+        if (Vector3.Dot(attractionVector.normalized, objToPlayerDirection) > attractionAngleRange)
+        {
+            print("uhm,. u need to likeee,. actualy point at th objct.,, >.>");
         }
 
         // if clicked object is a loose magnet, apply force based on weight comparison
