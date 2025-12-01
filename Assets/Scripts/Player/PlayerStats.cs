@@ -42,24 +42,48 @@ public class PlayerStats : MonoBehaviour
         return stamina > 0f;
     }
 
+    private float drainStat(float stat)
+    {
+        stat -= 10f * Time.fixedDeltaTime;
+        // clamp stat to minimum of 0
+        if (stat < 0f)
+        {
+            stat = 0f;
+        }
+
+        return stat;
+    }
+
+    private float regenStat(float stat, float maxstat)
+    {
+        stat += 5f * Time.fixedDeltaTime;
+        // clamp stat to maximum
+        if (stat > maxstat)
+        {
+            stat = maxstat;
+        }
+
+        return stat;
+    }
+
     public void drainStamina()
     {
-        stamina -= 10f * Time.fixedDeltaTime;
-        // clamp stamina to minimum of 0
-        if (stamina < 0f)
-        {
-            stamina = 0f;
-        }
+        stamina = drainStat(stamina);
     }
 
     public void regenStamina()
     {
-        stamina += 5f * Time.fixedDeltaTime;
-        // clamp stamina to maximum
-        if (stamina > maxStamina)
-        {
-            stamina = maxStamina;
-        }
+        stamina = regenStat(stamina, maxStamina);
+    }
+
+    public void drainPower()
+    {
+        power = drainStat(power);
+    }
+
+    public void regenPower()
+    {
+        power = regenStat(power, maxPower);
     }
 
     // get stamina percentage (0 to 1)

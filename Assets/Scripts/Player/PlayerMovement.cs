@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private float gravityStore;
     private bool isWallJumping;
     private float wallJumpDirection;
-    private float wallJumpingTime = 0.2f;
+    public float wallJumpingTime = 0.2f;
     private float wallJumpingCounter;
     private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpForce = new Vector2(8f, 12f);
@@ -88,13 +88,13 @@ public class PlayerMovement : MonoBehaviour
             Stuck();
             WallJump();
 
-        if (!isWallJumping)
+        if (isWallJumping == false && wallJumpingCounter <= -1.6)
         {
-            if (Input.GetKeyDown(KeyCode.D))
+            if (rb.linearVelocityX > 0)
             {
                 transform.localScale = new Vector3(1f, 1f, 1f);
             }
-            else if (Input.GetKeyDown(KeyCode.A))
+            else if (rb.linearVelocityX < 0)
             {
                 transform.localScale = new Vector3(-1f, 1f, 1f);
             }

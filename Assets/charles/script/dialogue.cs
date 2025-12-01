@@ -45,7 +45,7 @@ public class Dialogue : MonoBehaviour
         for (int i = 0; i < dialogue.Dialogue.Length; i++)
         {
             
-            dialogueText.text += dialogue.dialogue[i];
+            dialogueText.text += dialogue.Dialogue[i];
             yield return new WaitForSeconds(textSpeed);
         }
         yield return null;
