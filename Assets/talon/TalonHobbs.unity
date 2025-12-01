@@ -488,6 +488,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1b05d53c9016f46be44eea5cd89c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  willRepel: 0
+  repelDistance: 1
+  speed: 5
 --- !u!1001 &983171473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -923,7 +926,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.22022964, g: 0.31435418, b: 0.46226418, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
