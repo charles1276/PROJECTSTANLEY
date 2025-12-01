@@ -329,6 +329,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: af47e50e-10dd-428e-87b9-3ff43f454738
     m_ActionName: 'Player/Repel[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 386931249064734666}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: SwapGravity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5e87c7f6-2ead-4169-baea-4438cbf3dcba
+    m_ActionName: 'Player/SwapGravity[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -352,6 +368,7 @@ MonoBehaviour:
   jumpHeight: 10
   coyoteTime: 0.2
   wallPoint: {fileID: 7532404401029011218}
+  wallJumpingTime: 0.2
   jumpableGround:
     serializedVersion: 2
     m_Bits: 8
@@ -5248,7 +5265,7 @@ GameObject:
   m_Layer: 0
   m_Name: WallJump
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

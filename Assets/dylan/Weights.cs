@@ -4,4 +4,5 @@ using UnityEngine;
 public class Weights : ScriptableObject
 {
     Item Item { get; set; }
+    public Weight weightValue;
 }

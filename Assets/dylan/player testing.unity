@@ -17917,6 +17917,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 386931249064734666, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
+      propertyPath: jumpableGround.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2012613358230480041, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: attractionAngleRange
       value: 1
@@ -17924,6 +17928,10 @@ PrefabInstance:
     - target: {fileID: 3046760900981843949, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4415097338619274828, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4790587023519305711, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: m_LocalPosition.x

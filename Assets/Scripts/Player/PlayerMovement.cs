@@ -110,8 +110,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext ctx)
     {
-            moveInput = ctx.ReadValue<Vector2>().x * movementSpeed;
-        
+        moveInput = ctx.ReadValue<Vector2>().x * movementSpeed;
     }
 
     public void Jump(InputAction.CallbackContext ctx)
@@ -133,9 +132,24 @@ public class PlayerMovement : MonoBehaviour
             isSprinting = false;
         }
     }
+
+    public void SwapGravity(InputAction.CallbackContext ctx)
+    {
+        if (ctx.performed)
+        {
+            gravityStore = -gravityStore;
+        }
+    }
+
     private bool IsWalled()
     {
-        return Physics2D.OverlapCircle(wallPoint.position, 0.2f, jumpableGround);
+        //// perform raycast sideways to check for ground
+        //RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + 1.02f/2 * Vector2.right, Vector2.left, 1.01f, jumpableGround);
+
+        //// debugging ray :3c
+        //Debug.DrawRay((Vector2)transform.position + Vector2.right / 2, Vector2.left * 1.01f, Color.red, 0.1f);
+
+        return Physics2D.OverlapCircle(wallPoint.position, 0.5f, jumpableGround);
     }
 
     private void Stuck()
@@ -150,7 +164,6 @@ public class PlayerMovement : MonoBehaviour
         {
             canWallJump = false;
             rb.gravityScale = gravityStore;
-
         }
     }
 
@@ -172,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isWallJumping = true;
             rb.gravityScale = gravityStore;
-            rb.linearVelocity = new Vector2(wallJumpForce.x * wallJumpDirection, wallJumpForce.y);
+            rb.linearVelocity = new Vector2(wallJumpForce.x * wallJumpDirection, wallJumpForce.y * Mathf.Sign(gravityStore));
             wallJumpingCounter = 0f;
 
             if(transform.localScale.x != wallJumpDirection)
@@ -192,11 +205,13 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isGrounded()
     {
+        Vector2 worldDown = Mathf.Sign(gravityStore) * Vector2.down;
+
         // perform raycast downwards to check for ground
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + Vector2.down, Vector2.down, .01f, jumpableGround);
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + worldDown, worldDown, .01f, jumpableGround);
 
         // debugging ray :3c
-        Debug.DrawRay((Vector2)transform.position + Vector2.down, Vector2.down * .01f, Color.red, 0.1f);
+        Debug.DrawRay((Vector2)transform.position + worldDown, worldDown * .01f, Color.red, 0.1f);
         return hit.collider != null;
 
         // boxcast method
@@ -223,7 +238,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (coyoteTime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
         {
-            rb.linearVelocityY = jumpHeight;
+            rb.linearVelocityY = jumpHeight * gravityStore/2;
 
         }
         

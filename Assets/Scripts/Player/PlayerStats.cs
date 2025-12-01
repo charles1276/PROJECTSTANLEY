@@ -28,12 +28,23 @@ public class PlayerStats : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // drain power over time
-        power -= powerDrainRate * Time.fixedDeltaTime;
-        // clamp power to minimum of 0
-        if (power < 0f)
+        // debug key to drain stamina
+        if (Input.GetKey(KeyCode.Semicolon))
         {
-            power = 0f;
+            drainStamina();
+        }
+        else
+        {
+            regenStamina();
+        }
+        // debug key to drain power
+        if (Input.GetKey(KeyCode.Colon))
+        {
+            drainPower();
+        }
+        else
+        {
+            regenPower();
         }
     }
 

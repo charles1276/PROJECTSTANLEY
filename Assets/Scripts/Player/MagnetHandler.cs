@@ -113,6 +113,7 @@ public class MagnetHandler : MonoBehaviour
         if (groundCheck.collider != null && groundCheck.collider == magnetsCheck.collider)
         {
             //print("Magnet influence blocked by walls.");
+            UnassignClickedObject();
             return true;
         }
 
@@ -143,16 +144,19 @@ public class MagnetHandler : MonoBehaviour
             return;
         }
 
+        CheckGroundObstruction();
         FindAttractionVector();
 
         // if distance is greater than attractionRange, do nothing
-        if ((clickObject.transform.position - transform.position).magnitude > attractionRange)
+        if ((clickPoint - (Vector2)transform.position).magnitude > attractionRange)
         {
             print("too far away, :3");
             return;
         }
 
         Vector3 objToPlayerDirection = (clickPoint - (Vector2)transform.position).normalized;
+
+        Debug.DrawLine(transform.position, clickPoint, Color.green);
 
         // if object not within range
         if (Vector3.Dot(attractionVector.normalized, objToPlayerDirection) < attractionAngleRange)
@@ -165,8 +169,13 @@ public class MagnetHandler : MonoBehaviour
             Debug.DrawRay(transform.position, attractionVector.normalized, Color.yellow);
             Debug.DrawRay(transform.position, objToPlayerDirection, Color.blue);
 
+            UnassignClickedObject();
+
             return;
         }
+
+        
+        return;
 
         // if clicked object is a loose magnet, apply force based on weight comparison
         if (clickObject.CompareTag("Magnet"))
