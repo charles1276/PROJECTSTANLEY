@@ -14,6 +14,7 @@ public class MagnetHandler : MonoBehaviour
     // track clicked object
     private Vector3 mouseWorldPosition;
     private Transform clickObject;
+    private Vector2 clickPoint;
     private int magnetsLayer;
 
     // polarity
@@ -28,6 +29,9 @@ public class MagnetHandler : MonoBehaviour
     {
         magnetsLayer = LayerMask.GetMask("Magnets", "AnchoredMagnets");
         properties = gameObject.GetComponent<ObjectProperties>();
+
+        // reassign attraction angle range to cosine value for easier comparison later
+        attractionAngleRange = Mathf.Cos(attractionAngleRange);
     }
 
     // input action for attracting
@@ -36,7 +40,7 @@ public class MagnetHandler : MonoBehaviour
         if (ctx.performed)
         {
             attractionPolarity = ObjectPolarity.Positive;
-            assignClickedObject();
+            AssignClickedObject();
             //print("pos");
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Positive)
@@ -52,7 +56,7 @@ public class MagnetHandler : MonoBehaviour
         if (ctx.performed)
         {
             attractionPolarity = ObjectPolarity.Negative;
-            assignClickedObject();
+            AssignClickedObject();
             //print("neg");
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Negative)
@@ -62,7 +66,17 @@ public class MagnetHandler : MonoBehaviour
         }
     }
 
-    private void assignClickedObject()
+    private void FindAttractionVector()
+    {
+        // testsdt
+        Vector3 mousePosition = Input.mousePosition;
+        mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        // check distance from player to clicked object
+        attractionVector = mouseWorldPosition - transform.position;
+    }
+
+    private void AssignClickedObject()
     {
         // grab mouse position and raycast
         Vector3 mousePosition = Input.mousePosition;
@@ -72,14 +86,22 @@ public class MagnetHandler : MonoBehaviour
         // i have no idea what the 1f does here but it works so
         RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, magnetsLayer);
         clickObject = hit ? hit.collider.transform : null; // get clicked object
+
+        FindAttractionVector();
+
+        // if no object clicked, do nothing
+        if (CheckGroundObstruction())
+        {
+            UnassignClickedObject();
+        }
     }
 
-    private void unassignClickedObject()
+    private void UnassignClickedObject()
     {
         clickObject = null;
     }
 
-    private bool checkGroundObstruction()
+    private bool CheckGroundObstruction()
     {
         // raycast to check for walls
         RaycastHit2D magnetsCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Magnets", "AnchoredMagnets", "Ground"));
@@ -88,7 +110,7 @@ public class MagnetHandler : MonoBehaviour
 
         // if a wall is in the way, do nothing
         // does this by checking if both raycasts hit the same collider (meaning no magnet obstructed a wall)
-        if (groundCheck.collider == magnetsCheck.collider)
+        if (groundCheck.collider != null && groundCheck.collider == magnetsCheck.collider)
         {
             //print("Magnet influence blocked by walls.");
             return true;
@@ -99,6 +121,7 @@ public class MagnetHandler : MonoBehaviour
         if (magnetsCheck.collider != null)
         {
             clickObject = magnetsCheck.collider.transform;
+            clickPoint = magnetsCheck.point;
         }
 
         return false;
@@ -120,32 +143,29 @@ public class MagnetHandler : MonoBehaviour
             return;
         }
 
-        Vector3 mousePosition = Input.mousePosition;
-        mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-
-        // check distance from player to clicked object
-        attractionVector = mouseWorldPosition - transform.position;
+        FindAttractionVector();
 
         // if distance is greater than attractionRange, do nothing
-        if (attractionVector.magnitude > attractionRange)
+        if ((clickObject.transform.position - transform.position).magnitude > attractionRange)
         {
-            //print("too far away, :3");
+            print("too far away, :3");
             return;
         }
 
-        // check for ground obstruction
-        if (checkGroundObstruction())
-        {
-            //print("blockd by wall., >wo");
-            return;
-        }
+        Vector3 objToPlayerDirection = (clickPoint - (Vector2)transform.position).normalized;
 
-        Vector3 objToPlayerDirection = (clickObject.position - transform.position).normalized;
         // if object not within range
-        if (Vector3.Dot(attractionVector.normalized, objToPlayerDirection) > attractionAngleRange)
+        if (Vector3.Dot(attractionVector.normalized, objToPlayerDirection) < attractionAngleRange)
         {
-            print("uhm,. u need to likeee,. actualy point at th objct.,, >.>");
+            //print("uhm,. u need to likeee,. actualy point at th objct.,, >.>");
+
+            Debug.Log(Vector3.Dot(attractionVector.normalized, objToPlayerDirection));
+            Debug.Log(attractionAngleRange);
+
+            Debug.DrawRay(transform.position, attractionVector.normalized, Color.yellow);
+            Debug.DrawRay(transform.position, objToPlayerDirection, Color.blue);
+
+            return;
         }
 
         // if clicked object is a loose magnet, apply force based on weight comparison
@@ -166,38 +186,38 @@ public class MagnetHandler : MonoBehaviour
             {
                 // player and object are equal weight
                 case "Equal":
-                    movePlayer();
-                    moveObject();
+                    MovePlayer();
+                    MoveObject();
                     break;
 
                 // player is heavier
                 case "Greater":
-                    moveObject();
+                    MoveObject();
                     break;
 
                 // object is heavier
                 case "Less":
-                    movePlayer();
+                    MovePlayer();
                     break;
             }
         }
     }
 
     // apply force to player
-    private void movePlayer(float speedMult = 1)
+    private void MovePlayer(float speedMult = 1)
     {
-        Vector2 attractionForce = attractionVector.normalized * speed * speedMult * attractionBehavior;
-        applyForce(gameObject, attractionForce);
+        Vector2 attractionForce =  speed * speedMult * attractionBehavior * attractionVector.normalized;
+        ApplyForce(gameObject, attractionForce);
     }
 
     // apply force to clicked object
-    private void moveObject(float speedMult = 1)
+    private void MoveObject(float speedMult = 1)
     {
-        Vector2 attractionForce = -attractionVector.normalized * speed * speedMult * attractionBehavior;
-        applyForce(clickObject.gameObject, attractionForce);
+        Vector2 attractionForce = speed * speedMult * attractionBehavior * -attractionVector.normalized;
+        ApplyForce(clickObject.gameObject, attractionForce);
     }
 
-    private void applyForce(GameObject obj, Vector2 force)
+    private void ApplyForce(GameObject obj, Vector2 force)
     {
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
