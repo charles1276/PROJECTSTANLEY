@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 
 public class MagnetHandler : MonoBehaviour
 {
-    [Tooltip("Angle range (in radians) within which the magnet will attract/repel objects.")]
-    [Range(0f, 1f)]
+    [Tooltip("Angle range (in degrees) within which the magnet will attract/repel objects.")]
+    [Range(0f, 90f)]
     [SerializeField] private float attractionAngleRange = 10f;
     [SerializeField] private float attractionRange = 1f;
     [SerializeField] private float speed = 5f;
@@ -90,7 +90,7 @@ public class MagnetHandler : MonoBehaviour
         // does this by checking if both raycasts hit the same collider (meaning no magnet obstructed a wall)
         if (groundCheck.collider == magnetsCheck.collider)
         {
-            print("Magnet influence blocked by walls.");
+            //print("Magnet influence blocked by walls.");
             return true;
         }
 
@@ -130,14 +130,14 @@ public class MagnetHandler : MonoBehaviour
         // if distance is greater than attractionRange, do nothing
         if (attractionVector.magnitude > attractionRange)
         {
-            print("too far away, :3");
+            //print("too far away, :3");
             return;
         }
 
         // check for ground obstruction
         if (checkGroundObstruction())
         {
-            print("blockd by wall., >wo");
+            //print("blockd by wall., >wo");
             return;
         }
 
