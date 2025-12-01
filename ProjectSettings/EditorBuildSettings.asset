@@ -12,11 +12,35 @@ EditorBuildSettings:
     path: Assets/charles/main menu.unity
     guid: 1b7ae66e1ae079c45afafd2552b3a91d
   - enabled: 1
-    path: Assets/charles/tutorial.unity
+    path: Assets/Levels/Tutorial.unity
+    guid: 6caba42b6b1e0194689b8bf324662bbe
+  - enabled: 1
+    path: Assets/charles/level.unity
     guid: c5a9c1fc118fa834da14522d828fbbb0
   - enabled: 1
     path: Assets/charles/credits.unity
     guid: b52b87f2cb078314496fdfbec8618b8d
+  - enabled: 1
+    path: Assets/charles/credits scenes/charles.unity
+    guid: dd992a720b90d7b418bf2b0bdf183cf9
+  - enabled: 1
+    path: Assets/charles/credits scenes/dylan.unity
+    guid: 3f534e9985754ea43acf461e2a8d6b98
+  - enabled: 1
+    path: Assets/charles/credits scenes/irais.unity
+    guid: 75dfab5a10093734d8e6385083e0edc0
+  - enabled: 1
+    path: Assets/charles/credits scenes/talon.unity
+    guid: 9265284ee538f464cb9a1686b5f1a0cc
+  - enabled: 1
+    path: Assets/charles/credits scenes/toby.unity
+    guid: c30cdf014ef36fa4a9bab4e11f8ab5c2
+  - enabled: 1
+    path: Assets/charles/credits scenes/vincenze.unity
+    guid: df5b3c5d66e4e8140a73802ce87e9176
+  - enabled: 1
+    path: Assets/charles/credits scenes/jolenna.unity
+    guid: 57f1a0bea5b7ed248863d2910182bbe3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 7667cd40305d4a54f8aa28688f428dd9, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
