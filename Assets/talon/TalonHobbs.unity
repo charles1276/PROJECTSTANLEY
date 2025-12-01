@@ -407,6 +407,10 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 386931249064734666, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
+      propertyPath: wallJumpingTime
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 3046760900981843949, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: m_Name
       value: Player (1)
@@ -484,9 +488,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1b05d53c9016f46be44eea5cd89c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  willRepel: 0
-  repelDistance: 15
-  speed: 3
 --- !u!1001 &983171473
 PrefabInstance:
   m_ObjectHideFlags: 0
