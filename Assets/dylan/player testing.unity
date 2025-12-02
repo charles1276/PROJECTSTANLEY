@@ -17978,6 +17978,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
+    - target: {fileID: 5350485310576465428, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+      propertyPath: magnetismUI
+      value: 
+      objectReference: {fileID: 6238007199836326469}
+    - target: {fileID: 6432823941358192302, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4210931052475688737, guid: 8996c50cbf10a0e408dc368aa87c7ee3, type: 3}
+    - target: {fileID: 6479226191599832710, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4210931052475688737, guid: 8996c50cbf10a0e408dc368aa87c7ee3, type: 3}
     - target: {fileID: 7662015358189360571, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -18082,11 +18094,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8026478526060457074, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4210931052475688737, guid: 8996c50cbf10a0e408dc368aa87c7ee3, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+--- !u!1 &6238007199836326469 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6152056397791144351, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+  m_PrefabInstance: {fileID: 6238007199836326468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

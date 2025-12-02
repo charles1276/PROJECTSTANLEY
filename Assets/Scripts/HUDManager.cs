@@ -37,13 +37,16 @@ public class HUDManager : MonoBehaviour
 {
     private GameObject player;
 
-    [Header("UI Elements")]
+    [Header("Statistic Elements")]
     [SerializeField] private GameObject staminaBarUI;
     [SerializeField] private GameObject powerBarUI;
 
     [Header("Stat Bars")]
     public StatsBar staminaBar;
     public StatsBar powerBar;
+
+    [Header("Magnetism Element")]
+    [SerializeField] private GameObject magnetismUI;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
