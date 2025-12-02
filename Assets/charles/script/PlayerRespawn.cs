@@ -11,6 +11,7 @@ public class PlayerRespawn : MonoBehaviour
 
     void Start()
     {
+        //this is to check if the targetObject is assigned
         if (targetObject == null)
         {
             Debug.LogError("PlayerRespawn: targetObject is not assigned in the Inspector.");
@@ -20,15 +21,15 @@ public class PlayerRespawn : MonoBehaviour
         
         targetPosition2D = targetObject.transform.position;
 
-        // Convert to Vector2 if you only need X and Y (useful for 2D games)
+        //this is geting the players position in 2d 
         targetPosition2D = new Vector2(targetPosition2D.x, targetPosition2D.y);
 
-        // Example usage: move this object to the target position (uncomment if needed)
-        // transform.position = targetPosition3D;
+        
     }
 
      private void OnTriggerEnter2D(Collider2D collision)
      {
+        //this is so when the player touches the object the player will respawn
         targetObject.transform.position = new Vector3(targetPosition2D.x, targetPosition2D.y);
     }
 }
