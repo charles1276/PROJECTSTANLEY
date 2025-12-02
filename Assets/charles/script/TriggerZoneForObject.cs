@@ -12,6 +12,7 @@ public class TriggerZoneForObject : MonoBehaviour
     }
     private void Update()
     {
+        //all of this is for the door to open when the boll goes in a set area
         if (dooropen == true)
         {
             if (targetObject.transform.localScale.x <= 1.8f)

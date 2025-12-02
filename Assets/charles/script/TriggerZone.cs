@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class TriggerZone : MonoBehaviour
 {
-    //this is just for the player to go to the next level or go to the main menu
+    //this is just for the player to get the finnish level canvas to apper
     public GameObject targetObject;
      void Start()    
     {
