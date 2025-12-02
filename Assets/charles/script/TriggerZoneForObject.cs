@@ -12,7 +12,7 @@ public class TriggerZoneForObject : MonoBehaviour
     }
     private void Update()
     {
-        if (dooropen)
+        if (dooropen == true)
         {
             if (targetObject.transform.localScale.x <= 1.8f)
             {
