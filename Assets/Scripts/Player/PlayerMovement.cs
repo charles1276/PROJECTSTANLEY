@@ -261,14 +261,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // ignore friction effect
-    public void startIgnoreFriction()
+    public void IgnoreFriction()
     {
-        rb.linearVelocityX /= friction;
+        rb.linearVelocity /= friction;
     }
 
-    // reset friction effect
-    public void stopIgnoreFriction()
-    {
-        rb.linearVelocityX *= friction;
-    }
+    //// reset friction effect
+    //public void stopIgnoreFriction()
+    //{
+    //    friction = originalFriction;
+    //}
 }
