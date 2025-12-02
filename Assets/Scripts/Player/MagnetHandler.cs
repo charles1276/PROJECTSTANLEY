@@ -101,7 +101,6 @@ public class MagnetHandler : MonoBehaviour
         Vector2 startAttractionVector = Vector2Extensions.Rotate(middleAttractionVector, Vector2Extensions.AngleToComponents(-attractionAngleRange));
 
         // iterate through divisions to find every magnet that could be attracted
-        Dictionary<Transform, Vector2> attractedObjects;
         float angleDifference = attractionAngleRange * 2 / attractionDivisions;
         Vector2 angleDifferenceComponents = Vector2Extensions.AngleToComponents(angleDifference);
 
@@ -133,49 +132,49 @@ public class MagnetHandler : MonoBehaviour
         }
     }
 
-    private void AssignClickedObject()
-    {
-        // grab mouse position and raycast
-        Vector3 mousePosition = Input.mousePosition;
-        mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
+    //private void AssignClickedObject()
+    //{
+    //    // grab mouse position and raycast
+    //    Vector3 mousePosition = Input.mousePosition;
+    //    mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+    //    Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
 
-        // i have no idea what the 1f does here but it works so
-        RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, magnetsLayer);
-        clickObject = hit ? hit.collider.transform : null; // get clicked object
-    }
+    //    // i have no idea what the 1f does here but it works so
+    //    RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, magnetsLayer);
+    //    clickObject = hit ? hit.collider.transform : null; // get clicked object
+    //}
 
-    private void UnassignClickedObject()
-    {
-        clickObject = null;
-    }
+    //private void UnassignClickedObject()
+    //{
+    //    clickObject = null;
+    //}
 
-    private bool CheckGroundObstruction()
-    {
-        // raycast to check for walls
-        RaycastHit2D magnetsCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Magnets", "AnchoredMagnets", "Ground"));
-        RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Ground"));
-        Debug.DrawRay(transform.position, attractionVector.normalized * attractionRange, Color.red);
+    //private bool CheckGroundObstruction()
+    //{
+    //    // raycast to check for walls
+    //    RaycastHit2D magnetsCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Magnets", "AnchoredMagnets", "Ground"));
+    //    RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Ground"));
+    //    Debug.DrawRay(transform.position, attractionVector.normalized * attractionRange, Color.red);
 
-        // if a wall is in the way, do nothing
-        // does this by checking if both raycasts hit the same collider (meaning no magnet obstructed a wall)
-        if (groundCheck.collider != null && groundCheck.collider == magnetsCheck.collider)
-        {
-            //print("Magnet influence blocked by walls.");
-            UnassignClickedObject();
-            return true;
-        }
+    //    // if a wall is in the way, do nothing
+    //    // does this by checking if both raycasts hit the same collider (meaning no magnet obstructed a wall)
+    //    if (groundCheck.collider != null && groundCheck.collider == magnetsCheck.collider)
+    //    {
+    //        //print("Magnet influence blocked by walls.");
+    //        UnassignClickedObject();
+    //        return true;
+    //    }
 
-        // reassign clicked object if magnet collides 
-        // only needed if multiple magnets can be in a line
-        if (magnetsCheck.collider != null)
-        {
-            clickObject = magnetsCheck.collider.transform;
-            clickPoint = magnetsCheck.point;
-        }
+    //    // reassign clicked object if magnet collides 
+    //    // only needed if multiple magnets can be in a line
+    //    if (magnetsCheck.collider != null)
+    //    {
+    //        clickObject = magnetsCheck.collider.transform;
+    //        clickPoint = magnetsCheck.point;
+    //    }
 
-        return false;
-    }
+    //    return false;
+    //}
 
     void Update()
     {
@@ -194,7 +193,7 @@ public class MagnetHandler : MonoBehaviour
         //}
 
         FindAttractionVector();
-        CheckGroundObstruction();
+        //CheckGroundObstruction();
 
         // if distance is greater than attractionRange, do nothing
         if ((clickPoint - (Vector2)transform.position).magnitude > attractionRange)
