@@ -1,7 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Unity.Jobs;
 using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.InputSystem;
+
+public class Vector2Extensions
+{
+    public static Vector2 AngleToComponents(float angle)
+    {
+        float rad = angle * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(rad);
+        float sin = Mathf.Sin(rad);
+        return new Vector2(cos, sin);
+    }
+
+    public static Vector2 Rotate(Vector2 vector, Vector2 angleComponents)
+    {
+        float newX = vector.x * angleComponents.x - vector.y * angleComponents.y;
+        float newY = vector.x * angleComponents.y + vector.y * angleComponents.x;
+        return new Vector2(newX, newY);
+    }
+}
 
 public class MagnetHandler : MonoBehaviour
 {
@@ -9,12 +30,14 @@ public class MagnetHandler : MonoBehaviour
     [Range(0f, 90f)]
     [SerializeField] private float attractionAngleRange = 10f;
     [SerializeField] private float attractionRange = 1f;
+    [Tooltip("How many divisions there when checking magnet attraction. May help performance if reduced.")]
+    [Range(3, 10)]
+    [SerializeField] private int attractionDivisions = 5;
     [SerializeField] private float speed = 5f;
 
     // track clicked object
     private Vector3 mouseWorldPosition;
-    private Transform clickObject;
-    private Vector2 clickPoint;
+    Dictionary<Transform, Vector2> attractedObjects;
     private int magnetsLayer;
 
     // polarity
@@ -40,7 +63,7 @@ public class MagnetHandler : MonoBehaviour
         if (ctx.performed)
         {
             attractionPolarity = ObjectPolarity.Positive;
-            AssignClickedObject();
+            //AssignClickedObject();
             //print("pos");
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Positive)
@@ -56,7 +79,7 @@ public class MagnetHandler : MonoBehaviour
         if (ctx.performed)
         {
             attractionPolarity = ObjectPolarity.Negative;
-            AssignClickedObject();
+            //AssignClickedObject();
             //print("neg");
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Negative)
@@ -73,7 +96,41 @@ public class MagnetHandler : MonoBehaviour
         mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         // check distance from player to clicked object
-        attractionVector = mouseWorldPosition - transform.position;
+        Vector2 middleAttractionVector = mouseWorldPosition - transform.position;
+
+        Vector2 startAttractionVector = Vector2Extensions.Rotate(middleAttractionVector, Vector2Extensions.AngleToComponents(-attractionAngleRange));
+
+        // iterate through divisions to find every magnet that could be attracted
+        Dictionary<Transform, Vector2> attractedObjects;
+        float angleDifference = attractionAngleRange * 2 / attractionDivisions;
+        Vector2 angleDifferenceComponents = Vector2Extensions.AngleToComponents(angleDifference);
+
+        for (int i = 0; i > attractionDivisions; i++)
+        {
+            // raycast to check for walls
+            RaycastHit2D magnetsCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Magnets", "AnchoredMagnets", "Ground"));
+            RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Ground"));
+            Debug.DrawRay(transform.position, attractionVector.normalized * attractionRange, Color.red);
+
+            // if a wall is in the way, do nothing
+            // does this by checking if both raycasts hit the same collider (meaning no magnet obstructed a wall)
+            if (groundCheck.collider != null && groundCheck.collider == magnetsCheck.collider)
+            {
+                // dude idk
+            }
+
+            // assign attracted objects if magnet collides 
+            else if (magnetsCheck.collider != null)
+            {
+                attractedObjects[magnetsCheck.collider.transform] = magnetsCheck.point;
+
+                //clickObject = magnetsCheck.collider.transform;
+                //clickPoint = magnetsCheck.point;
+            }
+
+            // turn vector for next iteration
+            startAttractionVector = Vector2Extensions.Rotate(startAttractionVector, Vector2Extensions.AngleToComponents(angleDifference));
+        }
     }
 
     private void AssignClickedObject()
@@ -86,14 +143,6 @@ public class MagnetHandler : MonoBehaviour
         // i have no idea what the 1f does here but it works so
         RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, magnetsLayer);
         clickObject = hit ? hit.collider.transform : null; // get clicked object
-
-        FindAttractionVector();
-
-        // if no object clicked, do nothing
-        if (CheckGroundObstruction())
-        {
-            UnassignClickedObject();
-        }
     }
 
     private void UnassignClickedObject()
@@ -138,14 +187,14 @@ public class MagnetHandler : MonoBehaviour
 
         // put magnetism display logic here later
 
-        // if no object clicked, do nothing
-        if (clickObject == null)
-        {
-            return;
-        }
+        //// if no object clicked, do nothing
+        //if (clickObject == null)
+        //{
+        //    return;
+        //}
 
-        CheckGroundObstruction();
         FindAttractionVector();
+        CheckGroundObstruction();
 
         // if distance is greater than attractionRange, do nothing
         if ((clickPoint - (Vector2)transform.position).magnitude > attractionRange)
@@ -173,9 +222,6 @@ public class MagnetHandler : MonoBehaviour
 
             return;
         }
-
-        
-        return;
 
         // if clicked object is a loose magnet, apply force based on weight comparison
         if (clickObject.CompareTag("Magnet"))
