@@ -390,8 +390,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Jolenna Barber
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
-  m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
+  m_sharedMaterial: {fileID: 8770523920494223114, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -792,8 +792,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Vincenze Nguyen
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
-  m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
+  m_sharedMaterial: {fileID: 8770523920494223114, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1061,8 +1061,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dylan Son
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
-  m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
+  m_sharedMaterial: {fileID: 8770523920494223114, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1578,10 +1578,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Charles euton
+  m_text: Charles Euton
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
-  m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
+  m_sharedMaterial: {fileID: 8770523920494223114, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1716,8 +1716,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Irais Martinez-Morales
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
-  m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
+  m_sharedMaterial: {fileID: 8770523920494223114, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1985,8 +1985,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Toby Fall
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
-  m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
+  m_sharedMaterial: {fileID: 8770523920494223114, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2390,8 +2390,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Talon Hobbs
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
-  m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
+  m_sharedMaterial: {fileID: 8770523920494223114, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
