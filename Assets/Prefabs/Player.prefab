@@ -371,7 +371,7 @@ MonoBehaviour:
   wallJumpingTime: 0.2
   jumpableGround:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 392
 --- !u!114 &2012613358230480041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +405,7 @@ MonoBehaviour:
   staminaRegenRate: 5
   maxPower: 100
   powerDrainRate: 1
+  powerRegenRate: 1
 --- !u!114 &6629340211680660710
 MonoBehaviour:
   m_ObjectHideFlags: 0
