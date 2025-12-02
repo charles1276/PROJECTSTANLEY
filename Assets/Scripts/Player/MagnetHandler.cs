@@ -195,66 +195,66 @@ public class MagnetHandler : MonoBehaviour
         FindAttractionVector();
         //CheckGroundObstruction();
 
-        // if distance is greater than attractionRange, do nothing
-        if ((clickPoint - (Vector2)transform.position).magnitude > attractionRange)
-        {
-            print("too far away, :3");
-            return;
-        }
+        //// if distance is greater than attractionRange, do nothing
+        //if ((clickPoint - (Vector2)transform.position).magnitude > attractionRange)
+        //{
+        //    print("too far away, :3");
+        //    return;
+        //}
 
-        Vector3 objToPlayerDirection = (clickPoint - (Vector2)transform.position).normalized;
+        //Vector3 objToPlayerDirection = (clickPoint - (Vector2)transform.position).normalized;
 
-        Debug.DrawLine(transform.position, clickPoint, Color.green);
+        //Debug.DrawLine(transform.position, clickPoint, Color.green);
 
-        // if object not within range
-        if (Vector3.Dot(attractionVector.normalized, objToPlayerDirection) < attractionAngleRange)
-        {
-            //print("uhm,. u need to likeee,. actualy point at th objct.,, >.>");
+        //// if object not within range
+        //if (Vector3.Dot(attractionVector.normalized, objToPlayerDirection) < attractionAngleRange)
+        //{
+        //    //print("uhm,. u need to likeee,. actualy point at th objct.,, >.>");
 
-            Debug.Log(Vector3.Dot(attractionVector.normalized, objToPlayerDirection));
-            Debug.Log(attractionAngleRange);
+        //    Debug.Log(Vector3.Dot(attractionVector.normalized, objToPlayerDirection));
+        //    Debug.Log(attractionAngleRange);
 
-            Debug.DrawRay(transform.position, attractionVector.normalized, Color.yellow);
-            Debug.DrawRay(transform.position, objToPlayerDirection, Color.blue);
+        //    Debug.DrawRay(transform.position, attractionVector.normalized, Color.yellow);
+        //    Debug.DrawRay(transform.position, objToPlayerDirection, Color.blue);
 
-            UnassignClickedObject();
+        //    UnassignClickedObject();
 
-            return;
-        }
+        //    return;
+        //}
 
-        // if clicked object is a loose magnet, apply force based on weight comparison
-        if (clickObject.CompareTag("Magnet"))
-        {
-            ObjectProperties clickObjectProperties = clickObject.GetComponent<ObjectProperties>();
+        //// if clicked object is a loose magnet, apply force based on weight comparison
+        //if (clickObject.CompareTag("Magnet"))
+        //{
+        //    ObjectProperties clickObjectProperties = clickObject.GetComponent<ObjectProperties>();
 
-            // multiplied by -1 so that like polarities repel and opposite polarities attract
-            attractionBehavior = -1 * (int)attractionPolarity * (int)clickObjectProperties.polarity;
-            //print(attractionPolarity);
-            //print(clickObjectProperties.polarity);
-            //print(attractionBehavior);
+        //    // multiplied by -1 so that like polarities repel and opposite polarities attract
+        //    attractionBehavior = -1 * (int)attractionPolarity * (int)clickObjectProperties.polarity;
+        //    //print(attractionPolarity);
+        //    //print(clickObjectProperties.polarity);
+        //    //print(attractionBehavior);
 
-            // compare weights
-            string objPlayerInteraction = ObjectProperties.CompareWeights(properties.weight, clickObjectProperties.weight);
+        //    // compare weights
+        //    string objPlayerInteraction = ObjectProperties.CompareWeights(properties.weight, clickObjectProperties.weight);
 
-            switch (objPlayerInteraction)
-            {
-                // player and object are equal weight
-                case "Equal":
-                    MovePlayer();
-                    MoveObject();
-                    break;
+        //    switch (objPlayerInteraction)
+        //    {
+        //        // player and object are equal weight
+        //        case "Equal":
+        //            MovePlayer();
+        //            MoveObject();
+        //            break;
 
-                // player is heavier
-                case "Greater":
-                    MoveObject();
-                    break;
+        //        // player is heavier
+        //        case "Greater":
+        //            MoveObject();
+        //            break;
 
-                // object is heavier
-                case "Less":
-                    MovePlayer();
-                    break;
-            }
-        }
+        //        // object is heavier
+        //        case "Less":
+        //            MovePlayer();
+        //            break;
+        //    }
+        //}
     }
 
     // apply force to player
@@ -268,7 +268,7 @@ public class MagnetHandler : MonoBehaviour
     private void MoveObject(float speedMult = 1)
     {
         Vector2 attractionForce = speed * speedMult * attractionBehavior * -attractionVector.normalized;
-        ApplyForce(clickObject.gameObject, attractionForce);
+        //ApplyForce(clickObject.gameObject, attractionForce);
     }
 
     private void ApplyForce(GameObject obj, Vector2 force)
