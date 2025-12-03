@@ -33,6 +33,23 @@ public class StatsBar
     }
 }
 
+public class MagnetismUI
+{
+    private GameObject uiElement;
+
+    // constructor (class initializer)
+    public MagnetismUI(GameObject ui)
+    {
+        uiElement = ui;
+    }
+
+    // set the visibility of the magnetism UI element
+    public void setVisibility(bool isVisible)
+    {
+        uiElement.SetActive(isVisible);
+    }
+}
+
 public class HUDManager : MonoBehaviour
 {
     private GameObject player;
