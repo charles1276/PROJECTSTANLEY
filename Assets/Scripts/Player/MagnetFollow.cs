@@ -18,6 +18,14 @@ public class MagnetFollow : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = mousePos - (Vector2)Magnet.position;
+        if(mousePos.x <= transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else if (mousePos.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
         FaceMouse();
     }
 
@@ -31,7 +39,6 @@ public class MagnetFollow : MonoBehaviour
          if (transform.localScale.x == -1)
          {
             Magnet.transform.right = new Vector2(-Mathf.Abs(direction.x), direction.y);
-            projection.position = new Vector3(1, 1, 1);
         }
 
     }

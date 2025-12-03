@@ -395,12 +395,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd3bb90cde30f640ae67d6ebb4f8b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 25
   sprintMultiplier: 1.6
   friction: 0.9
   jumpHeight: 10
   coyoteTime: 0.2
-  wallPoint: {fileID: 0}
+  wallPoint: {fileID: 7532404401029011218}
   wallJumpingTime: 0.2
   jumpableGround:
     serializedVersion: 2
@@ -422,6 +422,7 @@ MonoBehaviour:
   staminaRegenRate: 5
   maxPower: 100
   powerDrainRate: 1
+  powerRegenRate: 1
 --- !u!114 &6629340211680660710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +439,7 @@ MonoBehaviour:
   attractionRange: 1
   attractionDivisions: 5
   speed: 5
+  attractionPolarity: 0
 --- !u!114 &3003500491552354867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnet: {fileID: 7966686232438740141}
+  projection: {fileID: 3959790324839221147}
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0
