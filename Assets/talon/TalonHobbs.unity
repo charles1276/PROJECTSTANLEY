@@ -247,8 +247,8 @@ Transform:
   m_GameObject: {fileID: 247760689}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.0372, y: -6.2041, z: 0}
-  m_LocalScale: {x: 18.142363, y: 8.510419, z: 8.738493}
+  m_LocalPosition: {x: -8.8027, y: -6.2041, z: 0}
+  m_LocalScale: {x: 26.611217, y: 8.510419, z: 8.738493}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -630,6 +630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4432514120275971501, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4790587023519305711, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -12.077469
@@ -847,11 +851,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2023563086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647fd4a8f3161aa4b9661092edeeb5b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 70c96ea94663f7b4b806a43572d3987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   polarity: 1
-  weight: 1
+  weight: 2
 --- !u!1 &2091877341
 GameObject:
   m_ObjectHideFlags: 0
