@@ -1,5 +1,7 @@
 using System;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UI;
 
 // stats bar class
 public class StatsBar
@@ -47,31 +49,37 @@ public class MagnetismUI
         this.sprites = sprites;
     }
 
-    // set the visibility of the magnetism UI element
+    // set the sprite of the magnetism UI element according to the object's polarity
     public void SetPolarity(ObjectPolarity objectPolarity)
     {
         switch (objectPolarity)
         {
             case ObjectPolarity.Positive:
-                uiElement.GetComponent<SpriteRenderer>().sprite = sprites[0];
+                uiElement.GetComponent<Image>().sprite = sprites[0];
                 break;
 
             case ObjectPolarity.Neutral:
                 // previously positive
                 if (currentPolarity == ObjectPolarity.Positive)
                 {
-                    uiElement.GetComponent<SpriteRenderer>().sprite = sprites[1];
+                    uiElement.GetComponent<Image>().sprite = sprites[1];
                 }
 
                 // previously negative
-                if (currentPolarity == ObjectPolarity.Negative)
+                else if (currentPolarity == ObjectPolarity.Negative)
                 {
-                    uiElement.GetComponent<SpriteRenderer>().sprite = sprites[3];
+                    uiElement.GetComponent<Image>().sprite = sprites[3];
                 }
-                break;
+
+                // no previous polarity
+                else
+                {
+                    uiElement.GetComponent<Image>().sprite = sprites[1];
+                }
+                    break;
 
             case ObjectPolarity.Negative:
-                uiElement.GetComponent<SpriteRenderer>().sprite = sprites[2];
+                uiElement.GetComponent<Image>().sprite = sprites[2];
                 break;
         }
         

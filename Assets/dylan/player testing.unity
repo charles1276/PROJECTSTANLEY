@@ -17285,7 +17285,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 504132563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647fd4a8f3161aa4b9661092edeeb5b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 70c96ea94663f7b4b806a43572d3987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   polarity: 1
@@ -17741,7 +17741,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1355460463}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 647fd4a8f3161aa4b9661092edeeb5b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 70c96ea94663f7b4b806a43572d3987b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   polarity: -1
@@ -17960,10 +17960,6 @@ PrefabInstance:
     - target: {fileID: 4790587023519305711, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6629340211680660710, guid: 2c389931d2251bf43a245c211ea6df28, type: 3}
-      propertyPath: attractionAngleRange
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
