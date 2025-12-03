@@ -21,6 +21,10 @@ public class MagnetFollow : MonoBehaviour
 
     void FaceMouse()
     {
-        Magnet.transform.right = direction;
+        if(transform.parent.localScale.x == 1)
+        {
+            Magnet.transform.right = new Vector2(Mathf.Abs(direction.x), direction.y);
+        }
+        
     }
 }
