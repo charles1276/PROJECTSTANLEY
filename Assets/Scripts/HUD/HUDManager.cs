@@ -119,5 +119,7 @@ public class HUDManager : MonoBehaviour
     {
         staminaBar.setFillAmount(player.GetComponent<PlayerStats>().getStaminaPercentage());
         powerBar.setFillAmount(player.GetComponent<PlayerStats>().getPowerPercentage());
+
+        magnetismIndicator.SetPolarity(player.GetComponent<MagnetHandler>().attractionPolarity);
     }
 }
