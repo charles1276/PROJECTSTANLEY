@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 [Serializable]
 public struct DialoguePiece
 {
+   
     public string name;
     [TextArea] public string Dialogue;
 }
@@ -14,14 +16,26 @@ public class Dialogue : MonoBehaviour
 {
     public List<DialoguePiece> dialogue;
     public float textSpeed = 0.1f;
+    public GameObject image;
+    public GameObject image2;
+
     public TMPro.TMP_Text dialogueName;
     public TMPro.TMP_Text dialogueText;
     private int dialogueIndex = 0;
     // add static current dialogue to keep track of which dialogue is being used
     //private Dialogue currentDialogue;
+    
     public void Startdialogue()
-    { 
-        
+    {
+        if (dialogue.Count <= 1)
+        {
+           image2.SetActive(false);
+        }
+        else
+        {
+            image.SetActive(false);
+            image2.SetActive(true);
+        }
         StopAllCoroutines();
         dialogueIndex = 0; // start at first piece
         gameObject.SetActive(true);
