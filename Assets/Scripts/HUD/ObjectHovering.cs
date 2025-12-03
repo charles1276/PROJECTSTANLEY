@@ -7,22 +7,22 @@ public class ObjectHovering : MonoBehaviour
     {
         Camera targetCamera = Camera.main;
 
-        // Convert world position to viewport position
+        // convert world position to viewport position
         Vector3 viewportPoint = targetCamera.WorldToViewportPoint(objectPosition);
 
-        // Check if the object is behind the camera (z is negative)
+        // check if the object is behind the camera (z is negative)
         if (viewportPoint.z < 0)
         {
             return true;
         }
 
-        // Check if the object's x or y coordinates are outside the [0, 1] range
+        // check if the object's x or y coordinates are outside the [0, 1] range
         if (viewportPoint.x < 0 || viewportPoint.x > 1 || viewportPoint.y < 0 || viewportPoint.y > 1)
         {
             return true;
         }
 
-        // If none of the above are true, the center of the object is within the camera's view
+        // if none of the above are true, the center of the object is within the camera's view
         return false;
     }
 
