@@ -39,27 +39,16 @@ public class MagnetHandler : MonoBehaviour
     private Vector3 mouseWorldPosition;
     private GameObject attractedObject;
     private Vector2 attractedPoint;
-    private int magnetsLayer;
 
     // polarity
     public ObjectPolarity attractionPolarity;
 
     // reference to object properties
-    private PlayerMovement movementController;
     private ObjectProperties properties;
 
     void Start()
     {
-        magnetsLayer = LayerMask.GetMask("Magnets", "AnchoredMagnets");
         properties = gameObject.GetComponent<ObjectProperties>();
-
-        movementController = gameObject.GetComponent<PlayerMovement>();
-
-        // initialize dictionary to avoid null reference exceptions
-        //attractedObjects = new Dictionary<GameObject, Vector2>();
-
-        // reassign attraction angle range to cosine value for easier comparison later
-        attractionAngleRange = Mathf.Cos(attractionAngleRange);
     }
 
     // input action for attracting
