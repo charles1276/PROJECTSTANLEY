@@ -42,7 +42,7 @@ public class MagnetHandler : MonoBehaviour
     private int magnetsLayer;
 
     // polarity
-    private ObjectPolarity attractionPolarity;
+    public ObjectPolarity attractionPolarity;
 
     // reference to object properties
     private PlayerMovement movementController;
