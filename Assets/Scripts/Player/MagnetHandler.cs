@@ -10,7 +10,7 @@ public class Vector2Extensions
 {
     public static Vector2 AngleToComponents(float angle)
     {
-        float rad = angle;
+        float rad = angle * Mathf.Deg2Rad;
         float cos = Mathf.Cos(rad);
         float sin = Mathf.Sin(rad);
         return new Vector2(cos, sin);
@@ -39,27 +39,16 @@ public class MagnetHandler : MonoBehaviour
     private Vector3 mouseWorldPosition;
     private GameObject attractedObject;
     private Vector2 attractedPoint;
-    private int magnetsLayer;
 
     // polarity
     public ObjectPolarity attractionPolarity;
 
     // reference to object properties
-    private PlayerMovement movementController;
     private ObjectProperties properties;
 
     void Start()
     {
-        magnetsLayer = LayerMask.GetMask("Magnets", "AnchoredMagnets");
         properties = gameObject.GetComponent<ObjectProperties>();
-
-        movementController = gameObject.GetComponent<PlayerMovement>();
-
-        // initialize dictionary to avoid null reference exceptions
-        //attractedObjects = new Dictionary<GameObject, Vector2>();
-
-        // reassign attraction angle range to cosine value for easier comparison later
-        attractionAngleRange = Mathf.Cos(attractionAngleRange);
     }
 
     // input action for attracting
@@ -134,7 +123,7 @@ public class MagnetHandler : MonoBehaviour
             RaycastHit2D[] checks = FindGroundCheckVectors(AttractionVector);
 
             // turn vector for next iteration
-            AttractionVector = Vector2Extensions.Rotate(AttractionVector, Vector2Extensions.AngleToComponents(angleDifference));
+            AttractionVector = Vector2Extensions.Rotate(AttractionVector, angleDifferenceComponents);
 
             // check raycast results
             UpdateAttractedObject(checks);

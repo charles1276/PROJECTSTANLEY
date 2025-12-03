@@ -404,7 +404,7 @@ MonoBehaviour:
   wallJumpingTime: 0.2
   jumpableGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 392
 --- !u!114 &9079374910092918546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b681c75dce7054692237f43b47cf15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractionAngleRange: 10
-  attractionRange: 1
+  attractionAngleRange: 30
+  attractionRange: 10
   attractionDivisions: 5
   speed: 5
   attractionPolarity: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnet: {fileID: 7966686232438740141}
-  projection: {fileID: 3959790324839221147}
+  projection: {fileID: 0}
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0
