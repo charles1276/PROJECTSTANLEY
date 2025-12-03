@@ -4,6 +4,8 @@ public class MagnetFollow : MonoBehaviour
 {
     public Transform Magnet;
 
+    [SerializeField] Transform projection;
+
     Vector2 direction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,13 +24,14 @@ public class MagnetFollow : MonoBehaviour
     void FaceMouse()
     {
         //Magnet.transform.right = direction;
-        if (transform.parent.localScale.x == -1)
+        if (transform.localScale.x == 1)
         {
             Magnet.transform.right = new Vector2(Mathf.Abs(direction.x), direction.y);
         }
-        if (transform.parent.localScale.x == 1)
-        {
+         if (transform.localScale.x == -1)
+         {
             Magnet.transform.right = new Vector2(-Mathf.Abs(direction.x), direction.y);
+            projection.position = new Vector3(1, 1, 1);
         }
 
     }

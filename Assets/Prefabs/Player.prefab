@@ -220,7 +220,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9079374910092918546}
+      - m_Target: {fileID: 2012613358230480041}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Crouch[/XInputControllerWindows/buttonEast,/Keyboard/c]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9079374910092918546}
+      - m_Target: {fileID: 2012613358230480041}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012613358230480041}
+      - m_Target: {fileID: 6629340211680660710}
         m_TargetAssemblyTypeName: MagnetHandler, Assembly-CSharp
         m_MethodName: Attract
         m_Mode: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Attract[/Keyboard/r]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9079374910092918546}
+      - m_Target: {fileID: 2012613358230480041}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Sprint
         m_Mode: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Sprint[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012613358230480041}
+      - m_Target: {fileID: 6629340211680660710}
         m_TargetAssemblyTypeName: MagnetHandler, Assembly-CSharp
         m_MethodName: Repel
         m_Mode: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Repel[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 9079374910092918546}
+      - m_Target: {fileID: 2012613358230480041}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: SwapGravity
         m_Mode: 0
@@ -392,13 +392,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3046760900981843949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceddc954a85042040879e75bac7010bb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2cd3bb90cde30f640ae67d6ebb4f8b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractionAngleRange: 10
-  attractionRange: 10
-  attractionDivisions: 5
-  speed: 5
+  movementSpeed: 5
+  sprintMultiplier: 1.6
+  friction: 0.9
+  jumpHeight: 10
+  coyoteTime: 0.2
+  wallPoint: {fileID: 0}
+  wallJumpingTime: 0.2
+  jumpableGround:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &9079374910092918546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,19 +414,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3046760900981843949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec1a96b5613417a469410fca34e80df2, type: 3}
+  m_Script: {fileID: 11500000, guid: 762830b384906a64bbc39eb6727f9f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 25
-  sprintMultiplier: 1.6
-  friction: 0.9
-  jumpHeight: 10
-  coyoteTime: 0.2
-  wallPoint: {fileID: 7532404401029011218}
-  wallJumpingTime: 0.2
-  jumpableGround:
-    serializedVersion: 2
-    m_Bits: 392
+  maxStamina: 100
+  staminaDrainRate: 10
+  staminaRegenRate: 5
+  maxPower: 100
+  powerDrainRate: 1
 --- !u!114 &6629340211680660710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,15 +431,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3046760900981843949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0d26daa03599924494d981ff2a5a6f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 49b681c75dce7054692237f43b47cf15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 100
-  staminaDrainRate: 10
-  staminaRegenRate: 5
-  maxPower: 100
-  powerDrainRate: 1
-  powerRegenRate: 1
+  attractionAngleRange: 10
+  attractionRange: 1
+  attractionDivisions: 5
+  speed: 5
 --- !u!114 &3003500491552354867
 MonoBehaviour:
   m_ObjectHideFlags: 0
