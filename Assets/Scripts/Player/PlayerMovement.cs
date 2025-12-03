@@ -259,4 +259,16 @@ public class PlayerMovement : MonoBehaviour
             stats.regenStamina();
         }
     }
+
+    // ignore friction effect
+    public void startIgnoreFriction()
+    {
+        rb.linearVelocityX /= friction;
+    }
+
+    // reset friction effect
+    public void stopIgnoreFriction()
+    {
+        rb.linearVelocityX *= friction;
+    }
 }
