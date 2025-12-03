@@ -16,9 +16,11 @@ public class MagnetFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Get mouse position in world space
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = mousePos - (Vector2)Magnet.position;
-        if(mousePos.x <= transform.position.x)
+        //Flips player based on mouse position
+        if (mousePos.x <= transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
@@ -26,6 +28,7 @@ public class MagnetFollow : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
         }
+        //Magnet faces mouse
         FaceMouse();
     }
 
