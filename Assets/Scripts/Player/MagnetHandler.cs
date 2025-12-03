@@ -10,7 +10,7 @@ public class Vector2Extensions
 {
     public static Vector2 AngleToComponents(float angle)
     {
-        float rad = angle;
+        float rad = angle * Mathf.Deg2Rad;
         float cos = Mathf.Cos(rad);
         float sin = Mathf.Sin(rad);
         return new Vector2(cos, sin);
@@ -123,7 +123,7 @@ public class MagnetHandler : MonoBehaviour
             RaycastHit2D[] checks = FindGroundCheckVectors(AttractionVector);
 
             // turn vector for next iteration
-            AttractionVector = Vector2Extensions.Rotate(AttractionVector, Vector2Extensions.AngleToComponents(angleDifference));
+            AttractionVector = Vector2Extensions.Rotate(AttractionVector, angleDifferenceComponents);
 
             // check raycast results
             UpdateAttractedObject(checks);
