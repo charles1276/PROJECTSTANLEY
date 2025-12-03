@@ -88,18 +88,6 @@ public class PlayerMovement : MonoBehaviour
             Stuck();
             WallJump();
 
-        if (isWallJumping == false && wallJumpingCounter <= -1.6)
-        {
-            if (rb.linearVelocityX > 0)
-            {
-                transform.localScale = new Vector3(1f, 1f, 1f);
-            }
-            else if (rb.linearVelocityX < 0)
-            {
-                transform.localScale = new Vector3(-1f, 1f, 1f);
-            }
-        }
-
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate
