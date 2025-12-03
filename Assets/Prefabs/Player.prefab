@@ -435,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49b681c75dce7054692237f43b47cf15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractionAngleRange: 46.1
-  attractionRange: 1
+  attractionAngleRange: 30
+  attractionRange: 10
   attractionDivisions: 5
   speed: 5
   attractionPolarity: 0
