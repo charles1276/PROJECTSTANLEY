@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-            //flip direction
+            
             Stuck();
             WallJump();
 
