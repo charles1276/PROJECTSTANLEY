@@ -3,15 +3,14 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     [Header("Stamina")]
-    [SerializeField] private float maxStamina = 100f;
-    [SerializeField] private float staminaDrainRate = 10f;
-    [SerializeField] private float staminaRegenRate = 5f;
+    public float maxStamina = 100f;
+    public float staminaDrainRate = 10f;
+    public float staminaRegenRate = 5f;
     private float stamina; // drains when sprinting
 
     [Header("Power")]
-    [SerializeField] private float maxPower = 100f;
-    [SerializeField] private float powerDrainRate = 1f;
-    public float powerRegenRate = 1f;
+    public float maxPower = 100f;
+    public float powerDrainRate = 1f;
     private float power;   // drains with magnet usage
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,10 +33,18 @@ public class PlayerStats : MonoBehaviour
         {
             drainStamina();
         }
+        else
+        {
+            regenStamina();
+        }
         // debug key to drain power
-        if (Input.GetKey(KeyCode.Quote))
+        if (Input.GetKey(KeyCode.Colon))
         {
             drainPower();
+        }
+        else
+        {
+            regenPower();
         }
     }
 
@@ -46,9 +53,9 @@ public class PlayerStats : MonoBehaviour
         return stamina > 0f;
     }
 
-    private float drainStat(float stat, float drainRate)
+    private float drainStat(float stat)
     {
-        stat -= drainRate * Time.fixedDeltaTime;
+        stat -= 10f * Time.fixedDeltaTime;
         // clamp stat to minimum of 0
         if (stat < 0f)
         {
@@ -58,9 +65,9 @@ public class PlayerStats : MonoBehaviour
         return stat;
     }
 
-    private float regenStat(float stat, float maxstat, float regenRate)
+    private float regenStat(float stat, float maxstat)
     {
-        stat += regenRate * Time.fixedDeltaTime;
+        stat += 5f * Time.fixedDeltaTime;
         // clamp stat to maximum
         if (stat > maxstat)
         {
@@ -72,22 +79,22 @@ public class PlayerStats : MonoBehaviour
 
     public void drainStamina()
     {
-        stamina = drainStat(stamina, staminaDrainRate);
+        stamina = drainStat(stamina);
     }
 
     public void regenStamina()
     {
-        stamina = regenStat(stamina, maxStamina, staminaRegenRate);
+        stamina = regenStat(stamina, maxStamina);
     }
 
     public void drainPower()
     {
-        power = drainStat(power, powerDrainRate);
+        power = drainStat(power);
     }
 
     public void regenPower()
     {
-        power = regenStat(power, maxPower, powerDrainRate);
+        power = regenStat(power, maxPower);
     }
 
     // get stamina percentage (0 to 1)

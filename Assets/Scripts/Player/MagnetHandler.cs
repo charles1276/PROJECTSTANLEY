@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using Unity.Jobs;
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,20 +36,27 @@ public class MagnetHandler : MonoBehaviour
     [SerializeField] private float speed = 5f;
 
     // track clicked object
+    private Vector3 mouseWorldPosition;
     private GameObject attractedObject;
     private Vector2 attractedPoint;
+    private int magnetsLayer;
 
     // polarity
     private ObjectPolarity attractionPolarity;
 
     // reference to object properties
-    private PlayerStats statsController;
+    private PlayerMovement movementController;
     private ObjectProperties properties;
 
     void Start()
     {
-        statsController = gameObject.GetComponent<PlayerStats>();
+        magnetsLayer = LayerMask.GetMask("Magnets", "AnchoredMagnets");
         properties = gameObject.GetComponent<ObjectProperties>();
+
+        movementController = gameObject.GetComponent<PlayerMovement>();
+
+        // initialize dictionary to avoid null reference exceptions
+        //attractedObjects = new Dictionary<GameObject, Vector2>();
 
         // reassign attraction angle range to cosine value for easier comparison later
         attractionAngleRange = Mathf.Cos(attractionAngleRange);
@@ -93,7 +104,7 @@ public class MagnetHandler : MonoBehaviour
 
         // testsdt
         Vector3 mousePosition = Input.mousePosition;
-        Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         // check distance from player to clicked object
         Vector2 middleAttractionVector = mouseWorldPosition - transform.position;
@@ -177,6 +188,50 @@ public class MagnetHandler : MonoBehaviour
         }
     }
 
+    //private void AssignClickedObject()
+    //{
+    //    // grab mouse position and raycast
+    //    Vector3 mousePosition = Input.mousePosition;
+    //    mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+    //    Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
+
+    //    // i have no idea what the 1f does here but it works so
+    //    RaycastHit2D hit = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, magnetsLayer);
+    //    clickObject = hit ? hit.collider.transform : null; // get clicked object
+    //}
+
+    //private void UnassignClickedObject()
+    //{
+    //    clickObject = null;
+    //}
+
+    //private bool CheckGroundObstruction()
+    //{
+    //    // raycast to check for walls
+    //    RaycastHit2D magnetsCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Magnets", "AnchoredMagnets", "Ground"));
+    //    RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, attractionVector.normalized, attractionRange, LayerMask.GetMask("Ground"));
+    //    Debug.DrawRay(transform.position, attractionVector.normalized * attractionRange, Color.red);
+
+    //    // if a wall is in the way, do nothing
+    //    // does this by checking if both raycasts hit the same collider (meaning no magnet obstructed a wall)
+    //    if (groundCheck.collider != null && groundCheck.collider == magnetsCheck.collider)
+    //    {
+    //        //print("Magnet influence blocked by walls.");
+    //        UnassignClickedObject();
+    //        return true;
+    //    }
+
+    //    // reassign clicked object if magnet collides 
+    //    // only needed if multiple magnets can be in a line
+    //    if (magnetsCheck.collider != null)
+    //    {
+    //        clickObject = magnetsCheck.collider.transform;
+    //        clickPoint = magnetsCheck.point;
+    //    }
+
+    //    return false;
+    //}
+
     void Update()
     {
         // if neutral, do nothing
@@ -185,13 +240,81 @@ public class MagnetHandler : MonoBehaviour
             return;
         }
 
+        // put magnetism display logic here later
+
+        //// if no object clicked, do nothing
+        //if (clickObject == null)
+        //{
+        //    return;
+        //}
+
         CastAttractionCone();
+        //CheckGroundObstruction();
+
+        //// if distance is greater than attractionRange, do nothing
+        //if ((clickPoint - (Vector2)transform.position).magnitude > attractionRange)
+        //{
+        //    print("too far away, :3");
+        //    return;
+        //}
+
+        //Vector3 objToPlayerDirection = (clickPoint - (Vector2)transform.position).normalized;
+
+        //Debug.DrawLine(transform.position, clickPoint, Color.green);
+
+        //// if object not within range
+        //if (Vector3.Dot(attractionVector.normalized, objToPlayerDirection) < attractionAngleRange)
+        //{
+        //    //print("uhm,. u need to likeee,. actualy point at th objct.,, >.>");
+
+        //    Debug.Log(Vector3.Dot(attractionVector.normalized, objToPlayerDirection));
+        //    Debug.Log(attractionAngleRange);
+
+        //    Debug.DrawRay(transform.position, attractionVector.normalized, Color.yellow);
+        //    Debug.DrawRay(transform.position, objToPlayerDirection, Color.blue);
+
+        //    UnassignClickedObject();
+
+        //    return;
+        //}
 
         if (attractedObject != null)
         {
-            statsController.drainPower();
             ApplyMagnetism(attractedObject, attractedPoint);
         }
+        //// if clicked object is a loose magnet, apply force based on weight comparison
+        //if (clickObject.CompareTag("Magnet"))
+        //{
+        //    ObjectProperties clickObjectProperties = clickObject.GetComponent<ObjectProperties>();
+
+        //    // multiplied by -1 so that like polarities repel and opposite polarities attract
+        //    attractionBehavior = -1 * (int)attractionPolarity * (int)clickObjectProperties.polarity;
+        //    //print(attractionPolarity);
+        //    //print(clickObjectProperties.polarity);
+        //    //print(attractionBehavior);
+
+        //    // compare weights
+        //    string objPlayerInteraction = ObjectProperties.CompareWeights(properties.weight, clickObjectProperties.weight);
+
+        //    switch (objPlayerInteraction)
+        //    {
+        //        // player and object are equal weight
+        //        case "Equal":
+        //            MovePlayer();
+        //            MoveObject();
+        //            break;
+
+        //        // player is heavier
+        //        case "Greater":
+        //            MoveObject();
+        //            break;
+
+        //        // object is heavier
+        //        case "Less":
+        //            MovePlayer();
+        //            break;
+        //    }
+        //}
     }
 
     private void ApplyMagnetism(GameObject obj, Vector2 attractionPoint)
@@ -226,6 +349,20 @@ public class MagnetHandler : MonoBehaviour
                 break;
         }
     }
+
+    //// apply force to player
+    //private void MovePlayer(Vector2 attractionVector, float speedMult = 1)
+    //{
+    //    Vector2 attractionForce = speed * speedMult * attractionVector.normalized;
+    //    ApplyForce(gameObject, attractionForce);
+    //}
+
+    //// apply force to clicked object
+    //private void MoveObject(GameObject obj, Vector2 attractionVector, float speedMult = 1)
+    //{
+    //    Vector2 attractionForce = speed * speedMult * attractionVector.normalized;
+    //    ApplyForce(obj, attractionForce);
+    //}
 
     private void ApplyForce(GameObject obj, Vector2 attractionVector, float speedMult = 1)
     {
