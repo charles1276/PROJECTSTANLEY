@@ -117,12 +117,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1477818328802034779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e42528bf0ca22914e9ea32c247796d33, type: 3}
+  m_Script: {fileID: 11500000, guid: 21b7f14cd54c5c94287aa6bd0b304330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   staminaBarUI: {fileID: 3566438605987778188}
   powerBarUI: {fileID: 6063409845596331258}
-  magnetismUI: {fileID: 6152056397791144351}
+  magnetismSprites: []
 --- !u!1 &2282310133655239448
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,6 +361,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311ed817894212341baaf7739639aa7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magnetismSprites:
+  - {fileID: 2145396100, guid: e1db5c5c2790a134a92afb5b7b052546, type: 3}
+  - {fileID: 140900288, guid: e1db5c5c2790a134a92afb5b7b052546, type: 3}
+  - {fileID: 53543788, guid: e1db5c5c2790a134a92afb5b7b052546, type: 3}
+  - {fileID: -315774108, guid: e1db5c5c2790a134a92afb5b7b052546, type: 3}
 --- !u!1 &8107347789560487715
 GameObject:
   m_ObjectHideFlags: 0

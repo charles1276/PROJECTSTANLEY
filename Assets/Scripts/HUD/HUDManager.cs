@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // stats bar class
@@ -36,17 +37,45 @@ public class StatsBar
 public class MagnetismUI
 {
     private GameObject uiElement;
+    private Sprite[] sprites;
+    private ObjectPolarity currentPolarity;
 
     // constructor (class initializer)
-    public MagnetismUI(GameObject ui)
+    public MagnetismUI(GameObject ui, Sprite[] sprites)
     {
         uiElement = ui;
+        this.sprites = sprites;
     }
 
     // set the visibility of the magnetism UI element
-    public void setVisibility(bool isVisible)
+    public void SetPolarity(ObjectPolarity objectPolarity)
     {
-        uiElement.SetActive(isVisible);
+        switch (objectPolarity)
+        {
+            case ObjectPolarity.Positive:
+                uiElement.GetComponent<SpriteRenderer>().sprite = sprites[0];
+                break;
+
+            case ObjectPolarity.Neutral:
+                // previously positive
+                if (currentPolarity == ObjectPolarity.Positive)
+                {
+                    uiElement.GetComponent<SpriteRenderer>().sprite = sprites[1];
+                }
+
+                // previously negative
+                if (currentPolarity == ObjectPolarity.Negative)
+                {
+                    uiElement.GetComponent<SpriteRenderer>().sprite = sprites[3];
+                }
+                break;
+
+            case ObjectPolarity.Negative:
+                uiElement.GetComponent<SpriteRenderer>().sprite = sprites[2];
+                break;
+        }
+        
+        currentPolarity = objectPolarity;
     }
 }
 
@@ -62,6 +91,12 @@ public class HUDManager : MonoBehaviour
     public StatsBar staminaBar;
     public StatsBar powerBar;
 
+    [Header("Magnet Indicator Sprites")]
+    [SerializeField] private GameObject indicatorUI; // negative, neutral, positive
+
+    [Header("Magnetism Indicator")]
+    public MagnetismUI magnetismIndicator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,6 +106,12 @@ public class HUDManager : MonoBehaviour
         // define statistic bars
         staminaBar = new StatsBar(staminaBarUI);
         powerBar = new StatsBar(powerBarUI);
+
+        // grab sprite array for magnetism indicator
+        Sprite[] magnetismSprites = indicatorUI.GetComponent<StateStorage>().magnetismSprites;
+
+        // define magnetism indicator
+        magnetismIndicator = new MagnetismUI(indicatorUI, magnetismSprites);
     }
 
     // Update is called once per frame
