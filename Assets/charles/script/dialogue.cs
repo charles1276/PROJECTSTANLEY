@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
 [Serializable]
 public struct DialoguePiece
 {
-   
+    public string id;
     public string name;
     [TextArea] public string Dialogue;
 }
@@ -24,18 +25,10 @@ public class Dialogue : MonoBehaviour
     private int dialogueIndex = 0;
     // add static current dialogue to keep track of which dialogue is being used
     //private Dialogue currentDialogue;
-    
+    public string DialogueId;
     public void Startdialogue()
     {
-        if (dialogue.Count <= 1)
-        {
-           image2.SetActive(false);
-        }
-        else
-        {
-            image.SetActive(false);
-            image2.SetActive(true);
-        }
+        ShowImage(dialogue[dialogueIndex]);
         StopAllCoroutines();
         dialogueIndex = 0; // start at first piece
         gameObject.SetActive(true);
@@ -52,6 +45,7 @@ public class Dialogue : MonoBehaviour
     //dvance to the next piece (or end)
     public void NextDialogueOrStop()
     {
+
         ++dialogueIndex;
         if (dialogueIndex >= dialogue.Count)
         {
@@ -77,9 +71,29 @@ public class Dialogue : MonoBehaviour
         }
 
        //proceed to the next piece after a short pause
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         NextDialogueOrStop();
-
         
+        
+    }
+    public void ShowImage(DialoguePiece dialogue)
+    {
+        DialogueId = dialogue.id;
+        if (DialogueId == "scientist")
+        {
+            image.SetActive(true);
+            image2.SetActive(false);
+        }
+        if (DialogueId == "guard")
+        {
+            image.SetActive(false);
+            image2.SetActive(true);
+        }
+    }
+    public void Update()
+    {
+        ShowImage(dialogue[dialogueIndex]);
+
+
     }
 }
