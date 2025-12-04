@@ -49,7 +49,6 @@ GameObject:
   - component: {fileID: 6629340211680660710}
   - component: {fileID: 3003500491552354867}
   - component: {fileID: 4432514120275971501}
-  - component: {fileID: 8237456010394649562}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -72,6 +71,7 @@ Transform:
   m_Children:
   - {fileID: 7966686232438740141}
   - {fileID: 6615916649639216536}
+  - {fileID: 7532404401029011218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4823857853610423188
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1782386118614263073, guid: 21293bea089bc6643a266b9ccf7e93bb, type: 3}
+  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012613358230480041}
+      - m_Target: {fileID: 9079374910092918546}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Move
         m_Mode: 0
@@ -252,7 +252,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Crouch[/XInputControllerWindows/buttonEast,/Keyboard/c]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012613358230480041}
+      - m_Target: {fileID: 9079374910092918546}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Jump
         m_Mode: 0
@@ -316,7 +316,7 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6629340211680660710}
+      - m_Target: {fileID: 2012613358230480041}
         m_TargetAssemblyTypeName: MagnetHandler, Assembly-CSharp
         m_MethodName: Attract
         m_Mode: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Attract[/Keyboard/r]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012613358230480041}
+      - m_Target: {fileID: 9079374910092918546}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: Sprint
         m_Mode: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Sprint[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6629340211680660710}
+      - m_Target: {fileID: 2012613358230480041}
         m_TargetAssemblyTypeName: MagnetHandler, Assembly-CSharp
         m_MethodName: Repel
         m_Mode: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
     m_ActionName: 'Player/Repel[/Mouse/rightButton]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2012613358230480041}
+      - m_Target: {fileID: 9079374910092918546}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
         m_MethodName: SwapGravity
         m_Mode: 0
@@ -392,17 +392,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3046760900981843949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd3bb90cde30f640ae67d6ebb4f8b83, type: 3}
+  m_Script: {fileID: 11500000, guid: ceddc954a85042040879e75bac7010bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 25
-  sprintMultiplier: 1.6
-  friction: 0.9
-  jumpHeight: 10
-  coyoteTime: 0.2
-  jumpableGround:
-    serializedVersion: 2
-    m_Bits: 392
+  attractionAngleRange: 10
+  attractionRange: 10
+  attractionDivisions: 5
+  speed: 5
 --- !u!114 &9079374910092918546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,14 +408,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3046760900981843949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 762830b384906a64bbc39eb6727f9f38, type: 3}
+  m_Script: {fileID: 11500000, guid: ec1a96b5613417a469410fca34e80df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 100
-  staminaDrainRate: 10
-  staminaRegenRate: 5
-  maxPower: 100
-  powerDrainRate: 1
+  movementSpeed: 25
+  sprintMultiplier: 1.6
+  friction: 0.9
+  jumpHeight: 10
+  coyoteTime: 0.2
+  wallPoint: {fileID: 7532404401029011218}
+  wallJumpingTime: 0.2
+  jumpableGround:
+    serializedVersion: 2
+    m_Bits: 392
 --- !u!114 &6629340211680660710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,14 +430,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3046760900981843949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49b681c75dce7054692237f43b47cf15, type: 3}
+  m_Script: {fileID: 11500000, guid: c0d26daa03599924494d981ff2a5a6f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractionAngleRange: 30
-  attractionRange: 10
-  attractionDivisions: 5
-  speed: 15
-  attractionPolarity: 0
+  maxStamina: 100
+  staminaDrainRate: 10
+  staminaRegenRate: 5
+  maxPower: 100
+  powerDrainRate: 1
+  powerRegenRate: 1
 --- !u!114 &3003500491552354867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,18 +466,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnet: {fileID: 7966686232438740141}
---- !u!114 &8237456010394649562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3046760900981843949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2aed00ffbf896e045aae7067d1ecc67c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5311,6 +5301,37 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!1 &3779749676753295058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7532404401029011218}
+  m_Layer: 0
+  m_Name: WallJump
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7532404401029011218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3779749676753295058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4790587023519305711}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5564372121667780746
 GameObject:
   m_ObjectHideFlags: 0
