@@ -1,5 +1,3 @@
-using System;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -74,6 +72,7 @@ public class MagnetismUI
                 // no previous polarity
                 else
                 {
+                    Debug.Log("neu");
                     uiElement.GetComponent<Image>().sprite = sprites[1];
                 }
                     break;
@@ -116,7 +115,7 @@ public class HUDManager : MonoBehaviour
         powerBar = new StatsBar(powerBarUI);
 
         // grab sprite array for magnetism indicator
-        Sprite[] magnetismSprites = indicatorUI.GetComponent<StateStorage>().magnetismSprites;
+        Sprite[] magnetismSprites = indicatorUI.GetComponent<StateStorage>().spriteList;
 
         // define magnetism indicator
         magnetismIndicator = new MagnetismUI(indicatorUI, magnetismSprites);
@@ -127,7 +126,10 @@ public class HUDManager : MonoBehaviour
     {
         staminaBar.setFillAmount(player.GetComponent<PlayerStats>().getStaminaPercentage());
         powerBar.setFillAmount(player.GetComponent<PlayerStats>().getPowerPercentage());
+    }
 
-        magnetismIndicator.SetPolarity(player.GetComponent<MagnetHandler>().attractionPolarity);
+    public void updateMagnetismIndicator(ObjectPolarity polarity)
+    {
+        magnetismIndicator.SetPolarity(polarity);
     }
 }

@@ -44,10 +44,15 @@ public class MagnetHandler : MonoBehaviour
     private ObjectProperties properties;
     private PlayerStats playerStats;
 
+    // hud manager
+    private HUDManager hudManager;
+
     void Start()
     {
         properties = gameObject.GetComponent<ObjectProperties>();
         playerStats = gameObject.GetComponent<PlayerStats>();
+
+        hudManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDManager>();
     }
 
     // input action for attracting
@@ -63,6 +68,9 @@ public class MagnetHandler : MonoBehaviour
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
         }
+
+        // update HUD
+        hudManager.updateMagnetismIndicator(attractionPolarity);
     }
 
     // input action for repelling
@@ -78,6 +86,9 @@ public class MagnetHandler : MonoBehaviour
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
         }
+
+        // update HUD
+        hudManager.updateMagnetismIndicator(attractionPolarity);
     }
 
     private void UnassignClickedObject()
@@ -186,9 +197,12 @@ public class MagnetHandler : MonoBehaviour
 
         CastAttractionCone();
 
+        // apply magnetism to attracted objects
         if (attractedObject != null)
         {
+            // drain power
             playerStats.drainPower();
+
             ApplyMagnetism(attractedObject, attractedPoint);
         }
     }
@@ -202,27 +216,35 @@ public class MagnetHandler : MonoBehaviour
         Vector2 attractionVector = attractionPoint - (Vector2)transform.position;
         attractionVector *= -1 * (int)attractionPolarity * (int)objProperties.polarity;
 
-        // compare weights
-        string objPlayerInteraction = ObjectProperties.CompareWeights(properties.weight, objProperties.weight);
-        switch (objPlayerInteraction)
+        if (obj.CompareTag("Magnet"))
         {
-            // player and object are equal weight
-            case "Equal":
-                ApplyForce(gameObject, attractionVector);
-                //movementController.IgnoreFriction();
-                ApplyForce(obj, -attractionVector);
-                break;
+            // compare weights
+            string objPlayerInteraction = ObjectProperties.CompareWeights(properties.weight, objProperties.weight);
+            switch (objPlayerInteraction)
+            {
+                // player and object are equal weight
+                case "Equal":
+                    ApplyForce(gameObject, attractionVector);
+                    //movementController.IgnoreFriction();
+                    ApplyForce(obj, -attractionVector);
+                    break;
 
-            // player is heavier
-            case "Greater":
-                ApplyForce(obj, -attractionVector);
-                break;
+                // player is heavier
+                case "Greater":
+                    ApplyForce(obj, -attractionVector);
+                    break;
 
-            // object is heavier
-            case "Less":
-                ApplyForce(gameObject, attractionVector);
-                //movementController.IgnoreFriction();
-                break;
+                // object is heavier
+                case "Less":
+                    ApplyForce(gameObject, attractionVector);
+                    //movementController.IgnoreFriction();
+                    break;
+            }
+        }
+        else
+        {
+            // anchored magnet; move only the player
+            ApplyForce(gameObject, attractionVector);
         }
     }
 

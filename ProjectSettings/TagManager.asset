@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Magnet
   - AnchoredMagnet
+  - HUD
   layers:
   - Default
   - TransparentFX
