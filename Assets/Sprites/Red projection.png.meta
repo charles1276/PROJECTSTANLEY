@@ -1,22 +1,34 @@
 fileFormatVersion: 2
-guid: 31cb902ad13ad134e8c01d4a81947454
+guid: c6c6c133267b2684697131ae9acc600c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2597511967882924710
-    second: Heads_0
+      213: 3426152048982459459
+    second: Red projection_0
   - first:
-      213: -5109063666472242871
-    second: Heads_1
+      213: 3607714197670296900
+    second: Red projection_1
   - first:
-      213: 4540647981029494644
-    second: Heads_2
+      213: -4104377845616658275
+    second: Red projection_2
   - first:
-      213: -7225834784706996516
-    second: Heads_3
+      213: -562557478055648188
+    second: Red projection_3
   - first:
-      213: 1349324979966303456
-    second: Heads_4
+      213: -2182228704862027523
+    second: Red projection_4
+  - first:
+      213: -7587807638748016093
+    second: Red projection_5
+  - first:
+      213: -3938777735803327212
+    second: Red projection_6
+  - first:
+      213: 3607155236146517338
+    second: Red projection_7
+  - first:
+      213: -1113578269619058012
+    second: Red projection_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -87,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -138,13 +150,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heads_0
+      name: Red projection_0
       rect:
         serializedVersion: 2
-        x: 157
-        y: 249
-        width: 83
-        height: 93
+        x: 2
+        y: 182
+        width: 16
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6a2dc716f573c0420800000000000000
-      internalID: 2597511967882924710
+      spriteID: 3448312d2232c8f20800000000000000
+      internalID: 3426152048982459459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heads_1
+      name: Red projection_1
       rect:
         serializedVersion: 2
-        x: 246
-        y: 249
-        width: 83
-        height: 92
+        x: 98
+        y: 178
+        width: 24
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 94131111aa5f819b0800000000000000
-      internalID: -5109063666472242871
+      spriteID: 44d7543c2fc211230800000000000000
+      internalID: 3607714197670296900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heads_2
+      name: Red projection_2
       rect:
         serializedVersion: 2
-        x: 155
-        y: 127
-        width: 106
-        height: 101
+        x: 194
+        y: 177
+        width: 30
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47f8b57084f930f30800000000000000
-      internalID: 4540647981029494644
+      spriteID: d98390868125a07c0800000000000000
+      internalID: -4104377845616658275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heads_3
+      name: Red projection_3
       rect:
         serializedVersion: 2
-        x: 275
-        y: 127
-        width: 106
-        height: 101
+        x: 2
+        y: 98
+        width: 37
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,20 +231,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd6d0e32c8da8bb90800000000000000
-      internalID: -7225834784706996516
+      spriteID: 444e0ca44f46138f0800000000000000
+      internalID: -562557478055648188
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heads_4
+      name: Red projection_4
       rect:
         serializedVersion: 2
-        x: 384
-        y: 127
-        width: 101
-        height: 101
+        x: 98
+        y: 97
+        width: 42
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,8 +253,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ecd3759be3c9b210800000000000000
-      internalID: 1349324979966303456
+      spriteID: df0c90c0e8a27b1e0800000000000000
+      internalID: -2182228704862027523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red projection_5
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 94
+        width: 52
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 322dd6c8721b2b690800000000000000
+      internalID: -7587807638748016093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red projection_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 17
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41da9309486a659c0800000000000000
+      internalID: -3938777735803327212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red projection_7
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 16
+        width: 58
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55143463903f0230800000000000000
+      internalID: 3607155236146517338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Red projection_8
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 15
+        width: 61
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa03c9b676cb80f0800000000000000
+      internalID: -1113578269619058012
       vertices: []
       indices: 
       edges: []
@@ -261,11 +361,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Heads_0: 2597511967882924710
-      Heads_1: -5109063666472242871
-      Heads_2: 4540647981029494644
-      Heads_3: -7225834784706996516
-      Heads_4: 1349324979966303456
+      Red projection_0: 3426152048982459459
+      Red projection_1: 3607714197670296900
+      Red projection_2: -4104377845616658275
+      Red projection_3: -562557478055648188
+      Red projection_4: -2182228704862027523
+      Red projection_5: -7587807638748016093
+      Red projection_6: -3938777735803327212
+      Red projection_7: 3607155236146517338
+      Red projection_8: -1113578269619058012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

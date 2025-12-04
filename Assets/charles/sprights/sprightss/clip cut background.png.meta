@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      clip cut background_0: 4842938789551795262
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
