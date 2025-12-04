@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class MagnetFollow : MonoBehaviour
 {
-    public Transform Magnet;
-
-    [SerializeField] Transform projection;
+    [SerializeField] Transform Magnet;
 
     Vector2 direction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -21,15 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
     [SerializeField] private float coyoteTime = 0.2f;
 
-    //wall jump variables
-    [SerializeField] private Transform wallPoint;
+    //Gravity Swap
     private float gravityStore;
-    private bool isWallJumping;
-    private float wallJumpDirection;
-    public float wallJumpingTime = 0.2f;
-    private float wallJumpingCounter;
-    private float wallJumpingDuration = 0.4f;
-    private Vector2 wallJumpForce = new Vector2(8f, 12f);
 
 
 
@@ -81,13 +74,6 @@ public class PlayerMovement : MonoBehaviour
         // handle jump
         attemptJump();
 
-
-
-
-            
-            Stuck();
-            WallJump();
-
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate
@@ -129,67 +115,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private bool IsWalled()
-    {
-        //// perform raycast sideways to check for ground
-        //RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + 1.02f/2 * Vector2.right, Vector2.left, 1.01f, jumpableGround);
-
-        //// debugging ray :3c
-        //Debug.DrawRay((Vector2)transform.position + Vector2.right / 2, Vector2.left * 1.01f, Color.red, 0.1f);
-
-        return Physics2D.OverlapCircle(wallPoint.position, 0.5f, jumpableGround);
-    }
-
-    private void Stuck()
-    {
-        if (IsWalled() && !isGrounded())
-        {
-            canWallJump = true;
-            rb.gravityScale = 0f;
-            rb.linearVelocity = Vector2.zero;
-        }
-        else
-        {
-            canWallJump = false;
-            rb.gravityScale = gravityStore;
-        }
-    }
-
-    private void WallJump()
-    {
-        if (canWallJump)
-        {
-            isWallJumping = false;
-            wallJumpDirection = -transform.localScale.x;
-            wallJumpingCounter = wallJumpingTime;
-
-            CancelInvoke(nameof(StopWallJump));
-        }
-        else
-        {
-            wallJumpingCounter -= Time.deltaTime;
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && wallJumpingCounter > 0f)
-        {
-            isWallJumping = true;
-            rb.gravityScale = gravityStore;
-            rb.linearVelocity = new Vector2(wallJumpForce.x * wallJumpDirection, wallJumpForce.y * Mathf.Sign(gravityStore));
-            wallJumpingCounter = 0f;
-
-            if(transform.localScale.x != wallJumpDirection)
-            {   
-                Vector3 localScale = transform.localScale;
-                localScale.x *= -1;
-                transform.localScale = localScale;
-            }
-            Invoke(nameof(StopWallJump), wallJumpingDuration);
-        }
-    }
-
-    private void StopWallJump()
-    {
-        isWallJumping = false;
-    }
 
     private bool isGrounded()
     {
