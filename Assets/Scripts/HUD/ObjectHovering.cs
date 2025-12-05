@@ -1,7 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectHovering : MonoBehaviour
 {
+    [Header("Weight Display Settings")]
+    [SerializeField] private GameObject weightDisplay;
+    [SerializeField] private float hoverHeight = 2f;
+    [SerializeField] private float hoverWidth = 2f;
+    [Tooltip("Speed at which the weight display appears.")]
+    [SerializeField] private float displaySpeed = 5f;
+
+    private Vector2 weightTextureSize;
+    private Vector2 weightWorldTextureSize;
+    private float fillPercentage = 0;
+
+    private Sprite[] weightDisplayLevels;
+
     // check if object is outside camera view
     private bool IsObjectOutsideCamera(Vector3 objectPosition)
     {
@@ -29,7 +43,14 @@ public class ObjectHovering : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // get weight display size
+        weightTextureSize = weightDisplay.GetComponent<RectTransform>().sizeDelta;
+
+        // get weight display size on the screen
+        weightWorldTextureSize = weightTextureSize * GetComponent<RectTransform>().lossyScale;
+
+        // load weight display sprites
+        weightDisplayLevels = weightDisplay.GetComponent<StateStorage>().spriteList;
     }
 
     // Update is called once per frame
@@ -38,12 +59,56 @@ public class ObjectHovering : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
 
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
+        RaycastHit2D mouseRaycast = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, LayerMask.GetMask("Magnets"));
 
-        RaycastHit hitInfo;
-        if (Physics.Raycast(mouseRay, out hitInfo))
+        if (mouseRaycast.collider != null)
         {
-            Transform objectHit = hitInfo.transform;
-            Debug.Log("Hovering over: " + objectHit.name);
+            // move object to mouse position
+            Vector2 mouseWorldPosition = mouseRaycast.point;
+            transform.position = mouseWorldPosition + Vector2.up * hoverHeight + Vector2.right * hoverWidth;
+
+            // hide weight display if mouse is outside camera view
+            if (IsObjectOutsideCamera(mouseWorldPosition))
+            {
+                return;
+            }
+
+            fillPercentage = Mathf.Lerp(fillPercentage, 1, Time.deltaTime * displaySpeed);
+
+            // position weight display offset from the mouse position
+            Vector2 weightTextureOffset = weightTextureSize / 2;
+
+            if (IsObjectOutsideCamera(mouseWorldPosition + (hoverHeight + weightWorldTextureSize.y) * Vector2.up))
+            {
+                // flip weight display downwards
+                weightTextureOffset.y *= -1;
+
+                // adjust object position downwards
+                transform.position += 2 * hoverHeight * Vector3.down;
+            }
+
+            if (IsObjectOutsideCamera(mouseWorldPosition + (hoverWidth + weightWorldTextureSize.x) * Vector2.right))
+            {
+                // flip weight display to the left
+                weightTextureOffset.x *= -1;
+
+                // adjust object position leftwards
+                transform.position += 2 * hoverWidth * Vector3.left;
+            }
+
+            weightDisplay.GetComponent<RectTransform>().localPosition = weightTextureOffset;
+
+            // set weight display sprite according to weight
+
+            weightDisplay.GetComponent<Image>().sprite = weightDisplayLevels[1];
         }
+        else
+        {
+            fillPercentage = Mathf.Lerp(fillPercentage, 0, Time.deltaTime * displaySpeed);
+        }
+
+        // set weight display fill amount
+        float onPixelFill = Mathf.Round(fillPercentage * weightTextureSize.x) / weightTextureSize.x;
+        weightDisplay.GetComponent<Image>().fillAmount = onPixelFill;
     }
 }

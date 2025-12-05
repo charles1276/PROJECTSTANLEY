@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311ed817894212341baaf7739639aa7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnetismSprites:
+  spriteList:
   - {fileID: 2145396100, guid: e1db5c5c2790a134a92afb5b7b052546, type: 3}
   - {fileID: 140900288, guid: e1db5c5c2790a134a92afb5b7b052546, type: 3}
   - {fileID: 53543788, guid: e1db5c5c2790a134a92afb5b7b052546, type: 3}
