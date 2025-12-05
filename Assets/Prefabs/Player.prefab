@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
+  m_Actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -379,7 +379,7 @@ MonoBehaviour:
     m_ActionName: 'Player/SwapGravity[/Keyboard/f]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &2012613358230480041
@@ -401,7 +401,7 @@ MonoBehaviour:
   coyoteTime: 0.2
   jumpableGround:
     serializedVersion: 2
-    m_Bits: 392
+    m_Bits: 8
 --- !u!114 &9079374910092918546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,11 +414,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 762830b384906a64bbc39eb6727f9f38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStamina: 100
-  staminaDrainRate: 10
-  staminaRegenRate: 5
-  maxPower: 100
-  powerDrainRate: 1
+  stamina:
+    maxValue: 100
+    drainRate: 10
+    regenRate: 5
+    regenCooldown: 1
+  power:
+    maxValue: 100
+    drainRate: 10
+    regenRate: 5
+    regenCooldown: 2
 --- !u!114 &6629340211680660710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5398,13 +5403,14 @@ GameObject:
   - component: {fileID: 9065723844856442885}
   - component: {fileID: 5369133294135801293}
   - component: {fileID: 2470714746152745047}
+  - component: {fileID: 1583092720943859898}
   m_Layer: 0
   m_Name: Blue projection_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9065723844856442885
 Transform:
   m_ObjectHideFlags: 0
@@ -5414,8 +5420,8 @@ Transform:
   m_GameObject: {fileID: 5786212455870085388}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2903956, y: 0.1611886, z: 0}
-  m_LocalScale: {x: 1.4705882, y: 2.245425, z: 1}
+  m_LocalPosition: {x: 0.5881, y: 0.03, z: 0}
+  m_LocalScale: {x: 27.130413, y: 38.35182, z: 28.175734}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7966686232438740141}
@@ -5497,3 +5503,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1583092720943859898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786212455870085388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

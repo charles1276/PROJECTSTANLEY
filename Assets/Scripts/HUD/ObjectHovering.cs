@@ -16,6 +16,9 @@ public class ObjectHovering : MonoBehaviour
 
     private Sprite[] weightDisplayLevels;
 
+    [Header("Player Magnet")]
+    private MagnetHandler magnetHandler;
+
     // check if object is outside camera view
     private bool IsObjectOutsideCamera(Vector3 objectPosition)
     {
@@ -51,6 +54,9 @@ public class ObjectHovering : MonoBehaviour
 
         // load weight display sprites
         weightDisplayLevels = weightDisplay.GetComponent<StateStorage>().spriteList;
+
+        // get magnet handler reference
+        magnetHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<MagnetHandler>();
     }
 
     // Update is called once per frame
@@ -61,7 +67,8 @@ public class ObjectHovering : MonoBehaviour
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
         RaycastHit2D mouseRaycast = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, LayerMask.GetMask("Magnets"));
 
-        if (mouseRaycast.collider != null)
+        // hovering over object with neutral polarity
+        if (mouseRaycast.collider != null && magnetHandler.attractionPolarity == ObjectPolarity.Neutral)
         {
             // move object to mouse position
             Vector2 mouseWorldPosition = mouseRaycast.point;
@@ -99,8 +106,8 @@ public class ObjectHovering : MonoBehaviour
             weightDisplay.GetComponent<RectTransform>().localPosition = weightTextureOffset;
 
             // set weight display sprite according to weight
-
-            weightDisplay.GetComponent<Image>().sprite = weightDisplayLevels[1];
+            mouseRaycast.collider.gameObject.TryGetComponent<ObjectProperties>(out ObjectProperties weightStorage);
+            weightDisplay.GetComponent<Image>().sprite = weightDisplayLevels[(int)weightStorage.weight];
         }
         else
         {
