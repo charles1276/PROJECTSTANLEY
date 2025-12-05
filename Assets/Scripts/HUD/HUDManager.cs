@@ -72,10 +72,10 @@ public class MagnetismUI
                 // no previous polarity
                 else
                 {
-                    Debug.Log("neu");
                     uiElement.GetComponent<Image>().sprite = sprites[1];
                 }
-                    break;
+                   
+                break;
 
             case ObjectPolarity.Negative:
                 uiElement.GetComponent<Image>().sprite = sprites[2];
