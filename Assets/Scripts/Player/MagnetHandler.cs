@@ -109,10 +109,10 @@ public class MagnetHandler : MonoBehaviour
         Vector2 middleAttractionVector = mouseWorldPosition - transform.position;
 
         // raycast to check for walls
-        RaycastHit2D[] middleChecks = FindGroundCheckVectors(middleAttractionVector);
+        RaycastHit2D middleCheck = FindGroundCheckVectors(middleAttractionVector);
 
         // check middle vector first
-        UpdateAttractedObject(middleChecks);
+        UpdateAttractedObject(middleCheck);
 
         // already found an attracted object, so skip further checks
         if (attractedObject != null)
@@ -130,49 +130,38 @@ public class MagnetHandler : MonoBehaviour
         for (int i = 0; i < attractionDivisions; i++)
         {
             // raycast to check for walls
-            RaycastHit2D[] checks = FindGroundCheckVectors(AttractionVector);
+            RaycastHit2D check = FindGroundCheckVectors(AttractionVector);
 
             // turn vector for next iteration
             AttractionVector = Vector2Extensions.Rotate(AttractionVector, angleDifferenceComponents);
 
             // check raycast results
-            UpdateAttractedObject(checks);
+            UpdateAttractedObject(check);
         }
     }
 
-    private RaycastHit2D[] FindGroundCheckVectors(Vector2 vector)
+    private RaycastHit2D FindGroundCheckVectors(Vector2 vector)
     {
         // raycast to check for walls
-        RaycastHit2D magnetsCheck = Physics2D.Raycast(transform.position, vector.normalized, attractionRange, LayerMask.GetMask("Magnets", "AnchoredMagnets", "Ground"));
-        RaycastHit2D groundCheck = Physics2D.Raycast(transform.position, vector.normalized, attractionRange, LayerMask.GetMask("Ground"));
+        RaycastHit2D magnetCheck = Physics2D.Raycast(transform.position, vector.normalized, attractionRange, LayerMask.GetMask("Magnets", "AnchoredMagnets", "Ground"));
         Debug.DrawRay(transform.position, vector.normalized * attractionRange, Color.red);
 
-        return new RaycastHit2D[] { magnetsCheck, groundCheck };
+        return magnetCheck;
     }
 
-    private void UpdateAttractedObject(RaycastHit2D[] groundChecks)
+    private void UpdateAttractedObject(RaycastHit2D magnetCheck)
     {
-        RaycastHit2D magnetsCheck = groundChecks[0];
-        RaycastHit2D groundCheck = groundChecks[1];
-
-        // if a wall is in the way, just skip this iteration
-        // does this by checking if both raycasts hit the same collider (meaning no magnet obstructed a wall)
-        if (groundCheck.collider != null && groundCheck.collider == magnetsCheck.collider)
-        {
-            return;
-        }
-
         // assign attracted objects if magnet collides 
-        if (magnetsCheck.collider != null)
+        if (magnetCheck.collider != null && magnetCheck.collider.CompareTag("Magnet"))
         {
             // debug line to show successful magnet hit
-            Debug.DrawLine(transform.position, magnetsCheck.point, Color.green);
+            Debug.DrawLine(transform.position, magnetCheck.point, Color.green);
 
             // undefined attracted object, so just assign
             if (attractedObject != null)
             {
                 Vector2 currentDist = (Vector2)transform.position - attractedPoint;
-                Vector2 otherDist = (Vector2)transform.position - magnetsCheck.point;
+                Vector2 otherDist = (Vector2)transform.position - magnetCheck.point;
 
                 // if this magnet is farther, skip iteration
                 if (otherDist.magnitude > currentDist.magnitude)
@@ -182,8 +171,8 @@ public class MagnetHandler : MonoBehaviour
             }
 
             // add to attracted objects dictionary
-            attractedObject = magnetsCheck.collider.gameObject;
-            attractedPoint = magnetsCheck.point;
+            attractedObject = magnetCheck.collider.gameObject;
+            attractedPoint = magnetCheck.point;
         }
     }
 

@@ -17126,7 +17126,7 @@ GameObject:
   - component: {fileID: 504132568}
   - component: {fileID: 504132565}
   - component: {fileID: 504132564}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: MagnetBlock
   m_TagString: Magnet
   m_Icon: {fileID: 0}
@@ -17647,7 +17647,7 @@ GameObject:
   - component: {fileID: 1355460466}
   - component: {fileID: 1355460465}
   - component: {fileID: 1355460464}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: MagnetBlock (1)
   m_TagString: Magnet
   m_Icon: {fileID: 0}

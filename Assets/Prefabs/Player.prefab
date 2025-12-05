@@ -401,7 +401,7 @@ MonoBehaviour:
   coyoteTime: 0.2
   jumpableGround:
     serializedVersion: 2
-    m_Bits: 392
+    m_Bits: 8
 --- !u!114 &9079374910092918546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,12 +417,12 @@ MonoBehaviour:
   stamina:
     maxValue: 100
     drainRate: 10
-    regenRate: 2
-    regenCooldown: 2
+    regenRate: 5
+    regenCooldown: 1
   power:
     maxValue: 100
     drainRate: 10
-    regenRate: 2
+    regenRate: 5
     regenCooldown: 2
 --- !u!114 &6629340211680660710
 MonoBehaviour:
