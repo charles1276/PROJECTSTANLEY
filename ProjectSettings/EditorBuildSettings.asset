@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/charles/main menu.unity
     guid: 1b7ae66e1ae079c45afafd2552b3a91d
   - enabled: 1
-    path: Assets/Levels/Tutorial.unity
+    path: Assets/Levels/Main Level.unity
     guid: 6caba42b6b1e0194689b8bf324662bbe
   - enabled: 1
     path: Assets/charles/level.unity
