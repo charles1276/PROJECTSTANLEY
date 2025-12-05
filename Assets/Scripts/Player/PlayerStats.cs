@@ -1,111 +1,72 @@
+using System;
 using UnityEngine;
+
+[Serializable]
+public class Statistic
+{
+    private float currentValue;
+    [SerializeField] private float maxValue = 100f;
+    [SerializeField] private float drainRate = 10f;
+    [SerializeField] private float regenRate = 2f;
+    [SerializeField] private float regenCooldown = 2f;
+    private float regenCooldownTime;
+
+    // constructor (initialization)
+    public Statistic()
+    {
+        currentValue = maxValue;
+        regenCooldownTime = 0f;
+    }
+
+    // drain the statistic over time
+    public void Drain()
+    {
+        currentValue -= drainRate * Time.deltaTime;
+        if (currentValue < 0f)
+        {
+            currentValue = 0f;
+        }
+
+        regenCooldownTime = Time.time + regenCooldown;
+    }
+
+    // regenerate the statistic over time
+    public void Regenerate()
+    {
+        if (Time.time < regenCooldownTime)
+        {
+            return;
+        }
+
+        currentValue += regenRate * Time.deltaTime;
+        if (currentValue > maxValue)
+        {
+            currentValue = maxValue;
+        }
+    }
+
+    // check if statistic can be used
+    public bool CanUse()
+    {
+        return currentValue > 0f;
+    }
+
+    // get percentage of statistic (0 to 1)
+    public float GetPercentage()
+    {
+        return currentValue / maxValue;
+    }
+}
 
 public class PlayerStats : MonoBehaviour
 {
-    [Header("Stamina")]
-    public float maxStamina = 100f;
-    public float staminaDrainRate = 10f;
-    public float staminaRegenRate = 5f;
-    private float stamina; // drains when sprinting
-
-    [Header("Power")]
-    public float maxPower = 100f;
-    public float powerDrainRate = 1f;
-    private float power;   // drains with magnet usage
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        stamina = maxStamina;
-        power = maxPower;
-    }
+    public Statistic stamina;
+    public Statistic power;
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void FixedUpdate()
-    {
-        // debug key to drain stamina
-        if (Input.GetKey(KeyCode.Semicolon))
-        {
-            drainStamina();
-        }
-        else
-        {
-            regenStamina();
-        }
-        // debug key to drain power
-        if (Input.GetKey(KeyCode.Colon))
-        {
-            drainPower();
-        }
-        else
-        {
-            regenPower();
-        }
-    }
-
-    public bool canSprint()
-    {
-        return stamina > 0f;
-    }
-
-    private float drainStat(float stat)
-    {
-        stat -= 10f * Time.fixedDeltaTime;
-        // clamp stat to minimum of 0
-        if (stat < 0f)
-        {
-            stat = 0f;
-        }
-
-        return stat;
-    }
-
-    private float regenStat(float stat, float maxstat)
-    {
-        stat += 5f * Time.fixedDeltaTime;
-        // clamp stat to maximum
-        if (stat > maxstat)
-        {
-            stat = maxstat;
-        }
-
-        return stat;
-    }
-
-    public void drainStamina()
-    {
-        stamina = drainStat(stamina);
-    }
-
-    public void regenStamina()
-    {
-        stamina = regenStat(stamina, maxStamina);
-    }
-
-    public void drainPower()
-    {
-        power = drainStat(power);
-    }
-
-    public void regenPower()
-    {
-        power = regenStat(power, maxPower);
-    }
-
-    // get stamina percentage (0 to 1)
-    public float getStaminaPercentage()
-    {
-        return stamina / maxStamina;
-    }
-
-    // get power percentage (0 to 1)
-    public float getPowerPercentage()
-    {
-        return power / maxPower;
+        stamina.Regenerate();
+        power.Regenerate();
     }
 }

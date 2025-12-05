@@ -163,13 +163,9 @@ public class PlayerMovement : MonoBehaviour
         if (isSprinting && rb.linearVelocityX != 0)
         {
             // only sprint if the player has stamina
-            if (!stats.canSprint()) { return; }
+            if (!stats.stamina.CanUse()) { return; }
 
-            stats.drainStamina();
-        }
-        else
-        {
-            stats.regenStamina();
+            stats.stamina.Drain();
         }
     }
 

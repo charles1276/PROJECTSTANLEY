@@ -124,8 +124,9 @@ public class HUDManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        staminaBar.setFillAmount(player.GetComponent<PlayerStats>().getStaminaPercentage());
-        powerBar.setFillAmount(player.GetComponent<PlayerStats>().getPowerPercentage());
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+        staminaBar.setFillAmount(playerStats.stamina.GetPercentage());
+        powerBar.setFillAmount(playerStats.power.GetPercentage());
     }
 
     public void updateMagnetismIndicator(ObjectPolarity polarity)
