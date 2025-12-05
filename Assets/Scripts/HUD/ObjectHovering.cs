@@ -65,11 +65,14 @@ public class ObjectHovering : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
 
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
-        RaycastHit2D mouseRaycast = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, LayerMask.GetMask("Magnets"));
+        RaycastHit2D mouseRaycast = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, LayerMask.GetMask("Ground"));
 
         // hovering over object with neutral polarity
-        if (mouseRaycast.collider != null && magnetHandler.attractionPolarity == ObjectPolarity.Neutral)
+        if (mouseRaycast.collider != null && magnetHandler.attractionPolarity == ObjectPolarity.Neutral && mouseRaycast.collider.CompareTag("Magnet"))
         {
+            // show weight display
+            weightDisplay.SetActive(true);
+
             // move object to mouse position
             Vector2 mouseWorldPosition = mouseRaycast.point;
             transform.position = mouseWorldPosition + Vector2.up * hoverHeight + Vector2.right * hoverWidth;
@@ -85,6 +88,7 @@ public class ObjectHovering : MonoBehaviour
             // position weight display offset from the mouse position
             Vector2 weightTextureOffset = weightTextureSize / 2;
 
+            // too far up
             if (IsObjectOutsideCamera(mouseWorldPosition + (hoverHeight + weightWorldTextureSize.y) * Vector2.up))
             {
                 // flip weight display downwards
@@ -94,6 +98,10 @@ public class ObjectHovering : MonoBehaviour
                 transform.position += 2 * hoverHeight * Vector3.down;
             }
 
+            // normally set weight display fill origin to left
+            weightDisplay.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Left;
+
+            // too far right
             if (IsObjectOutsideCamera(mouseWorldPosition + (hoverWidth + weightWorldTextureSize.x) * Vector2.right))
             {
                 // flip weight display to the left
@@ -101,17 +109,26 @@ public class ObjectHovering : MonoBehaviour
 
                 // adjust object position leftwards
                 transform.position += 2 * hoverWidth * Vector3.left;
+
+                // set weight display fill origin to right
+                weightDisplay.GetComponent<Image>().fillOrigin = (int)Image.OriginHorizontal.Right;
             }
 
             weightDisplay.GetComponent<RectTransform>().localPosition = weightTextureOffset;
 
             // set weight display sprite according to weight
-            mouseRaycast.collider.gameObject.TryGetComponent<ObjectProperties>(out ObjectProperties weightStorage);
+            ObjectProperties weightStorage = mouseRaycast.collider.gameObject.GetComponent<ObjectProperties>();
             weightDisplay.GetComponent<Image>().sprite = weightDisplayLevels[(int)weightStorage.weight];
         }
         else
         {
             fillPercentage = Mathf.Lerp(fillPercentage, 0, Time.deltaTime * displaySpeed);
+
+            // threshold to disable weight display
+            if (fillPercentage <= 0.01f)
+            {
+                weightDisplay.SetActive(false);
+            }
         }
 
         // set weight display fill amount
