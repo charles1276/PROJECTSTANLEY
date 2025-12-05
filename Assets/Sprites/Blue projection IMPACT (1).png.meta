@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 7b3dc0143918e9b41b354f9f12cb4725
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1396176244545251358
+    second: Blue projection IMPACT (1)_0
+  - first:
+      213: 4536084927453025726
+    second: Blue projection IMPACT (1)_1
+  - first:
+      213: 3353106633192401924
+    second: Blue projection IMPACT (1)_2
+  - first:
+      213: 1276057292256915856
+    second: Blue projection IMPACT (1)_3
+  - first:
+      213: 371826864474152665
+    second: Blue projection IMPACT (1)_4
+  - first:
+      213: 8471875195664090089
+    second: Blue projection IMPACT (1)_5
+  - first:
+      213: -3537119022282547114
+    second: Blue projection IMPACT (1)_6
+  - first:
+      213: -4689543771145211721
+    second: Blue projection IMPACT (1)_7
+  - first:
+      213: -5160022179982272698
+    second: Blue projection IMPACT (1)_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_0
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 126
+        width: 8
+        height: 8
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1865fba5e6306310800000000000000
+      internalID: 1396176244545251358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 125
+        width: 16
+        height: 13
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb557d3553963fe30800000000000000
+      internalID: 4536084927453025726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_2
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 125
+        width: 22
+        height: 14
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c6075a7b0a88e20800000000000000
+      internalID: 3353106633192401924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 86
+        width: 29
+        height: 15
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0913502b85775b110800000000000000
+      internalID: 1276057292256915856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_4
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 85
+        width: 37
+        height: 18
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9deddee209ef82500800000000000000
+      internalID: 371826864474152665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_5
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 85
+        width: 44
+        height: 16
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e34003ca95229570800000000000000
+      internalID: 8471875195664090089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_6
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 48
+        width: 48
+        height: 13
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650629c5df0a9eec0800000000000000
+      internalID: -3537119022282547114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 48
+        width: 50
+        height: 10
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b07e3259c46beeb0800000000000000
+      internalID: -4689543771145211721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blue projection IMPACT (1)_8
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 48
+        width: 53
+        height: 6
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64715019a2be368b0800000000000000
+      internalID: -5160022179982272698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 071be9683cc9cf741b30461222782f19
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Blue projection IMPACT (1)_0: 1396176244545251358
+      Blue projection IMPACT (1)_1: 4536084927453025726
+      Blue projection IMPACT (1)_2: 3353106633192401924
+      Blue projection IMPACT (1)_3: 1276057292256915856
+      Blue projection IMPACT (1)_4: 371826864474152665
+      Blue projection IMPACT (1)_5: 8471875195664090089
+      Blue projection IMPACT (1)_6: -3537119022282547114
+      Blue projection IMPACT (1)_7: -4689543771145211721
+      Blue projection IMPACT (1)_8: -5160022179982272698
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
