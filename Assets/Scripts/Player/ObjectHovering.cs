@@ -22,7 +22,7 @@ public class ObjectHovering : MonoBehaviour
             return true;
         }
 
-        // If none of the above are true, the center of the object is within the camera's view
+         If none of the above are true, the center of the object is within the camera's view
         return false;
     }
 
@@ -34,7 +34,7 @@ public class ObjectHovering : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+   {
         Vector3 mousePosition = Input.mousePosition;
 
         Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
