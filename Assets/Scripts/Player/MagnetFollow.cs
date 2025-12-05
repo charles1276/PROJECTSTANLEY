@@ -4,6 +4,9 @@ public class MagnetFollow : MonoBehaviour
 {
     [SerializeField] Transform Magnet;
 
+    [SerializeField] Transform Blue;
+    [SerializeField] Transform Red;
+
     Vector2 direction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +20,8 @@ public class MagnetFollow : MonoBehaviour
         //Get mouse position in world space
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         direction = mousePos - (Vector2)Magnet.position;
+        //Get Blue and Red positions
+
         //Flips player based on mouse position
         if (mousePos.x <= transform.position.x)
         {
