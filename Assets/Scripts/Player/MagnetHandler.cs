@@ -195,13 +195,19 @@ public class MagnetHandler : MonoBehaviour
             return;
         }
 
+        // if out of power, do nothing
+        if (!playerStats.power.CanUse())
+        {
+            return;
+        }
+
         CastAttractionCone();
 
         // apply magnetism to attracted objects
         if (attractedObject != null)
         {
             // drain power
-            playerStats.drainPower();
+            playerStats.power.Drain();
 
             ApplyMagnetism(attractedObject, attractedPoint);
         }
