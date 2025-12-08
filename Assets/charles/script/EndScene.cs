@@ -30,13 +30,13 @@ public class EndScene : MonoBehaviour
        robotPosition2D = robot.transform.position;
         if (robotPosition2D.x >= 25.36f)
         {
-            robotPosition2D.x -= 0.008f;
+            robotPosition2D.x -= 0.006f;
             
         }
         if (robotPosition2D.x <= 25.36f & robotPosition2D.y <= 0.07f)
         {
-            robotPosition2D.x -= 0.008f;
-            robotPosition2D.y += 0.008f;
+            robotPosition2D.x -= 0.003f;
+            robotPosition2D.y += 0.004f;
        
         }
         robot.transform.position = new Vector3(robotPosition2D.x, robotPosition2D.y);
