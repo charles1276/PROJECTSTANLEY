@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public enum Collectibles
 {
@@ -139,6 +140,31 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        
+        // slots
+        GameObject slotOne = HUD.transform.Find("Slot1").gameObject;
+        GameObject slotTwo = HUD.transform.Find("Slot2").gameObject;
+        GameObject slotThree = HUD.transform.Find("Slot3").gameObject;
+
+        // unselected 
+        slotOne.GetComponent<Image>().sprite = slotOne.GetComponent<StateStorage>().spriteList[0];
+        slotTwo.GetComponent<Image>().sprite = slotTwo.GetComponent<StateStorage>().spriteList[0];
+        slotThree.GetComponent<Image>().sprite = slotThree.GetComponent<StateStorage>().spriteList[0];
+
+        Debug.Log(selectedSlotIndex);
+
+        switch (selectedSlotIndex)
+        {
+            case 0:
+                slotOne.GetComponent<Image>().sprite = slotOne.GetComponent<StateStorage>().spriteList[1];
+                break;
+
+            case 1:
+                slotTwo.GetComponent<Image>().sprite = slotTwo.GetComponent<StateStorage>().spriteList[1];
+                break;
+
+            case 2:
+                slotThree.GetComponent<Image>().sprite = slotThree.GetComponent<StateStorage>().spriteList[1];
+                break;
+        }
     }
 }
