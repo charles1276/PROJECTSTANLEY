@@ -153,12 +153,12 @@ TextureImporter:
       name: Red projection_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 11
         y: 182
-        width: 16
+        width: 7
         height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: Red projection_1
       rect:
         serializedVersion: 2
-        x: 98
+        x: 107
         y: 178
-        width: 24
+        width: 15
         height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -197,12 +197,12 @@ TextureImporter:
       name: Red projection_2
       rect:
         serializedVersion: 2
-        x: 194
+        x: 203
         y: 177
-        width: 30
+        width: 21
         height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: Red projection_3
       rect:
         serializedVersion: 2
-        x: 2
+        x: 11
         y: 98
-        width: 37
+        width: 28
         height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -241,12 +241,12 @@ TextureImporter:
       name: Red projection_4
       rect:
         serializedVersion: 2
-        x: 98
+        x: 107
         y: 97
-        width: 42
+        width: 33
         height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -263,12 +263,12 @@ TextureImporter:
       name: Red projection_5
       rect:
         serializedVersion: 2
-        x: 194
+        x: 203
         y: 94
-        width: 52
+        width: 43
         height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -285,12 +285,12 @@ TextureImporter:
       name: Red projection_6
       rect:
         serializedVersion: 2
-        x: 2
+        x: 11
         y: 17
-        width: 56
+        width: 47
         height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -307,12 +307,12 @@ TextureImporter:
       name: Red projection_7
       rect:
         serializedVersion: 2
-        x: 98
+        x: 107
         y: 16
-        width: 58
+        width: 49
         height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -329,12 +329,12 @@ TextureImporter:
       name: Red projection_8
       rect:
         serializedVersion: 2
-        x: 194
+        x: 203
         y: 15
-        width: 61
+        width: 52
         height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.02618429, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -351,7 +351,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 942b53ff4bb56e64282860727c538363
     internalID: 0
     vertices: []
     indices: 
