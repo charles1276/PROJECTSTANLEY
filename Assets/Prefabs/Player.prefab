@@ -409,10 +409,6 @@ MonoBehaviour:
   attractionRange: 10
   attractionDivisions: 5
   speed: 15
-  BlueRepel: {fileID: 5786212455870085388}
-  RedAttract: {fileID: 5176879115563336640}
-  BlueAnim: {fileID: 2470714746152745047}
-  RedAnim: {fileID: 3071324466176453131}
   attractionPolarity: 0
 --- !u!114 &3003500491552354867
 MonoBehaviour:
@@ -5353,7 +5349,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3426152048982459459, guid: c6c6c133267b2684697131ae9acc600c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.72156864}
   m_FlipX: 0
@@ -5377,8 +5373,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlueAnim: {fileID: 0}
-  RedAnim: {fileID: 0}
 --- !u!95 &3071324466176453131
 Animator:
   serializedVersion: 7
@@ -5567,7 +5561,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 3352318092723117738, guid: 5284ac8d222af8641881f932d3da877e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.72156864}
   m_FlipX: 0
@@ -5613,5 +5607,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlueAnim: {fileID: 0}
-  RedAnim: {fileID: 0}
