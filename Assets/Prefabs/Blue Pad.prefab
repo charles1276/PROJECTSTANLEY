@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4212887775968709032}
   - component: {fileID: 8671565949820089157}
   - component: {fileID: 4298025461253899289}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Blue Pad
   m_TagString: Magnet
   m_Icon: {fileID: 0}

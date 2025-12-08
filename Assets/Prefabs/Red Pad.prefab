@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 9148900126340479477}
   - component: {fileID: 6287938514264523001}
   - component: {fileID: 5615816299078740018}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Red Pad
-  m_TagString: Untagged
+  m_TagString: Magnet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8056986704294660607, guid: 5dc8fec0057d92a43a3d8cc1bc270381, type: 3}
+  m_Sprite: {fileID: -975332882386524460, guid: ddaca677a598fc940bb88ae4c69cf9f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,7 +128,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.03125, y: 1.0625}
+    oldSize: {x: 2, y: 1.0625}
     newSize: {x: 2.03125, y: 1.0625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
