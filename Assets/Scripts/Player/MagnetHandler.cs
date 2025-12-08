@@ -79,10 +79,7 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
-            if (RedAnim.GetBool("IsAttracting") == false)
-            {
                 BlueAnim.SetBool("IsRepeling", false);
-            }
         }
 
         // update HUD
@@ -105,10 +102,7 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
-            if (BlueAnim.GetBool("IsAttracting") == false)
-            {
                 RedAnim.SetBool("IsAttracting", false);
-            }
         }
 
         // update HUD

@@ -5,7 +5,7 @@ public class StopsProjectionBlue : MonoBehaviour
     [SerializeField] Animator BlueAnim;
     [SerializeField] Animator RedAnim;
 
-    void FixedUpdate()
+    void Update()
     {
         if(RedAnim.GetBool("IsAttracting") == true)
         {
