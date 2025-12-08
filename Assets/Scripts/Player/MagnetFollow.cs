@@ -4,9 +4,6 @@ public class MagnetFollow : MonoBehaviour
 {
     [SerializeField] Transform Magnet;
 
-    [SerializeField] Transform Blue;
-    [SerializeField] Transform Red;
-
     Vector2 direction;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,10 +23,12 @@ public class MagnetFollow : MonoBehaviour
         if (mousePos.x <= transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
+            Magnet.transform.localScale = new Vector3(-0.68f, 0.44535f, 1f);
         }
         else if (mousePos.x > transform.position.x)
         {
             transform.localScale = new Vector3(1, 1, 1);
+            Magnet.transform.localScale = new Vector3(0.68f, 0.44535f, 1f);
         }
         //Magnet faces mouse
         FaceMouse();
