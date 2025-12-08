@@ -37,6 +37,14 @@ public class MagnetHandler : MonoBehaviour
     private GameObject attractedObject;
     private Vector2 attractedPoint;
 
+    //Attraction and Repel Projection
+    [SerializeField] GameObject BlueRepel;
+    [SerializeField] GameObject RedAttract;
+
+    //Projection Animators
+    [SerializeField] Animator BlueAnim;
+    [SerializeField] Animator RedAnim;
+
     // polarity
     public ObjectPolarity attractionPolarity;
 
@@ -62,11 +70,19 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Positive;
             //print("pos");
+            if (RedAnim.GetBool("IsAttracting") == false)
+            {
+                BlueRepel.SetActive(true);
+            }
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Positive)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
+            if (RedAnim.GetBool("IsAttracting") == false)
+            {
+                BlueAnim.SetBool("IsRepeling", false);
+            }
         }
 
         // update HUD
@@ -80,11 +96,19 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Negative;
             //print("neg");
+            if (BlueAnim.GetBool("IsAttracting") == false)
+            {
+                RedAttract.SetActive(true);
+            }
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Negative)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
+            if (BlueAnim.GetBool("IsAttracting") == false)
+            {
+                RedAnim.SetBool("IsAttracting", false);
+            }
         }
 
         // update HUD
