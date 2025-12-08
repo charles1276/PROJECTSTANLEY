@@ -401,7 +401,7 @@ MonoBehaviour:
   coyoteTime: 0.2
   jumpableGround:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
 --- !u!114 &9079374910092918546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +468,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnet: {fileID: 7966686232438740141}
+  Blue: {fileID: 0}
+  Red: {fileID: 0}
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0

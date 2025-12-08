@@ -75,7 +75,6 @@ public class ObjectHovering : MonoBehaviour
 
             // move object to mouse position
             Vector2 mouseWorldPosition = mouseRaycast.point;
-            transform.position = mouseWorldPosition + Vector2.up * hoverHeight + Vector2.right * hoverWidth;
 
             // hide weight display if mouse is outside camera view
             if (IsObjectOutsideCamera(mouseWorldPosition))
@@ -83,6 +82,7 @@ public class ObjectHovering : MonoBehaviour
                 return;
             }
 
+            transform.position = mouseWorldPosition + Vector2.up * hoverHeight + Vector2.right * hoverWidth;
             fillPercentage = Mathf.Lerp(fillPercentage, 1, Time.deltaTime * displaySpeed);
 
             // position weight display offset from the mouse position
