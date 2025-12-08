@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 6f14b7429d8ba7f40969079a02a10cd9
+guid: 5dc8fec0057d92a43a3d8cc1bc270381
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1031760833317429451
-    second: Red projection 1_0
+      213: 8842868547047106618
+    second: button red_0
   - first:
-      213: 9192781272485524637
-    second: Red projection 1_1
+      213: -8056986704294660607
+    second: button red_1
   - first:
-      213: -2472730659185837218
-    second: Red projection 1_2
+      213: -3499396593808386016
+    second: button red_2
   - first:
-      213: 7491055720376574620
-    second: Red projection 1_3
+      213: 8831229807872838225
+    second: button red_3
   - first:
-      213: 9011253543714259480
-    second: Red projection 1_4
+      213: -9018547436280491051
+    second: button red_4
   - first:
-      213: 5270846825743037463
-    second: Red projection 1_5
-  - first:
-      213: 4357664854343456079
-    second: Red projection 1_6
-  - first:
-      213: 7581064183562105238
-    second: Red projection 1_7
-  - first:
-      213: -7930001390093812365
-    second: Red projection 1_8
+      213: -699000186230628893
+    second: button red_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -61,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -98,7 +89,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -120,43 +111,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Red projection 1_0
+      name: button red_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 182
-        width: 16
-        height: 11
+        x: 29
+        y: 238
+        width: 65
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53f14f41df27ea1f0800000000000000
-      internalID: -1031760833317429451
+      spriteID: a38a73e871e28ba70800000000000000
+      internalID: 8842868547047106618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Red projection 1_1
+      name: button red_1
       rect:
         serializedVersion: 2
-        x: 98
-        y: 178
-        width: 24
-        height: 19
+        x: 97
+        y: 238
+        width: 65
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d94fc54acd1539f70800000000000000
-      internalID: 9192781272485524637
+      spriteID: 106b87ab745df2090800000000000000
+      internalID: -8056986704294660607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Red projection 1_2
+      name: button red_2
       rect:
         serializedVersion: 2
-        x: 194
-        y: 177
-        width: 30
-        height: 22
+        x: 29
+        y: 170
+        width: 34
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e5bb20a01981fadd0800000000000000
-      internalID: -2472730659185837218
+      spriteID: 028d6d9a655af6fc0800000000000000
+      internalID: -3499396593808386016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Red projection 1_3
+      name: button red_3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 98
-        width: 37
-        height: 29
+        x: 92
+        y: 170
+        width: 34
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9224b50d7395f760800000000000000
-      internalID: 7491055720376574620
+      spriteID: 15a0a1c68b4de8a70800000000000000
+      internalID: 8831229807872838225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Red projection 1_4
+      name: button red_4
       rect:
         serializedVersion: 2
-        x: 98
-        y: 97
-        width: 42
-        height: 31
+        x: 138
+        y: 170
+        width: 66
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8128116ba576e0d70800000000000000
-      internalID: 9011253543714259480
+      spriteID: 5d3dd7693eea7d280800000000000000
+      internalID: -9018547436280491051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Red projection 1_5
+      name: button red_5
       rect:
         serializedVersion: 2
-        x: 194
-        y: 94
-        width: 52
-        height: 37
+        x: 212
+        y: 170
+        width: 66
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,74 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 714b8e9034fc52940800000000000000
-      internalID: 5270846825743037463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Red projection 1_6
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 17
-        width: 56
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f45985dd819897c30800000000000000
-      internalID: 4357664854343456079
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Red projection 1_7
-      rect:
-        serializedVersion: 2
-        x: 98
-        y: 16
-        width: 58
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 691f7a075b9553960800000000000000
-      internalID: 7581064183562105238
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Red projection 1_8
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 15
-        width: 61
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 37dba1b20c9f2f190800000000000000
-      internalID: -7930001390093812365
+      spriteID: 3ed9ac9b807ac46f0800000000000000
+      internalID: -699000186230628893
       vertices: []
       indices: 
       edges: []
@@ -361,15 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Red projection 1_0: -1031760833317429451
-      Red projection 1_1: 9192781272485524637
-      Red projection 1_2: -2472730659185837218
-      Red projection 1_3: 7491055720376574620
-      Red projection 1_4: 9011253543714259480
-      Red projection 1_5: 5270846825743037463
-      Red projection 1_6: 4357664854343456079
-      Red projection 1_7: 7581064183562105238
-      Red projection 1_8: -7930001390093812365
+      button red_0: 8842868547047106618
+      button red_1: -8056986704294660607
+      button red_2: -3499396593808386016
+      button red_3: 8831229807872838225
+      button red_4: -9018547436280491051
+      button red_5: -699000186230628893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

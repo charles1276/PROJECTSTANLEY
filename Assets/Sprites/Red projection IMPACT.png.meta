@@ -360,7 +360,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Red projection IMPACT_0: -5241066114398278619
+      Red projection IMPACT_1: 2059798330412025887
+      Red projection IMPACT_2: -2131478170002037161
+      Red projection IMPACT_3: -6257766938589131252
+      Red projection IMPACT_4: 9027108675174531312
+      Red projection IMPACT_5: 3593242745153136783
+      Red projection IMPACT_6: -6066361634354756521
+      Red projection IMPACT_7: 5251503368699135405
+      Red projection IMPACT_8: 2187323363393802420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
