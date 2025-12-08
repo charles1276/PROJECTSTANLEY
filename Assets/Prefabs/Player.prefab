@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6629340211680660710}
   - component: {fileID: 3003500491552354867}
   - component: {fileID: 4432514120275971501}
+  - component: {fileID: 2819870434273220750}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -236,14 +237,6 @@ MonoBehaviour:
     m_ActionName: 'Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2776c80d-3c14-4091-8c56-d04ced07a2b0
-    m_ActionName: 'Player/Previous[/Keyboard/1,/XInputControllerWindows/dpad/left]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba
-    m_ActionName: 'Player/Next[/Keyboard/2,/XInputControllerWindows/dpad/right]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
     m_ActionName: 'UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -346,6 +339,86 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5e87c7f6-2ead-4169-baea-4438cbf3dcba
     m_ActionName: 'Player/SwapGravity[/Keyboard/f]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2819870434273220750}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: FirstSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c963d7ae-a072-423e-9654-97035134e645
+    m_ActionName: 'Inventory/FirstSlot[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2819870434273220750}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: SecondSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2f64c99a-b174-40eb-b8da-6f3d0c7e32cd
+    m_ActionName: 'Inventory/SecondSlot[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2819870434273220750}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: ThirdSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: daeace6e-6ca5-439c-8f9b-b45f98ffb798
+    m_ActionName: 'Inventory/ThirdSlot[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2819870434273220750}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: NextSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dbbcb170-a396-410e-b402-5e6b9aae7e36
+    m_ActionName: 'Inventory/Next[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2819870434273220750}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: PreviousSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d8f0d070-e89d-4cb5-be63-252de6415ced
+    m_ActionName: 'Inventory/Previous[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -409,6 +482,10 @@ MonoBehaviour:
   attractionRange: 10
   attractionDivisions: 5
   speed: 15
+  BlueRepel: {fileID: 0}
+  RedAttract: {fileID: 0}
+  BlueAnim: {fileID: 0}
+  RedAnim: {fileID: 0}
   attractionPolarity: 0
 --- !u!114 &3003500491552354867
 MonoBehaviour:
@@ -437,6 +514,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnet: {fileID: 7966686232438740141}
+--- !u!114 &2819870434273220750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046760900981843949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221221d0994457b41b1c8f3c813931b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedSlotIndex: 0
+  inventorySlots: 000000000000000000000000
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5373,6 +5464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlueAnim: {fileID: 0}
+  RedAnim: {fileID: 0}
 --- !u!95 &3071324466176453131
 Animator:
   serializedVersion: 7
@@ -5607,3 +5700,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlueAnim: {fileID: 0}
+  RedAnim: {fileID: 0}
