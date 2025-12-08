@@ -12,25 +12,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float movementSpeed = 5f;
     [SerializeField] private float sprintMultiplier = 1.6f;
     [SerializeField] private float friction = 0.9f;
-    private float originalFriction;
-
-    private bool canWallJump;
 
     [SerializeField] private float jumpHeight = 10f;
     private float jumpRequestedTime = -1f;
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
     [SerializeField] private float coyoteTime = 0.2f;
 
-    //Gravity Swap
-    private float gravityStore;
-
-
-
     // input variables
     private float moveInput;
     private bool isSprinting;
-
-    private CapsuleCollider2D coll;
 
     [Header("Mask for Ground Detection")]
     [SerializeField] private LayerMask jumpableGround;
@@ -40,19 +30,11 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        // store original friction
-        originalFriction = friction;
-
         // get reference to player stats
         stats = GetComponent<PlayerStats>();
 
         // get reference to rigidbody and collider
         rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<CapsuleCollider2D>();
-
-        // store gravity scale
-        gravityStore = rb.gravityScale;
-
     }
 
     // Update is called once per frame
@@ -111,14 +93,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (ctx.performed)
         {
-            gravityStore = -gravityStore;
+            rb.gravityScale *= -1;
+            coyoteTime = 0f; // reset coyote time on gravity swap
         }
     }
 
 
     private bool isGrounded()
     {
-        Vector2 worldDown = Mathf.Sign(gravityStore) * Vector2.down;
+        Vector2 worldDown = Mathf.Sign(rb.gravityScale) * Vector2.down;
 
         // perform raycast downwards to check for ground
         RaycastHit2D hit = Physics2D.Raycast((Vector2)transform.position + worldDown, worldDown, .01f, jumpableGround);
@@ -151,10 +134,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (coyoteTime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
         {
-            rb.linearVelocityY = jumpHeight * gravityStore/2;
-
+            rb.linearVelocityY = jumpHeight * Mathf.Sign(rb.gravityScale);
         }
-        
     }
 
     private void attemptSprint()
@@ -167,17 +148,5 @@ public class PlayerMovement : MonoBehaviour
 
             stats.stamina.Drain();
         }
-    }
-
-    // ignore friction effect
-    public void startIgnoreFriction()
-    {
-        rb.linearVelocityX /= friction;
-    }
-
-    // reset friction effect
-    public void stopIgnoreFriction()
-    {
-        rb.linearVelocityX *= friction;
     }
 }
