@@ -84,7 +84,7 @@ AnimatorController:
   m_Name: BlueRepel
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: IsAttracting
+  - m_Name: IsRepeling
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -167,7 +167,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: IsAttracting
+    m_ConditionEvent: IsRepeling
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5265782373984094652}

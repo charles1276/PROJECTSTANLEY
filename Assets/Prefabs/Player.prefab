@@ -437,8 +437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnet: {fileID: 7966686232438740141}
-  Blue: {fileID: 0}
-  Red: {fileID: 0}
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5284,6 +5282,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5371486316158474395}
   - component: {fileID: 2743182060973288973}
+  - component: {fileID: 1151307501593978869}
+  - component: {fileID: 3071324466176453131}
   m_Layer: 0
   m_Name: Red projection_0
   m_TagString: Untagged
@@ -5300,7 +5300,7 @@ Transform:
   m_GameObject: {fileID: 5176879115563336640}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.478, y: -0.11, z: 0}
+  m_LocalPosition: {x: 0.478, y: -0.107, z: 0}
   m_LocalScale: {x: 28.987576, y: 40.991127, z: 30.10445}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5351,7 +5351,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3426152048982459459, guid: c6c6c133267b2684697131ae9acc600c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.72156864}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5361,6 +5361,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1151307501593978869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176879115563336640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &3071324466176453131
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176879115563336640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0a3241572516e494e85ec2f219cbb9f6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5564372121667780746
 GameObject:
   m_ObjectHideFlags: 0
@@ -5529,7 +5563,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3352318092723117738, guid: 5284ac8d222af8641881f932d3da877e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.72156864}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
