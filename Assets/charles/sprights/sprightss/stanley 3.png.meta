@@ -360,7 +360,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      stanley 3_0: -4006259151393921744
+      stanley 3_1: -355344076206360414
+      stanley 3_2: -6453529954088763032
+      stanley 3_3: -258966124169799210
+      stanley 3_4: -6715991965007253663
+      stanley 3_5: -7135081245328868201
+      stanley 3_6: -8828571250450105926
+      stanley 3_7: -1851260677084732567
+      stanley 3_8: 63264897132619383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

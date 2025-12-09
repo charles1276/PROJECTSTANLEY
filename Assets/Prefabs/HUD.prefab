@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 3862990205635770160}
   - component: {fileID: 8026478526060457074}
   - component: {fileID: 975633773697965048}
+  - component: {fileID: 8217963331969128907}
   m_Layer: 5
   m_Name: Slot2
   m_TagString: Untagged
@@ -214,6 +215,21 @@ MonoBehaviour:
   spriteList:
   - {fileID: 1479212600, guid: 6f731818e34ace64d93c88b108e834d1, type: 3}
   - {fileID: -1766408111, guid: 6f731818e34ace64d93c88b108e834d1, type: 3}
+--- !u!114 &8217963331969128907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2282310133655239448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3072070326473723900
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +242,7 @@ GameObject:
   - component: {fileID: 5807998919523683902}
   - component: {fileID: 6432823941358192302}
   - component: {fileID: 2710366783721456829}
+  - component: {fileID: 3288406000931083244}
   m_Layer: 5
   m_Name: Slot1
   m_TagString: Untagged
@@ -305,6 +322,21 @@ MonoBehaviour:
   spriteList:
   - {fileID: -1543557817, guid: 6f731818e34ace64d93c88b108e834d1, type: 3}
   - {fileID: -354845089, guid: 6f731818e34ace64d93c88b108e834d1, type: 3}
+--- !u!114 &3288406000931083244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3072070326473723900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &8107347789560487715
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,6 +349,7 @@ GameObject:
   - component: {fileID: 7817207873167680399}
   - component: {fileID: 6479226191599832710}
   - component: {fileID: 2172836709463369218}
+  - component: {fileID: 8478150551640554191}
   m_Layer: 5
   m_Name: Slot3
   m_TagString: Untagged
@@ -396,6 +429,21 @@ MonoBehaviour:
   spriteList:
   - {fileID: 304623830, guid: 6f731818e34ace64d93c88b108e834d1, type: 3}
   - {fileID: -1716279325, guid: 6f731818e34ace64d93c88b108e834d1, type: 3}
+--- !u!114 &8478150551640554191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107347789560487715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &4516010897521663498
 PrefabInstance:
   m_ObjectHideFlags: 0
