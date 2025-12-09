@@ -572,6 +572,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1151307501593978869, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
+      propertyPath: RedAnim
+      value: 
+      objectReference: {fileID: 1268915361}
+    - target: {fileID: 1151307501593978869, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
+      propertyPath: BlueAnim
+      value: 
+      objectReference: {fileID: 1423679266}
+    - target: {fileID: 1583092720943859898, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
+      propertyPath: RedAnim
+      value: 
+      objectReference: {fileID: 1268915361}
+    - target: {fileID: 1583092720943859898, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
+      propertyPath: BlueAnim
+      value: 
+      objectReference: {fileID: 1423679266}
     - target: {fileID: 3046760900981843949, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -614,6 +630,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4790587023519305711, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176879115563336640, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786212455870085388, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -966,6 +990,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1268915361 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3071324466176453131, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
+  m_PrefabInstance: {fileID: 824813440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1423679266 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2470714746152745047, guid: aa7575808cd8a7b4c84259183828b3b3, type: 3}
+  m_PrefabInstance: {fileID: 824813440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1530534995
 GameObject:
   m_ObjectHideFlags: 0

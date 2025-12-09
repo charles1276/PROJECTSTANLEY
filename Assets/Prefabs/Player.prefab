@@ -5381,7 +5381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5371486316158474395
 Transform:
   m_ObjectHideFlags: 0
@@ -5464,8 +5464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlueAnim: {fileID: 0}
-  RedAnim: {fileID: 0}
+  BlueAnim: {fileID: 2470714746152745047}
+  RedAnim: {fileID: 3071324466176453131}
 --- !u!95 &3071324466176453131
 Animator:
   serializedVersion: 7
@@ -5595,7 +5595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9065723844856442885
 Transform:
   m_ObjectHideFlags: 0
@@ -5700,5 +5700,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlueAnim: {fileID: 0}
-  RedAnim: {fileID: 0}
+  BlueAnim: {fileID: 2470714746152745047}
+  RedAnim: {fileID: 3071324466176453131}

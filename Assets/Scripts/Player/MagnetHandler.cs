@@ -70,16 +70,16 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Positive;
             //print("pos");
-            if (RedAnim.GetBool("IsAttracting") == false)
+            if (BlueAnim.GetBool("IsRepeling") == false)
             {
-                BlueRepel.SetActive(true);
+                RedAttract.SetActive(true);
             }
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Positive)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
-                BlueAnim.SetBool("IsRepeling", false);
+                RedAnim.SetBool("IsAttracting", false);
         }
 
         // update HUD
@@ -93,16 +93,16 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Negative;
             //print("neg");
-            if (BlueAnim.GetBool("IsAttracting") == false)
+            if (RedAnim.GetBool("IsAttracting") == false)
             {
-                RedAttract.SetActive(true);
+                BlueRepel.SetActive(true);
             }
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Negative)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
-                RedAnim.SetBool("IsAttracting", false);
+                BlueAnim.SetBool("IsRepeling", false);
         }
 
         // update HUD
