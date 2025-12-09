@@ -18,7 +18,6 @@ public class ChestManager : MonoBehaviour
     {
         InventoryManager playerInventory = player.GetComponent<InventoryManager>();
 
-        print("fuck");
         storedItem = playerInventory.SwapObject(storedItem);
     }
 
