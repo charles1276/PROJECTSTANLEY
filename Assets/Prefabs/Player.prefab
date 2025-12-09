@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6629340211680660710}
   - component: {fileID: 3003500491552354867}
   - component: {fileID: 4432514120275971501}
+  - component: {fileID: 5270916517905328015}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -339,25 +340,85 @@ MonoBehaviour:
     m_ActionId: 5e87c7f6-2ead-4169-baea-4438cbf3dcba
     m_ActionName: 'Player/SwapGravity[/Keyboard/f]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5270916517905328015}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: FirstSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c963d7ae-a072-423e-9654-97035134e645
     m_ActionName: 'Inventory/FirstSlot[/Keyboard/1]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5270916517905328015}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: SecondSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 2f64c99a-b174-40eb-b8da-6f3d0c7e32cd
     m_ActionName: 'Inventory/SecondSlot[/Keyboard/2]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5270916517905328015}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: ThirdSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: daeace6e-6ca5-439c-8f9b-b45f98ffb798
     m_ActionName: 'Inventory/ThirdSlot[/Keyboard/3]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5270916517905328015}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: NextSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: dbbcb170-a396-410e-b402-5e6b9aae7e36
-    m_ActionName: 'Inventory/Next[/Keyboard/e,/XInputControllerWindows/dpad/right]'
+    m_ActionName: 'Inventory/Next[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5270916517905328015}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: PreviousSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: d8f0d070-e89d-4cb5-be63-252de6415ced
-    m_ActionName: 'Inventory/Previous[/Keyboard/q,/XInputControllerWindows/dpad/left]'
+    m_ActionName: 'Inventory/Previous[/Keyboard/q]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -453,6 +514,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnet: {fileID: 7966686232438740141}
+--- !u!114 &5270916517905328015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046760900981843949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 221221d0994457b41b1c8f3c813931b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedSlotIndex: 0
+  inventorySlots: 000000000000000000000000
 --- !u!1 &3272069266814391468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5316,8 +5391,8 @@ Transform:
   m_GameObject: {fileID: 5176879115563336640}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3943, y: -0.12, z: 0}
-  m_LocalScale: {x: 9.045367, y: 14.11419, z: 9.39388}
+  m_LocalPosition: {x: 0.478, y: -0.107, z: 0}
+  m_LocalScale: {x: 28.987576, y: 40.991127, z: 30.10445}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7966686232438740141}
@@ -5389,8 +5464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlueAnim: {fileID: 2470714746152745047}
-  RedAnim: {fileID: 3071324466176453131}
+  BlueAnim: {fileID: 0}
+  RedAnim: {fileID: 0}
 --- !u!95 &3071324466176453131
 Animator:
   serializedVersion: 7
@@ -5530,8 +5605,8 @@ Transform:
   m_GameObject: {fileID: 5786212455870085388}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.41, y: -0.089, z: 0}
-  m_LocalScale: {x: 8.863075, y: 14.410762, z: 9.664002}
+  m_LocalPosition: {x: 0.4856, y: -0.1, z: 0}
+  m_LocalScale: {x: 9.23275, y: 13.047914, z: 9.588483}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7966686232438740141}
@@ -5625,5 +5700,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlueAnim: {fileID: 2470714746152745047}
-  RedAnim: {fileID: 3071324466176453131}
+  BlueAnim: {fileID: 0}
+  RedAnim: {fileID: 0}
