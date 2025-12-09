@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class StopsProjectionBlue : MonoBehaviour
 {
+    
     [SerializeField] Animator BlueAnim;
     [SerializeField] Animator RedAnim;
+    
+
 
     void Update()
     {
@@ -15,6 +18,7 @@ public class StopsProjectionBlue : MonoBehaviour
         {
             RedAnim.SetBool("IsAttracting", false);
         }
+       
     }
     public void End()
     {
