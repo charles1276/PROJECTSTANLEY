@@ -1,8 +1,8 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Weights", menuName = "Scriptable Objects/Weights")]
-public class Weights : ScriptableObject
+public class Weights : ItemData
 {
-    Item Item { get; set; }
+    ItemData Item { get; set; }
     public Weight weightValue;
 }

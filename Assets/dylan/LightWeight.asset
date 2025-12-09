@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39ca331abbb8454aa039a21d9b30e1b, type: 3}
+  m_Name: LightWeight
+  m_EditorClassIdentifier: 
+  itemName: Light Weight
+  itemIcon: {fileID: 4103060733495645132, guid: a3691adb7ac46dd4cb652ba1449e9c0d, type: 3}
+  itemWeight: 1

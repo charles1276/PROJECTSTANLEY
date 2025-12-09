@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -9,23 +8,38 @@ public enum Collectibles
     WeightL,
     WeightM,
     WeightH,
-    Negative
+    GravityBoots,
+    HoverBoots,
 }
 
 public class CollectibleObject
 {
-    
+    [SerializeField]
+
+    public CollectibleObject()
+    {
+
+    }
 }
 
 public class InventoryManager : MonoBehaviour
 {
     public int selectedSlotIndex = 0;
-    [SerializeField] Collectibles[] inventorySlots = new Collectibles[3];
+    public GameObject[] inventorySlots = new GameObject[3];
 
+    // hud reference
     private GameObject HUD;
 
+    // swaps out the old object with the new object
+    public GameObject SwapObject(GameObject newObject)
+    {
+        GameObject oldObject = inventorySlots[selectedSlotIndex];
+        inventorySlots[selectedSlotIndex] = newObject;
+        return oldObject;
+    }
+
     // add a collectible to the inventory
-    public void AddCollectible(Collectibles collectible)
+    public void AddCollectible(GameObject collectible)
     {
         int emptySlotIndex = FirstEmptySlot();
 
@@ -51,7 +65,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         // remove the collectible from the specified slot
-        inventorySlots[slotIndex] = Collectibles.None;
+        inventorySlots[slotIndex] = null;
     }
 
     // test method to add a collectible to the inventory
@@ -60,7 +74,7 @@ public class InventoryManager : MonoBehaviour
         // find the first empty slot
         for (int i = 0; i < inventorySlots.Length; i++)
         {
-            if (inventorySlots[i] == Collectibles.None)
+            if (inventorySlots[i] == null)
             {
                 return i;
             }
@@ -70,7 +84,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     // test method to check if a collectible is in the inventory
-    private bool HasItem(Collectibles collectible)
+    private bool HasItem(GameObject collectible)
     {
         // test if the inventory contains the specified collectible
         foreach (var slot in inventorySlots)
@@ -149,8 +163,6 @@ public class InventoryManager : MonoBehaviour
         slotOne.GetComponent<Image>().sprite = slotOne.GetComponent<StateStorage>().spriteList[0];
         slotTwo.GetComponent<Image>().sprite = slotTwo.GetComponent<StateStorage>().spriteList[0];
         slotThree.GetComponent<Image>().sprite = slotThree.GetComponent<StateStorage>().spriteList[0];
-
-        Debug.Log(selectedSlotIndex);
 
         switch (selectedSlotIndex)
         {

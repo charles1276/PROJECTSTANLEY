@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "ChestInteractions",
+    "maps": [
+        {
+            "name": "Chest",
+            "id": "3e319f53-0484-406f-8bdd-1166974d8cd0",
+            "actions": [
+                {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "c028fb1e-1af6-432d-8438-6763b474b345",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "5fc1ea13-e393-4690-9c95-125ad362221e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
