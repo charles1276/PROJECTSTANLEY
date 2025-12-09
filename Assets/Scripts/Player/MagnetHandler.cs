@@ -70,16 +70,16 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Positive;
             //print("pos");
-            if (RedAnim.GetBool("IsAttracting") == false)
-            {
-                BlueRepel.SetActive(true);
-            }
+            //if (BlueAnim.GetBool("IsRepeling") == false)
+            //{
+            //    RedAttract.SetActive(true);
+            //}
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Positive)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
-                BlueAnim.SetBool("IsRepeling", false);
+                RedAnim.SetBool("IsAttracting", false);
         }
 
         // update HUD
@@ -93,16 +93,16 @@ public class MagnetHandler : MonoBehaviour
         {
             attractionPolarity = ObjectPolarity.Negative;
             //print("neg");
-            if (BlueAnim.GetBool("IsAttracting") == false)
-            {
-                RedAttract.SetActive(true);
-            }
+            //if (RedAnim.GetBool("IsAttracting") == false)
+            //{
+            //    BlueRepel.SetActive(true);
+            //}
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Negative)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
-                RedAnim.SetBool("IsAttracting", false);
+                BlueAnim.SetBool("IsRepeling", false);
         }
 
         // update HUD
@@ -217,6 +217,22 @@ public class MagnetHandler : MonoBehaviour
             playerStats.power.Drain();
 
             ApplyMagnetism(attractedObject, attractedPoint);
+        }
+        if (attractionPolarity == ObjectPolarity.Negative)
+        {
+            BlueRepel.SetActive(true);
+        }
+        else
+        {
+            BlueAnim.SetBool("IsRepeling", false);
+        }
+        if (attractionPolarity == ObjectPolarity.Positive)
+        {
+            RedAttract.SetActive(true);
+        }
+        else
+        {
+            RedAnim.SetBool("IsAttracting", false);
         }
     }
 
