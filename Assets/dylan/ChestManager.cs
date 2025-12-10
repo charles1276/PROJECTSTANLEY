@@ -18,7 +18,21 @@ public class ChestManager : MonoBehaviour
     {
         InventoryManager playerInventory = player.GetComponent<InventoryManager>();
 
-        storedItem = playerInventory.SwapObject(storedItem);
+        if (playerInventory.FirstEmptySlot() != -1 && storedItem != null)
+        {
+            // free inventory + stored object
+            // just add the item to the inventory
+            playerInventory.AddCollectible(storedItem);
+            storedItem = null;
+        }
+        else
+        {
+            // full inventory + stored object
+            // swap the stored object and selected object
+            // no stored object
+            // place the selected object into the chest
+            storedItem = playerInventory.SwapObject(storedItem);
+        }
     }
 
     // --------------------------------------------------------------

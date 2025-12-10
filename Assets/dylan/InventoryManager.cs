@@ -2,26 +2,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public enum Collectibles
-{
-    None,
-    WeightL,
-    WeightM,
-    WeightH,
-    GravityBoots,
-    HoverBoots,
-}
-
-public class CollectibleObject
-{
-    [SerializeField]
-
-    public CollectibleObject()
-    {
-
-    }
-}
-
 public class InventoryManager : MonoBehaviour
 {
     public int selectedSlotIndex = 0;
@@ -29,6 +9,26 @@ public class InventoryManager : MonoBehaviour
 
     // hud reference
     private GameObject HUD;
+
+    // find the collective weight of the inventory
+    private Weight FindWeight()
+    {
+        int weight = 0;
+
+        // sum collective weights of everything in the inventory
+        foreach (var slot in inventorySlots) {
+            // prevent errors
+            if (slot != null)
+            {
+                weight += (int)slot.GetComponent<ItemInstance>().itemData.itemWeight;
+            }
+        }
+
+        // make sure weight doesn't exceed the heavy weight listing
+        weight = Mathf.Min(weight, (int)Weight.Heavy);
+
+        return (Weight)weight;
+    }
 
     // swaps out the old object with the new object
     public GameObject SwapObject(GameObject newObject)
@@ -69,7 +69,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     // test method to add a collectible to the inventory
-    private int FirstEmptySlot()
+    public int FirstEmptySlot()
     {
         // find the first empty slot
         for (int i = 0; i < inventorySlots.Length; i++)
@@ -155,28 +155,37 @@ public class InventoryManager : MonoBehaviour
     private void Update()
     {
         // slots
-        GameObject slotOne = HUD.transform.Find("Slot1").gameObject;
-        GameObject slotTwo = HUD.transform.Find("Slot2").gameObject;
-        GameObject slotThree = HUD.transform.Find("Slot3").gameObject;
+        GameObject[] slots = new GameObject[3];
+        slots[0] = HUD.transform.Find("Slot1").gameObject;
+        slots[1] = HUD.transform.Find("Slot2").gameObject;
+        slots[2] = HUD.transform.Find("Slot3").gameObject;
 
-        // unselected 
-        slotOne.GetComponent<Image>().sprite = slotOne.GetComponent<StateStorage>().spriteList[0];
-        slotTwo.GetComponent<Image>().sprite = slotTwo.GetComponent<StateStorage>().spriteList[0];
-        slotThree.GetComponent<Image>().sprite = slotThree.GetComponent<StateStorage>().spriteList[0];
-
-        switch (selectedSlotIndex)
+        for (int i = 0; i < slots.Length; i++)
         {
-            case 0:
-                slotOne.GetComponent<Image>().sprite = slotOne.GetComponent<StateStorage>().spriteList[1];
-                break;
+            // unselected -> default
+            slots[i].GetComponent<Image>().sprite = slots[i].GetComponent<StateStorage>().spriteList[0];
 
-            case 1:
-                slotTwo.GetComponent<Image>().sprite = slotTwo.GetComponent<StateStorage>().spriteList[1];
-                break;
+            // selected
+            if (i == selectedSlotIndex)
+            {
+                slots[i].GetComponent<Image>().sprite = slots[i].GetComponent<StateStorage>().spriteList[1];
+            }
 
-            case 2:
-                slotThree.GetComponent<Image>().sprite = slotThree.GetComponent<StateStorage>().spriteList[1];
-                break;
+            // object display
+            GameObject objDisp = slots[i].transform.Find("objDisp").gameObject;
+            objDisp.transform.localPosition = new Vector3(1, -1 + 0.5f * Mathf.Sin(Mathf.PI * Time.time), 0);
+
+            // non-empty slot
+            if (inventorySlots[i] != null)
+            {
+                objDisp.SetActive(true);
+                objDisp.GetComponent<Image>().sprite = inventorySlots[i].GetComponent<ItemInstance>().itemData.itemIcon;
+            }
+            else
+            {
+                // hide empty
+                objDisp.SetActive(false);
+            }
         }
     }
 }
