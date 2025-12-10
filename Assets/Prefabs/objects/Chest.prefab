@@ -148,4 +148,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   storedItem: {fileID: 7827292354085053349, guid: ceb1a9edd5332cc4097d7b54636665d2, type: 3}
-  interactionProximity: 1.5
+  interactionProximity: 2.5

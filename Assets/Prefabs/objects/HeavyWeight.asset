@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HeavyWeight
   m_EditorClassIdentifier: 
   itemName: Heavy Weight
-  itemIcon: {fileID: 4103060733495645132, guid: a3691adb7ac46dd4cb652ba1449e9c0d, type: 3}
+  itemIcon: {fileID: 604397347889244564, guid: a3691adb7ac46dd4cb652ba1449e9c0d, type: 3}
   itemWeight: 3

@@ -1,12 +1,12 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class ChestManager : MonoBehaviour
 {
     public GameObject storedItem;
-    private GameObject itemDisplay;
     private GameObject player;
+
+    public GameObject restricted;
 
     [SerializeField] private float interactionProximity;
     private bool withinRange = false;
@@ -14,7 +14,7 @@ public class ChestManager : MonoBehaviour
     // --------------------------------------------------------------
     // INVENTORY MANAGEMENT
 
-    private void SwapObject()
+    private void AddObject()
     {
         InventoryManager playerInventory = player.GetComponent<InventoryManager>();
 
@@ -27,11 +27,7 @@ public class ChestManager : MonoBehaviour
         }
         else
         {
-            // full inventory + stored object
-            // swap the stored object and selected object
-            // no stored object
-            // place the selected object into the chest
-            storedItem = playerInventory.SwapObject(storedItem);
+
         }
     }
 
@@ -44,9 +40,8 @@ public class ChestManager : MonoBehaviour
         // get player reference
         player = GameObject.FindWithTag("Player");
 
-        itemDisplay = Instantiate(storedItem);
-        itemDisplay.transform.parent = gameObject.transform;
-        itemDisplay.transform.position = gameObject.transform.position + Vector3.up;
+        //itemDisplay.transform.parent = gameObject.transform;
+        //itemDisplay.transform.position = gameObject.transform.position + 1.2f * Vector3.up;
         //itemDisplay.SetActive(false);
     }
 
@@ -54,19 +49,36 @@ public class ChestManager : MonoBehaviour
     void Update()
     {
         Vector2 playerDistance = player.transform.position - transform.position;
-
+        
+        // set withinRange boolean based on the player's distance
         if (playerDistance.magnitude < interactionProximity)
         {
             withinRange = true;
-            //Debug.Log(playerDistance.magnitude);
         }
+        else
+        {
+            withinRange = false;
+        }
+
+        // set the item display based on the current stored object
+        //if (storedItem != null)
+        //{
+        //    itemDisplay.GetComponent<Image>().sprite = storedItem.GetComponent<ItemInstance>().itemData.itemIcon;
+        //}
+        //else
+        //{
+        //    itemDisplay.GetComponent<Image>().sprite = null;
+        //}
+
+        // actually display it only when it's within range
+        //itemDisplay.SetActive(withinRange);
     }
 
     public void Interact(InputAction.CallbackContext ctx)
     {
         if (ctx.performed && withinRange)
         {
-            SwapObject();
+            AddObject();
         }
     }
 }
