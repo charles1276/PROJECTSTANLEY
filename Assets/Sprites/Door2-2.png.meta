@@ -1,73 +1,73 @@
 fileFormatVersion: 2
-guid: f3af9cf5aaa05cf44aa18c709a1fcde0
+guid: e3053bdd386c10a4ba97641b722ac14f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2510476293373519475
-    second: New Piskel_0
+      213: 1289307426583176932
+    second: Door2-2_0
   - first:
-      213: 627625725489826318
-    second: New Piskel_1
+      213: -3008702488060409645
+    second: Door2-2_1
   - first:
-      213: 6338068570567419226
-    second: New Piskel_2
+      213: -5265340790562954749
+    second: Door2-2_2
   - first:
-      213: -4309738878335270719
-    second: New Piskel_3
+      213: -7448001008643868819
+    second: Door2-2_3
   - first:
-      213: 7920555144810264317
-    second: New Piskel_4
+      213: 2472264539769328068
+    second: Door2-2_4
   - first:
-      213: 4847817712686481240
-    second: New Piskel_5
+      213: -6557480379682804759
+    second: Door2-2_5
   - first:
-      213: 6995750527968357485
-    second: New Piskel_6
+      213: 7201421236871292795
+    second: Door2-2_6
   - first:
-      213: -5451150391451894679
-    second: New Piskel_7
+      213: -6343732922333267138
+    second: Door2-2_7
   - first:
-      213: -5930547643211109364
-    second: New Piskel_8
+      213: -1376616990602916534
+    second: Door2-2_8
   - first:
-      213: 1521325034740627089
-    second: New Piskel_9
+      213: 319645455826597978
+    second: Door2-2_9
   - first:
-      213: -1231491972741519832
-    second: New Piskel_10
+      213: 6722678718275183417
+    second: Door2-2_10
   - first:
-      213: -487593108907190007
-    second: New Piskel_11
+      213: -6113171715707827516
+    second: Door2-2_11
   - first:
-      213: -7757339544638446355
-    second: New Piskel_12
+      213: -2762060739995069759
+    second: Door2-2_12
   - first:
-      213: 1777937247925281152
-    second: New Piskel_13
+      213: 1500370193693258276
+    second: Door2-2_13
   - first:
-      213: 1978759242539912703
-    second: New Piskel_14
+      213: -8679893509360912508
+    second: Door2-2_14
   - first:
-      213: -5061409336387082696
-    second: New Piskel_15
+      213: 6739957389976655433
+    second: Door2-2_15
   - first:
-      213: 345722018515597643
-    second: New Piskel_16
+      213: -4740483830020462809
+    second: Door2-2_16
   - first:
-      213: 4932282247359268839
-    second: New Piskel_17
+      213: 7789672352000606213
+    second: Door2-2_17
   - first:
-      213: -2246552871507872522
-    second: New Piskel_18
+      213: -424261134621412846
+    second: Door2-2_18
   - first:
-      213: -3871374204143653761
-    second: New Piskel_19
+      213: 4724373012876669436
+    second: Door2-2_19
   - first:
-      213: 7911726311057383256
-    second: New Piskel_20
+      213: -6503644675484084836
+    second: Door2-2_20
   - first:
-      213: -6885317976367823182
-    second: New Piskel_21
+      213: 5793834848938333624
+    second: Door2-2_21
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -189,7 +189,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Piskel_0
+      name: Door2-2_0
       rect:
         serializedVersion: 2
         x: 7
@@ -204,14 +204,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d899e6cbc1ff82dd0800000000000000
-      internalID: -2510476293373519475
+      spriteID: 4e663cff54a84e110800000000000000
+      internalID: 1289307426583176932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_1
+      name: Door2-2_1
       rect:
         serializedVersion: 2
         x: 71
@@ -226,14 +226,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0ac7b3a546c5b800800000000000000
-      internalID: 627625725489826318
+      spriteID: 3d843542701fe36d0800000000000000
+      internalID: -3008702488060409645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_2
+      name: Door2-2_2
       rect:
         serializedVersion: 2
         x: 135
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a552dbec8c755f750800000000000000
-      internalID: 6338068570567419226
+      spriteID: 302ee1da270cde6b0800000000000000
+      internalID: -5265340790562954749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_3
+      name: Door2-2_3
       rect:
         serializedVersion: 2
         x: 199
@@ -270,14 +270,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1c0c22af25bb034c0800000000000000
-      internalID: -4309738878335270719
+      spriteID: d67f7093b8263a890800000000000000
+      internalID: -7448001008643868819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_4
+      name: Door2-2_4
       rect:
         serializedVersion: 2
         x: 7
@@ -292,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df6fe4670f67bed60800000000000000
-      internalID: 7920555144810264317
+      spriteID: 4c1deb3108f3f4220800000000000000
+      internalID: 2472264539769328068
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_6
+      name: Door2-2_6
       rect:
         serializedVersion: 2
         x: 71
@@ -314,14 +314,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6c2ec44a06e51160800000000000000
-      internalID: 6995750527968357485
+      spriteID: b77eaadc57690f360800000000000000
+      internalID: 7201421236871292795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_11
+      name: Door2-2_11
       rect:
         serializedVersion: 2
         x: 135
@@ -336,14 +336,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90998ac96a8bb39f0800000000000000
-      internalID: -487593108907190007
+      spriteID: 4ca054aa6b6a92ba0800000000000000
+      internalID: -6113171715707827516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_12
+      name: Door2-2_12
       rect:
         serializedVersion: 2
         x: 199
@@ -358,14 +358,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de42cb7c8c4685490800000000000000
-      internalID: -7757339544638446355
+      spriteID: 1c29a8814603ba9d0800000000000000
+      internalID: -2762060739995069759
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_13
+      name: Door2-2_13
       rect:
         serializedVersion: 2
         x: 7
@@ -380,14 +380,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 081a58fc1808ca810800000000000000
-      internalID: 1777937247925281152
+      spriteID: 422bbaaedb262d410800000000000000
+      internalID: 1500370193693258276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_14
+      name: Door2-2_14
       rect:
         serializedVersion: 2
         x: 71
@@ -402,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ffdcc931c07f57b10800000000000000
-      internalID: 1978759242539912703
+      spriteID: 487f25e57d2da8780800000000000000
+      internalID: -8679893509360912508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_15
+      name: Door2-2_15
       rect:
         serializedVersion: 2
         x: 7
@@ -424,14 +424,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8366dc9660342c9b0800000000000000
-      internalID: -5061409336387082696
+      spriteID: 946d3de4983298d50800000000000000
+      internalID: 6739957389976655433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_16
+      name: Door2-2_16
       rect:
         serializedVersion: 2
         x: 71
@@ -446,14 +446,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b4937a818504cc400800000000000000
-      internalID: 345722018515597643
+      spriteID: 727a520a21b663eb0800000000000000
+      internalID: -4740483830020462809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_17
+      name: Door2-2_17
       rect:
         serializedVersion: 2
         x: 135
@@ -468,14 +468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e780d5529cf27440800000000000000
-      internalID: 4932282247359268839
+      spriteID: 5008da19bb97a1c60800000000000000
+      internalID: 7789672352000606213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_18
+      name: Door2-2_18
       rect:
         serializedVersion: 2
         x: 199
@@ -490,14 +490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f4b3ace014a2d0e0800000000000000
-      internalID: -2246552871507872522
+      spriteID: 212f2e2feb8bc1af0800000000000000
+      internalID: -424261134621412846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_19
+      name: Door2-2_19
       rect:
         serializedVersion: 2
         x: 7
@@ -512,14 +512,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f7c28693cad164ac0800000000000000
-      internalID: -3871374204143653761
+      spriteID: cf1b4f27938509140800000000000000
+      internalID: 4724373012876669436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_20
+      name: Door2-2_20
       rect:
         serializedVersion: 2
         x: 71
@@ -534,14 +534,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85fdfaa69291ccd60800000000000000
-      internalID: 7911726311057383256
+      spriteID: c95196c10a96eb5a0800000000000000
+      internalID: -6503644675484084836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel_21
+      name: Door2-2_21
       rect:
         serializedVersion: 2
         x: 7
@@ -556,8 +556,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2b60cfcc7cf6270a0800000000000000
-      internalID: -6885317976367823182
+      spriteID: 8b59f3a1916d76050800000000000000
+      internalID: 5793834848938333624
       vertices: []
       indices: 
       edges: []
@@ -566,7 +566,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 802336798b073d447a3abcf9fb47160e
+    spriteID: 89f66be9e37514a41ab44248a9b1372b
     internalID: 0
     vertices: []
     indices: 
@@ -576,28 +576,28 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      New Piskel_0: -2510476293373519475
-      New Piskel_1: 627625725489826318
-      New Piskel_10: -1231491972741519832
-      New Piskel_11: -487593108907190007
-      New Piskel_12: -7757339544638446355
-      New Piskel_13: 1777937247925281152
-      New Piskel_14: 1978759242539912703
-      New Piskel_15: -5061409336387082696
-      New Piskel_16: 345722018515597643
-      New Piskel_17: 4932282247359268839
-      New Piskel_18: -2246552871507872522
-      New Piskel_19: -3871374204143653761
-      New Piskel_2: 6338068570567419226
-      New Piskel_20: 7911726311057383256
-      New Piskel_21: -6885317976367823182
-      New Piskel_3: -4309738878335270719
-      New Piskel_4: 7920555144810264317
-      New Piskel_5: 4847817712686481240
-      New Piskel_6: 6995750527968357485
-      New Piskel_7: -5451150391451894679
-      New Piskel_8: -5930547643211109364
-      New Piskel_9: 1521325034740627089
+      Door2-2_0: 1289307426583176932
+      Door2-2_1: -3008702488060409645
+      Door2-2_10: 6722678718275183417
+      Door2-2_11: -6113171715707827516
+      Door2-2_12: -2762060739995069759
+      Door2-2_13: 1500370193693258276
+      Door2-2_14: -8679893509360912508
+      Door2-2_15: 6739957389976655433
+      Door2-2_16: -4740483830020462809
+      Door2-2_17: 7789672352000606213
+      Door2-2_18: -424261134621412846
+      Door2-2_19: 4724373012876669436
+      Door2-2_2: -5265340790562954749
+      Door2-2_20: -6503644675484084836
+      Door2-2_21: 5793834848938333624
+      Door2-2_3: -7448001008643868819
+      Door2-2_4: 2472264539769328068
+      Door2-2_5: -6557480379682804759
+      Door2-2_6: 7201421236871292795
+      Door2-2_7: -6343732922333267138
+      Door2-2_8: -1376616990602916534
+      Door2-2_9: 319645455826597978
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
