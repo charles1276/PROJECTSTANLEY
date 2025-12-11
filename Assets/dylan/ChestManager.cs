@@ -6,7 +6,7 @@ public class ChestManager : MonoBehaviour
     public GameObject storedItem;
     private GameObject player;
 
-    public GameObject restricted;
+    public GameObject restrictedIcon;
 
     [SerializeField] private float interactionProximity;
     private bool withinRange = false;
@@ -24,10 +24,14 @@ public class ChestManager : MonoBehaviour
             // just add the item to the inventory
             playerInventory.AddCollectible(storedItem);
             storedItem = null;
+
+            // item notif
+            GetComponent<AudioSource>().Play();
         }
         else
         {
-
+            GameObject restricted = Instantiate(restrictedIcon);
+            restricted.transform.position = transform.position;
         }
     }
 

@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.InputSystem;
 
 public class Vector2Extensions
@@ -51,6 +53,7 @@ public class MagnetHandler : MonoBehaviour
     // reference to object properties
     private ObjectProperties properties;
     private PlayerStats playerStats;
+    private Dictionary<string, AudioSource> magnetSFX;
 
     // hud manager
     private HUDManager hudManager;
@@ -61,6 +64,22 @@ public class MagnetHandler : MonoBehaviour
         playerStats = gameObject.GetComponent<PlayerStats>();
 
         hudManager = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDManager>();
+
+        magnetSFX = transform.Find("Magnet").GetComponent<AudioStorage>().audioSources;
+        print(magnetSFX);
+    }
+
+    private void ActivateMagnetSFX()
+    {
+        magnetSFX["Startup"].PlayScheduled(0.1);
+        magnetSFX["FaintStartup"].Play();
+        magnetSFX["Hum"].Play();
+    }
+
+    private void DeactivateMagnetSFX()
+    {
+        magnetSFX["Hum"].Stop();
+        magnetSFX["Close"].PlayScheduled(0.1);
     }
 
     // input action for attracting
@@ -74,12 +93,18 @@ public class MagnetHandler : MonoBehaviour
             //{
             //    RedAttract.SetActive(true);
             //}
+
+            // play sfx
+            ActivateMagnetSFX();
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Positive)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
                 RedAnim.SetBool("IsAttracting", false);
+
+            // play sfx
+            DeactivateMagnetSFX();
         }
 
         // update HUD
@@ -97,12 +122,18 @@ public class MagnetHandler : MonoBehaviour
             //{
             //    BlueRepel.SetActive(true);
             //}
+
+            // play sfx
+            ActivateMagnetSFX();
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Negative)
         {
             attractionPolarity = ObjectPolarity.Neutral;
             //print("neu");
                 BlueAnim.SetBool("IsRepeling", false);
+
+            // play sfx
+            DeactivateMagnetSFX();
         }
 
         // update HUD
