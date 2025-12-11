@@ -17,9 +17,17 @@ public class openDoor2 : MonoBehaviour
         {
             anim.SetBool("ButtonOn", doorOpen);
         }
+        else if (doorOpen == false)
+        {
+            anim.SetBool("ButtonOn", doorOpen);
+        }
     }
     void DisableCollider()
     {
         coll.enabled = false;
     }
+    void EnableCollider()
+    {
+        coll.enabled = true;
+    } 
 }
