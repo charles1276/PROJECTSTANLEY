@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class Activategroungmagnet : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public bool Active = false;
+    private Animator anim;
+
+    void Awake()
     {
+        anim = GetComponent<Animator>();
         
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if(Active == true)
+        {
+            gameObject.tag = "Magnet";
+            anim.SetBool("ButtonPress", true);
+        }
+        if(Active == false)
+        {
+            gameObject.tag = "Untagged";
+            anim.SetBool("ButtonPress", false);
+        }
     }
 }

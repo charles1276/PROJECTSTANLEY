@@ -9,6 +9,8 @@ public class BuutonHold : MonoBehaviour
 
     public openDoor2 doorScript;
 
+    public Activategroungmagnet GroundMagnet;
+
     private void Awake()
     {         
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -22,6 +24,7 @@ public class BuutonHold : MonoBehaviour
             // Add additional button press logic here
             spriteRenderer.sprite = spro;
             doorScript.doorOpen = true;
+            GroundMagnet.Active = true;
         }
     }
     void OnCollisionExit2D(Collision2D collision)
@@ -32,6 +35,7 @@ public class BuutonHold : MonoBehaviour
             // Add additional button release logic here
             spriteRenderer.sprite = spru;
             doorScript.doorOpen = false;
+            GroundMagnet.Active = false;
         }
     }
 }
