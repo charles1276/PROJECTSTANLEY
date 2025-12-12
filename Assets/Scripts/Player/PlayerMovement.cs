@@ -26,12 +26,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask jumpableGround;
 
     private PlayerStats stats;
+    private InventoryManager inventory;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         // get reference to player stats
         stats = GetComponent<PlayerStats>();
+
+        // get reference to inventory
+        inventory = GetComponent<InventoryManager>();
 
         // get reference to rigidbody and collider
         rb = GetComponent<Rigidbody2D>();
@@ -91,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SwapGravity(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && inventory.HasItem("GravityBoots"))
         {
             rb.gravityScale *= -1;
             coyoteTime = 0f; // reset coyote time on gravity swap

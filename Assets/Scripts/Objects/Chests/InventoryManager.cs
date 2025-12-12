@@ -84,12 +84,12 @@ public class InventoryManager : MonoBehaviour
     }
 
     // test method to check if a collectible is in the inventory
-    private bool HasItem(GameObject collectible)
+    public bool HasItem(string collectibleName)
     {
         // test if the inventory contains the specified collectible
         foreach (var slot in inventorySlots)
         {
-            if (slot == collectible)
+            if (slot.name == collectibleName)
             {
                 return true;
             }
@@ -154,7 +154,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
-        // slots
+        // slots ---------------
         GameObject[] slots = new GameObject[3];
         slots[0] = HUD.transform.Find("Slot1").gameObject;
         slots[1] = HUD.transform.Find("Slot2").gameObject;
@@ -187,5 +187,8 @@ public class InventoryManager : MonoBehaviour
                 objDisp.SetActive(false);
             }
         }
+
+        // weight ---------------
+        gameObject.GetComponent<ObjectProperties>().weight = FindWeight();
     }
 }
