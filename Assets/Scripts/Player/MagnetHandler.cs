@@ -99,12 +99,10 @@ public class MagnetHandler : MonoBehaviour
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Positive)
         {
-            attractionPolarity = ObjectPolarity.Neutral;
+            CancelAttraction();
+
             //print("neu");
                 RedAnim.SetBool("IsAttracting", false);
-
-            // play sfx
-            DeactivateMagnetSFX();
         }
 
         // update HUD
@@ -128,12 +126,10 @@ public class MagnetHandler : MonoBehaviour
         }
         if (ctx.canceled && attractionPolarity == ObjectPolarity.Negative)
         {
-            attractionPolarity = ObjectPolarity.Neutral;
-            //print("neu");
-                BlueAnim.SetBool("IsRepeling", false);
+            CancelAttraction();
 
-            // play sfx
-            DeactivateMagnetSFX();
+            //print("neu");
+            BlueAnim.SetBool("IsRepeling", false);
         }
 
         // update HUD
@@ -225,6 +221,15 @@ public class MagnetHandler : MonoBehaviour
         }
     }
 
+    private void CancelAttraction()
+    {
+        // set attraction to neutral
+        attractionPolarity = ObjectPolarity.Neutral;
+
+        // play sfx
+        DeactivateMagnetSFX();
+    }
+
     void Update()
     {
         // if neutral, do nothing
@@ -233,9 +238,10 @@ public class MagnetHandler : MonoBehaviour
             return;
         }
 
-        // if out of power, do nothing
+        // if out of power, cancel attraction early
         if (!playerStats.power.CanUse())
         {
+            CancelAttraction();
             return;
         }
 

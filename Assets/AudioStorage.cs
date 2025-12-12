@@ -9,6 +9,8 @@ public class AudioKey
     [SerializeField] public string Name;
     [SerializeField] public AudioResource Audio;
     [SerializeField] public bool isLooped;
+    [Range(0f, 1f)]
+    [SerializeField] public float volume;
 }
 
 public class AudioStorage : MonoBehaviour
@@ -26,6 +28,7 @@ public class AudioStorage : MonoBehaviour
             audioSources[audioAsset.Name] = gameObject.AddComponent<AudioSource>();
             audioSources[audioAsset.Name].playOnAwake = false;
             audioSources[audioAsset.Name].loop = audioAsset.isLooped;
+            audioSources[audioAsset.Name].volume = audioAsset.volume;
             audioSources[audioAsset.Name].resource = audioAsset.Audio;
         }
     }

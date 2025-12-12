@@ -5609,15 +5609,19 @@ MonoBehaviour:
   - Name: Startup
     Audio: {fileID: 8300000, guid: dd210231aec44b24b9444d1d3280aee9, type: 3}
     isLooped: 0
+    volume: 0.403
   - Name: FaintStartup
     Audio: {fileID: 8300000, guid: 398739604853a394f8c27d5bbe3b4e79, type: 3}
     isLooped: 0
+    volume: 0.885
   - Name: Hum
     Audio: {fileID: 8300000, guid: 5a7902af54756eb4084fa3bc6b8265f6, type: 3}
     isLooped: 1
+    volume: 1
   - Name: Close
     Audio: {fileID: 8300000, guid: 69261377a0b414240b1356bf3b4240b7, type: 3}
     isLooped: 0
+    volume: 0.859
 --- !u!1 &5786212455870085388
 GameObject:
   m_ObjectHideFlags: 0
