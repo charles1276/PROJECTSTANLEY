@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 // stats bar class
@@ -86,7 +88,7 @@ public class MagnetismUI
     }
 }
 
-public class HUDManager : MonoBehaviour
+public class HUDManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private GameObject player;
 
@@ -132,5 +134,18 @@ public class HUDManager : MonoBehaviour
     public void updateMagnetismIndicator(ObjectPolarity polarity)
     {
         magnetismIndicator.SetPolarity(polarity);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        print("stupid");
+        if (eventData.pointerEnter.name.Contains("Slot")) {
+
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        throw new System.NotImplementedException();
     }
 }
