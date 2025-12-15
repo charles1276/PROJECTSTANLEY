@@ -18710,10 +18710,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD
       objectReference: {fileID: 0}
-    - target: {fileID: 6210177256813696492, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
-      propertyPath: m_text
-      value: ' '
-      objectReference: {fileID: 0}
     - target: {fileID: 7662015358189360571, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
