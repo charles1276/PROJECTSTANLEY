@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class FadeOutObject : MonoBehaviour
 {
+    [SerializeField] private bool pureFading = false;
+
     private float rotationDifference;
     private float startTime;
 
@@ -26,8 +28,12 @@ public class FadeOutObject : MonoBehaviour
     {
         float timet = Time.time - startTime;
 
-        transform.Rotate(new Vector3(0, 0, rotationDifference * timet));
-        transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f * timet, 0);
+        if (!pureFading)
+        {
+            transform.Rotate(new Vector3(0, 0, rotationDifference * timet));
+            transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f * timet, 0);
+        }
+
         GetComponent<SpriteRenderer>().color = Color.Lerp(startColor, endColor, Mathf.Pow(timet, 2));
 
         // destroy object once it becomes invisible
