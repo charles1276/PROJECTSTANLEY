@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // handle horizontal movement
         float movementForce = moveInput;
+        print(moveInput);
         if (attemptSprint())
         {
             movementForce *= sprintMultiplier;
