@@ -15,10 +15,4 @@ MonoBehaviour:
   itemName: Medium Weight
   itemIcon: {fileID: -919306765937182316, guid: a3691adb7ac46dd4cb652ba1449e9c0d, type: 3}
   itemWeight: 2
-  itemDescription: 'Adds medium weight to your character.
-
-    Objects lighter than
-    you will attract towards you.
-
-    Objects heavier than you, you will attract
-    towards.'
+  itemDescription: Adds medium weight to your character.
