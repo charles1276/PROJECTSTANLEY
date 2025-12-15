@@ -1,3 +1,5 @@
+using System.Collections;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -136,16 +138,38 @@ public class HUDManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         magnetismIndicator.SetPolarity(polarity);
     }
 
+    // ----------------------------------------------
+    // ui hovering handling
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        print("stupid");
-        if (eventData.pointerEnter.name.Contains("Slot")) {
+        // variable readability
+        TextMeshProUGUI itemDesc = gameObject.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>();
+        InventoryManager playerInventory = player.GetComponent<InventoryManager>();
 
+        // different slots
+        switch (eventData.pointerEnter.name)
+        {
+            case "Slot1":
+                ItemData id1 = playerInventory.inventorySlots[0].GetComponent<ItemInstance>().itemData;
+                itemDesc.text = id1.itemDescription;
+                break;
+
+            case "Slot2":
+                ItemData id2 = playerInventory.inventorySlots[1].GetComponent<ItemInstance>().itemData;
+                itemDesc.text = id2.itemDescription;
+                break;
+
+            case "Slot3":
+                ItemData id3 = playerInventory.inventorySlots[2].GetComponent<ItemInstance>().itemData;
+                itemDesc.text = id3.itemDescription;
+                break;
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        TextMeshProUGUI itemDesc = gameObject.transform.Find("ItemDescription").GetComponent<TextMeshProUGUI>();
+        itemDesc.text = "";
     }
 }

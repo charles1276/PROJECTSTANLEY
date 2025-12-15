@@ -15,3 +15,10 @@ MonoBehaviour:
   itemName: Heavy Weight
   itemIcon: {fileID: 604397347889244564, guid: a3691adb7ac46dd4cb652ba1449e9c0d, type: 3}
   itemWeight: 3
+  itemDescription: 'Adds heavy weight to your character.
+
+    Objects lighter than
+    you will attract towards you.
+
+    Objects heavier than you, you will attract
+    towards.'

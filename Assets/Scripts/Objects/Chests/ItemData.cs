@@ -5,6 +5,6 @@ public class ItemData : ScriptableObject
 {
     public string itemName;
     public Sprite itemIcon;
-    //[TextArea] private string itemDescription; // might use it later idk
     public Weight itemWeight;
+    [TextArea] public string itemDescription; // might use it later idk // I USED IT LATER
 }

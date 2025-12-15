@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Gravity Boots
   itemIcon: {fileID: 3174799061878059208, guid: a3691adb7ac46dd4cb652ba1449e9c0d, type: 3}
   itemWeight: 0
+  itemDescription: Press F to switch gravity. Consumes power.

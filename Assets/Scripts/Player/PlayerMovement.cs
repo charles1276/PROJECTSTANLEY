@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     // input variables
     private float moveInput;
     private bool isSprinting;
+    private bool swappedGravity;
 
     [Header("Mask for Ground Detection")]
     [SerializeField] private LayerMask jumpableGround;
@@ -46,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         // handle horizontal movement
         float movementForce = moveInput;
-        if (isSprinting)
+        if (attemptSprint())
         {
             movementForce *= sprintMultiplier;
         }
@@ -60,12 +61,17 @@ public class PlayerMovement : MonoBehaviour
         // handle jump
         attemptJump();
 
+        // gravity power consumption (cuz im too lazy :sob)
+        if (Mathf.Sign(rb.gravityScale) < 0)
+        {
+            stats.power.Drain();
+        }
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate
     private void FixedUpdate()
     {
-        attemptSprint();
+        attemptFlipGravity();
     }
 
     public void Move(InputAction.CallbackContext ctx)
@@ -95,13 +101,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void SwapGravity(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed && inventory.HasItem("GravityBoots"))
+        if (ctx.performed && inventory.HasItem("GravityBoots") && stats.power.CanUse())
         {
-            rb.gravityScale *= -1;
-            coyoteTime = 0f; // reset coyote time on gravity swap
+            FlipGravity();
         }
     }
 
+    private void FlipGravity()
+    {
+        rb.gravityScale *= -1;
+        coyoteTime = 0f; // reset coyote time on gravity swap
+
+        swappedGravity = !swappedGravity;
+    }
 
     private bool isGrounded()
     {
@@ -142,15 +154,47 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void attemptSprint()
+    private bool attemptSprint()
     {
-        // drain stamina while sprinting
-        if (isSprinting && rb.linearVelocityX != 0)
+        // player has to actually be sprinting
+        if (!isSprinting)
         {
-            // only sprint if the player has stamina
-            if (!stats.stamina.CanUse()) { return; }
-
-            stats.stamina.Drain();
+            return false;
         }
+
+        // drain stamina while sprinting
+        if (Mathf.Abs(rb.linearVelocityX) < 0.1f)
+        {
+            return false;
+        }
+
+        // only sprint if the player has stamina
+        if (!stats.stamina.CanUse())
+        {
+            isSprinting = false;
+            return false;
+        }
+
+        stats.stamina.Drain();
+        return true;
+    }
+
+    private bool attemptFlipGravity()
+    {
+        // drain power when flipped
+        if (!swappedGravity)
+        {
+            return false;
+        }
+
+        // when they run out of power
+        if (!stats.power.CanUse())
+        {
+            FlipGravity();
+            return false;
+        }
+
+        stats.power.Drain();
+        return true;
     }
 }
