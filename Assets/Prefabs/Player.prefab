@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: 6629340211680660710}
   - component: {fileID: 3003500491552354867}
   - component: {fileID: 4432514120275971501}
-  - component: {fileID: 5270916517905328015}
+  - component: {fileID: 4412012873340633637}
+  - component: {fileID: 1107394856036646568}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -353,7 +354,7 @@ MonoBehaviour:
     m_ActionName: 'Player/SwapGravity[/Keyboard/f]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5270916517905328015}
+      - m_Target: {fileID: 1107394856036646568}
         m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
         m_MethodName: FirstSlot
         m_Mode: 0
@@ -369,7 +370,7 @@ MonoBehaviour:
     m_ActionName: 'Inventory/FirstSlot[/Keyboard/1]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5270916517905328015}
+      - m_Target: {fileID: 1107394856036646568}
         m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
         m_MethodName: SecondSlot
         m_Mode: 0
@@ -385,7 +386,7 @@ MonoBehaviour:
     m_ActionName: 'Inventory/SecondSlot[/Keyboard/2]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5270916517905328015}
+      - m_Target: {fileID: 1107394856036646568}
         m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
         m_MethodName: ThirdSlot
         m_Mode: 0
@@ -401,7 +402,7 @@ MonoBehaviour:
     m_ActionName: 'Inventory/ThirdSlot[/Keyboard/3]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5270916517905328015}
+      - m_Target: {fileID: 1107394856036646568}
         m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
         m_MethodName: NextSlot
         m_Mode: 0
@@ -417,7 +418,7 @@ MonoBehaviour:
     m_ActionName: 'Inventory/Next[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5270916517905328015}
+      - m_Target: {fileID: 1107394856036646568}
         m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
         m_MethodName: PreviousSlot
         m_Mode: 0
@@ -526,7 +527,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnet: {fileID: 7966686232438740141}
---- !u!114 &5270916517905328015
+--- !u!114 &4412012873340633637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046760900981843949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58b7852c77bc5e1408c208f338de985b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BlueAnim: {fileID: 2470714746152745047}
+  RedAnim: {fileID: 3071324466176453131}
+--- !u!114 &1107394856036646568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5513,7 +5528,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7966686232438740141}
   - component: {fileID: 4631807378038683863}
-  - component: {fileID: 8139463905040764587}
+  - component: {fileID: 8469374577409187248}
+  - component: {fileID: 7279125193531980142}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -5593,7 +5609,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8139463905040764587
+--- !u!114 &8469374577409187248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564372121667780746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71cfcc3601091db4da0ad2ffddc5c35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Magnet: {fileID: 7966686232438740141}
+--- !u!114 &7279125193531980142
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5610,16 +5639,16 @@ MonoBehaviour:
     Audio: {fileID: 8300000, guid: dd210231aec44b24b9444d1d3280aee9, type: 3}
     isLooped: 0
     volume: 0
-  - Name: FaintStartup
-    Audio: {fileID: 8300000, guid: 398739604853a394f8c27d5bbe3b4e79, type: 3}
-    isLooped: 0
-    volume: 0.885
   - Name: Hum
     Audio: {fileID: 8300000, guid: 5a7902af54756eb4084fa3bc6b8265f6, type: 3}
     isLooped: 1
     volume: 1
+  - Name: FaintStartup
+    Audio: {fileID: 8300000, guid: 398739604853a394f8c27d5bbe3b4e79, type: 3}
+    isLooped: 0
+    volume: 1
   - Name: Close
-    Audio: {fileID: 8300000, guid: 69261377a0b414240b1356bf3b4240b7, type: 3}
+    Audio: {fileID: 8300000, guid: 96cccf75584e5db42b6db5ce9fbab85a, type: 3}
     isLooped: 0
     volume: 0
 --- !u!1 &5786212455870085388
