@@ -297,7 +297,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: lorem ipsum the quick brown fox jumps over the lazy dog
+  m_text: ' '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f239f5caf8b364c4d9480511e25ef8ea, type: 2}
   m_sharedMaterial: {fileID: 928722990739846956, guid: f239f5caf8b364c4d9480511e25ef8ea, type: 2}

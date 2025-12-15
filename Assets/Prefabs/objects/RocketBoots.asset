@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Rocket Boots
   itemIcon: {fileID: 8650970618704683790, guid: a3691adb7ac46dd4cb652ba1449e9c0d, type: 3}
   itemWeight: 0
-  itemDescription: idk man
+  itemDescription: Allows player to double jump.
