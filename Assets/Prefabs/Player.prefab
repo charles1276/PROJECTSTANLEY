@@ -494,7 +494,7 @@ MonoBehaviour:
   attractionAngleRange: 30
   attractionRange: 10
   attractionDivisions: 5
-  speed: 15
+  speed: 6
   BlueRepel: {fileID: 5786212455870085388}
   RedAttract: {fileID: 5176879115563336640}
   BlueAnim: {fileID: 2470714746152745047}
