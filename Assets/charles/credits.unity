@@ -179,7 +179,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.14583349, b: 1, a: 0.078431375}
+    m_NormalColor: {r: 0.011764706, g: 0.08627451, b: 0.5019608, a: 0.80784315}
     m_HighlightedColor: {r: 0, g: 0.14583349, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
@@ -660,7 +660,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.14583349, b: 1, a: 0.078431375}
+    m_NormalColor: {r: 0.011764706, g: 0.08627451, b: 0.5019608, a: 0.80784315}
     m_HighlightedColor: {r: 0, g: 0.14583349, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
@@ -929,7 +929,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.14583349, b: 1, a: 0.078431375}
+    m_NormalColor: {r: 0.011764706, g: 0.08627451, b: 0.5019608, a: 0.80784315}
     m_HighlightedColor: {r: 0, g: 0.14583349, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
@@ -1448,7 +1448,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.14583349, b: 1, a: 0.078431375}
+    m_NormalColor: {r: 0.011792451, g: 0.084545, b: 0.5, a: 0.80784315}
     m_HighlightedColor: {r: 0, g: 0.14583349, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
@@ -1853,7 +1853,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.14583349, b: 1, a: 0.078431375}
+    m_NormalColor: {r: 0.011764706, g: 0.08627451, b: 0.5019608, a: 0.80784315}
     m_HighlightedColor: {r: 0, g: 0.14583349, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
@@ -2258,7 +2258,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.14583349, b: 1, a: 0.078431375}
+    m_NormalColor: {r: 0.011764706, g: 0.08627451, b: 0.5019608, a: 0.80784315}
     m_HighlightedColor: {r: 0, g: 0.14583349, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
@@ -2527,7 +2527,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0, g: 0.14583349, b: 1, a: 0.078431375}
+    m_NormalColor: {r: 0.011764706, g: 0.08627451, b: 0.5019608, a: 0.80784315}
     m_HighlightedColor: {r: 0, g: 0.14583349, b: 1, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0.28235295, a: 1}
@@ -2662,7 +2662,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.16862746, g: 0.16078432, b: 0.16078432, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
