@@ -6,6 +6,8 @@ public class LootChest : ChestBehavior
     [Header("Items")]
     public GameObject storedItem;
 
+    public openDoor2 doorToOpen;
+
     // --------------------------------------------------------------
     // INVENTORY MANAGEMENT
 
@@ -22,6 +24,8 @@ public class LootChest : ChestBehavior
 
             // item notif
             GetComponent<AudioSource>().Play();
+
+            doorToOpen.doorOpen = true;
         }
         else
         {
