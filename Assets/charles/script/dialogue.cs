@@ -79,12 +79,12 @@ public class Dialogue : MonoBehaviour
     public void ShowImage(DialoguePiece dialogue)
     {
         DialogueId = dialogue.id;
-        if (DialogueId == "scientist")
+        if (DialogueId == "s")
         {
             image.SetActive(true);
             image2.SetActive(false);
         }
-        if (DialogueId == "guard")
+        if (DialogueId == "g")
         {
             image.SetActive(false);
             image2.SetActive(true);
