@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private float jumpRequestedTime = -1f;
     private float jumpBufferTime = 0.2f; // basically how long before landing a jump input is still valid
     [SerializeField] private float coyoteTime = 0.2f;
+    private bool doubleJump = false;
+
+    [SerializeField] private Animator animator; // THE ANIMATORRR BGVSC Mbvv,mb,....,,.
 
     // input variables
     private float moveInput;
@@ -72,6 +75,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         attemptFlipGravity();
+
+        // ANIMATOR
+        animator.SetFloat("xVel", Mathf.Abs(moveInput));
+        animator.SetBool("isSprinting", isSprinting);
     }
 
     public void Move(InputAction.CallbackContext ctx)
@@ -148,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
     // jump if conditions are met
     private void attemptJump()
     {
-        if (coyoteTime > 0f && jumpRequestedTime + jumpBufferTime > Time.time)
+        if (coyoteTime > 0f && jumpRequestedTime + jumpBufferTime > Time.time || doubleJump)
         {
             rb.linearVelocityY = jumpHeight * Mathf.Sign(rb.gravityScale);
         }
