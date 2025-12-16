@@ -21,6 +21,7 @@ public class ChestBehavior : MonoBehaviour
         interactionDisplay = new GameObject();
         SpriteRenderer idsr = interactionDisplay.AddComponent<SpriteRenderer>();
         idsr.sprite = interactionIcon;
+        idsr.sortingOrder = 3;
         interactionDisplay.transform.parent = gameObject.transform;
         interactionDisplay.transform.position = gameObject.transform.position + 1.2f * Vector3.up;
         interactionDisplay.SetActive(false);
