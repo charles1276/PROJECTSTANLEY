@@ -27341,10 +27341,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 381959418388490254, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
-      propertyPath: m_ScaleFactor
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1477818328802034779, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
       propertyPath: m_Name
       value: HUD
