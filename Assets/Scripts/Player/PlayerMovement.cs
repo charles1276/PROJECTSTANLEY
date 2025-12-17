@@ -69,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
         {
             stats.power.Drain();
         }
+
+        // flip player based on gravity
+        transform.localScale = new Vector3(transform.localScale.x, Mathf.Sign(rb.gravityScale), 1);
     }
 
     // FixedUpdate is called at a fixed interval and is independent of frame rate

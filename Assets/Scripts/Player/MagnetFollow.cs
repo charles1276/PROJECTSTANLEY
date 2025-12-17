@@ -22,12 +22,12 @@ public class MagnetFollow : MonoBehaviour
         //Flips player based on mouse position
         if (mousePos.x <= transform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-1, transform.localScale.y, 1);
             Magnet.transform.localScale = new Vector3(-0.68f, 0.44535f, 1f);
         }
         else if (mousePos.x > transform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1, transform.localScale.y, 1);
             Magnet.transform.localScale = new Vector3(0.68f, 0.44535f, 1f);
         }
         //Magnet faces mouse
