@@ -1665,8 +1665,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 608887493}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 116.03, y: 34.23, z: 0.29643995}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 116.03003, y: 34.23001, z: 0.29643995}
   m_LocalScale: {x: 10, y: 10.0005, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -77051,7 +77051,7 @@ GameObject:
   - component: {fileID: 2073408541}
   - component: {fileID: 2073408545}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: end of level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77188,7 +77188,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 84}
+  m_AnchoredPosition: {x: 0, y: 999}
   m_SizeDelta: {x: 1920, y: 850}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2079666809
@@ -77393,6 +77393,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1978012297}
+  - {fileID: 182427271}
   - {fileID: 1071836314}
   - {fileID: 334322734}
   - {fileID: 2072956546}
@@ -77404,7 +77405,6 @@ SceneRoots:
   - {fileID: 421481049}
   - {fileID: 1194569905}
   - {fileID: 763200733}
-  - {fileID: 608887495}
   - {fileID: 192695219}
   - {fileID: 233382092}
   - {fileID: 449687801}
@@ -77412,4 +77412,4 @@ SceneRoots:
   - {fileID: 1377472818}
   - {fileID: 657594573}
   - {fileID: 2073408544}
-  - {fileID: 182427271}
+  - {fileID: 608887495}
