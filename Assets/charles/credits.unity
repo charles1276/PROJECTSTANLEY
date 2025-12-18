@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dylan Son
+  m_text: Dylan Soh
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
   m_sharedMaterial: {fileID: 8770523920494223114, guid: 9fc92e8bda4b93b42845f377282a62f0, type: 2}
