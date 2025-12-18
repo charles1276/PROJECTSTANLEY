@@ -311,7 +311,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PROJECT STANLEY
+  m_text: PROJECTSTANLEY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
   m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
@@ -810,7 +810,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: start
+  m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
   m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
@@ -1579,7 +1579,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'credits '
+  m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
   m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
