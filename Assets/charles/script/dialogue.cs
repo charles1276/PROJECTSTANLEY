@@ -23,11 +23,13 @@ public class Dialogue : MonoBehaviour
     public TMPro.TMP_Text dialogueName;
     public TMPro.TMP_Text dialogueText;
     private int dialogueIndex = 0;
+    private static Dialogue currentDialogue;
     // add static current dialogue to keep track of which dialogue is being used
     //private Dialogue currentDialogue;
     public string DialogueId;
     public void Startdialogue()
     {
+        currentDialogue = this;
         ShowImage(dialogue[dialogueIndex]);
         StopAllCoroutines();
         dialogueIndex = 0; // start at first piece
@@ -46,23 +48,23 @@ public class Dialogue : MonoBehaviour
     public void NextDialogueOrStop()
     {
 
-        ++dialogueIndex;
-        if (dialogueIndex >= dialogue.Count)
+        ++currentDialogue.dialogueIndex;
+        if (currentDialogue.dialogueIndex >= currentDialogue.dialogue.Count)
         {
             Debug.Log("End of Dialogue");
-            EndDialogue();
+            currentDialogue.EndDialogue();
             return;
         }
 
         StopAllCoroutines();
-        StartCoroutine(writedialguePiece(dialogue[dialogueIndex]));
+        currentDialogue.StartCoroutine(currentDialogue.writedialguePiece(currentDialogue.dialogue[currentDialogue.dialogueIndex]));
     }   
 
     public IEnumerator writedialguePiece(DialoguePiece dialogue)
     {
         // write the dialogue piece letter-by-letter with a small delay
         dialogueName.SetText(dialogue.name);
-        dialogueText.text = "";
+        dialogueText.text = ("");
 
         for (int i = 0; i < dialogue.Dialogue.Length; i++)
         {
