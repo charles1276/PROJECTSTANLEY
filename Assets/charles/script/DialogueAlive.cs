@@ -4,14 +4,15 @@ public class DialogueAlive : MonoBehaviour
 {
     public GameObject Player;
 
-    public StartDialogue dS;
+    public Dialogue dS;
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject == Player)
         {
-            dS.Enter = true;
+            dS.Startdialogue();
+            Destroy(gameObject);
         }
     }
 }

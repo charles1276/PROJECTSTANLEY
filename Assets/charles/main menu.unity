@@ -475,7 +475,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 203501083}
         m_TargetAssemblyTypeName: StartMenuMethods, Assembly-CSharp
-        m_MethodName: quitbutton
+        m_MethodName: Quitbutton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
