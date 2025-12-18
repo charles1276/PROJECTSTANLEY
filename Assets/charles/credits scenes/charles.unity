@@ -444,7 +444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Character Programmer, Level Designer: Charles Euton'
+  m_text: 'UI Designer, Level Designer: Charles Euton'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
   m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.4
+  m_fontSize: 29.35
   m_fontSizeBase: 27.7
   m_fontWeight: 400
   m_enableAutoSizing: 1

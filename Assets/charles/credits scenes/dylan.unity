@@ -733,7 +733,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level Designer, Gameplay Programmer: Dylan Soh
+  m_text: 'Gameplay Programmer, FX Artist: Dylan Soh
 
 
 
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.35
+  m_fontSize: 29.4
   m_fontSizeBase: 27.7
   m_fontWeight: 400
   m_enableAutoSizing: 1

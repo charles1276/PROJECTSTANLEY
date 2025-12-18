@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Environment Artist: Jolenna Barber'
+  m_text: 'Environment Artist, SFX Artist: Jolenna Barber'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
   m_sharedMaterial: {fileID: 8770523920494223114, guid: c5b84964c05f0ed4b86e7c068fb58a91, type: 2}
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.9
+  m_fontSize: 24.05
   m_fontSizeBase: 27.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
