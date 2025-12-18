@@ -11,6 +11,8 @@ public class Statistic
     [SerializeField] private float regenCooldown = 2f;
     private float regenCooldownTime;
 
+    [SerializeField] private bool willDrain = true; // set infinite usage
+
     // constructor (initialization)
     public Statistic()
     {
@@ -21,6 +23,12 @@ public class Statistic
     // drain the statistic over time
     public void Drain()
     {
+        // basically infinite usage
+        if (!willDrain)
+        {
+            return;
+        }
+
         currentValue -= drainRate * Time.deltaTime;
         if (currentValue < 0f)
         {
