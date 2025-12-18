@@ -34581,7 +34581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1209256840}
-  dS: {fileID: 1499246274}
+  dS: {fileID: 1287492730}
 --- !u!1 &884952605
 GameObject:
   m_ObjectHideFlags: 0
@@ -36259,19 +36259,13 @@ MonoBehaviour:
   dialogue:
   - id: s
     name: Dr.Greg
-    Dialogue: ' cheese fo truth '
+    Dialogue: Let's see if it will find and open the chest.
   - id: s
     name: 'Assistant '
-    Dialogue: What can it do?
+    Dialogue: 'What''s inside the chest? '
   - id: s
     name: Dr.Greg
-    Dialogue: When it LEFT CLICKS it can apply positive field of energy to an object
-  - id: s
-    name: Dr.Greg
-    Dialogue: It can also apply negative field of energy when it RIGHT CLICKS.
-  - id: s
-    name: Dr.Greg
-    Dialogue: Let's watch it for now.
+    Dialogue: The chest has Gravity Boots, when it presses F it can swap gravity.
   textSpeed: 0.1
   image: {fileID: 150409865}
   image2: {fileID: 1768033042}
