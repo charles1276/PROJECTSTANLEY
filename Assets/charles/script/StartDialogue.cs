@@ -9,7 +9,7 @@ public class StartDialogue : MonoBehaviour
     public GameObject trigger;
     public GameObject trigger2;   
     public GameObject trigger3;
-
+    public bool Enter = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,16 +19,14 @@ public class StartDialogue : MonoBehaviour
          dialogue.Startdialogue();
         
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
+    {
+        if (Enter)
         {
-         if (collision.gameObject == trigger2)
-        {
-           
+            trigger2.SetActive(true);
             Dialogue dialogue = dialogueScript2;
             dialogue.Startdialogue();
-            Destroy(trigger);
+            Destroy(trigger3);
         }
-       
-
     }
 }
