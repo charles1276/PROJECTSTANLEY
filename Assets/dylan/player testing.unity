@@ -18688,6 +18688,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2001066668}
     m_Modifications:
+    - target: {fileID: 1229894288338547761, guid: fc6e4e785a9470849a5540cb877f4d7a, type: 3}
+      propertyPath: m_UIInputModule
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1229894288338547761, guid: fc6e4e785a9470849a5540cb877f4d7a, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2599236113559953694, guid: fc6e4e785a9470849a5540cb877f4d7a, type: 3}
       propertyPath: m_Name
       value: LootChest
