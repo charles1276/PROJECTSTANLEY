@@ -408,11 +408,13 @@ MonoBehaviour:
     drainRate: 10
     regenRate: 5
     regenCooldown: 1
+    willDrain: 1
   power:
     maxValue: 100
     drainRate: 10
     regenRate: 5
     regenCooldown: 2
+    willDrain: 1
 --- !u!114 &6629340211680660710
 MonoBehaviour:
   m_ObjectHideFlags: 0
