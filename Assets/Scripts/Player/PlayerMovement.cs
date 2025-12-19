@@ -49,14 +49,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         // handle horizontal movement
-        float movementForce = moveInput;
-        if (attemptSprint())
-        {
-            movementForce *= sprintMultiplier;
-        }
+        
 
-        rb.AddForce(new Vector2(movementForce, 0f) * rb.mass);
-        rb.linearVelocityX *= friction; // friction
+       
 
         // manage coyote time
         updateCoyoteTime();
@@ -78,6 +73,15 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         attemptFlipGravity();
+
+        float movementForce = moveInput;
+        if (attemptSprint())
+        {
+            movementForce *= sprintMultiplier;
+        }
+
+        rb.AddForce(new Vector2(movementForce, 0f) * rb.mass);
+        rb.linearVelocityX *= friction; // friction
 
         // ANIMATOR
         animator.SetFloat("xVel", Mathf.Abs(moveInput));
