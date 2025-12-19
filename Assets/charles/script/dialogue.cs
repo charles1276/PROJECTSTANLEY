@@ -92,7 +92,7 @@ public class Dialogue : MonoBehaviour
             image2.SetActive(true);
         }
     }
-    public void Update()
+    public void FixedUpdate()
     {
         ShowImage(dialogue[dialogueIndex]);
 

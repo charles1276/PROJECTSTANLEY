@@ -11,6 +11,11 @@ public class ChestBehavior : MonoBehaviour
     [SerializeField] private Sprite interactionIcon;
     protected bool withinRange = false;
 
+    public virtual void Interact()
+    {
+        // to be overridden
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,19 +35,16 @@ public class ChestBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerStats ps = player.GetComponent<PlayerStats>();
         Vector2 playerDistance = player.transform.position - transform.position;
 
         // set withinRange boolean based on the player's distance
         if (playerDistance.magnitude < interactionProximity)
         {
-            withinRange = true;
-        }
-        else
-        {
-            withinRange = false;
+            ps.UpdateSelectedChest(gameObject);
         }
 
         // actually display it only when it's within range
-        interactionDisplay.SetActive(withinRange);
+        interactionDisplay.SetActive(ps == gameObject);
     }
 }
