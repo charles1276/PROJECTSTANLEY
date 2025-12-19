@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class Statistic
@@ -70,11 +71,60 @@ public class PlayerStats : MonoBehaviour
 {
     public Statistic stamina;
     public Statistic power;
+    public GameObject selectedChest;
+
+    public void Interact(InputAction.CallbackContext ctx)
+    {
+        // interact with selected chest
+        if (ctx.performed && selectedChest != null)
+        {
+            selectedChest.SendMessage("Interact");
+        }
+    }
+
+    public void UpdateSelectedChest(GameObject newChest)
+    {
+        // early termination
+        if (newChest == null)
+        {
+            return;
+        }
+
+        if (selectedChest != null)
+        {
+            // compare distances
+            float currentDistance = Vector2.Distance(transform.position, selectedChest.transform.position);
+            float newDistance = Vector2.Distance(transform.position, newChest.transform.position);
+
+            if (currentDistance > newDistance)
+            {
+                // assign new chest if it's closer
+                selectedChest = newChest;
+            }
+        }
+        else
+        {
+            // assign new chest if none was selected
+            selectedChest = newChest;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
         stamina.Regenerate();
         power.Regenerate();
+
+        // skip if no chest selected
+        if (selectedChest == null)
+        {
+            return;
+        }
+
+        // deselect chest if too far away
+        if (Vector2.Distance(transform.position, selectedChest.transform.position) > 3f)
+        {
+            selectedChest = null;
+        }
     }
 }
