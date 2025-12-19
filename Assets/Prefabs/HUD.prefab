@@ -984,6 +984,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Indicator
       objectReference: {fileID: 0}
+    - target: {fileID: 2496737656500776849, guid: 84635d2ea9377374e90778e85ef63430, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 140900288, guid: e1db5c5c2790a134a92afb5b7b052546, type: 3}
+    - target: {fileID: 2496737656500776849, guid: 84635d2ea9377374e90778e85ef63430, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496737656500776849, guid: 84635d2ea9377374e90778e85ef63430, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2496737656500776849, guid: 84635d2ea9377374e90778e85ef63430, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9121024357696401808, guid: 84635d2ea9377374e90778e85ef63430, type: 3}
       propertyPath: m_Pivot.x
       value: 0
