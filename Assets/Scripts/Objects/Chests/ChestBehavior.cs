@@ -45,6 +45,6 @@ public class ChestBehavior : MonoBehaviour
         }
 
         // actually display it only when it's within range
-        interactionDisplay.SetActive(ps == gameObject);
+        interactionDisplay.SetActive(ps.selectedChest == gameObject);
     }
 }
