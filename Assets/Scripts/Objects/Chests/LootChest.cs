@@ -11,6 +11,11 @@ public class LootChest : ChestBehavior
     // --------------------------------------------------------------
     // INVENTORY MANAGEMENT
 
+    public override void Interact()
+    {
+        AddObject();
+    }
+
     private void AddObject()
     {
         InventoryManager playerInventory = player.GetComponent<InventoryManager>();
@@ -37,11 +42,12 @@ public class LootChest : ChestBehavior
     // --------------------------------------------------------------
     // UNITY METHODS
 
-    public void Interact(InputAction.CallbackContext ctx)
-    {
-        if (ctx.performed && withinRange)
-        {
-            AddObject();
-        }
-    }
+    //public void Interact(InputAction.CallbackContext ctx)
+    //{
+    //    if (ctx.performed && withinRange)
+    //    {
+    //        AddObject();
+    //    }
+    //}
+
 }

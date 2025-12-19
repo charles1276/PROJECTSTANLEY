@@ -70,6 +70,35 @@ public class PlayerStats : MonoBehaviour
 {
     public Statistic stamina;
     public Statistic power;
+    public GameObject selectedChest;
+
+    public void UpdateSelectedChest(GameObject newChest)
+    {
+        // early termination
+        if (newChest == null)
+        {
+            selectedChest = null;
+            return;
+        }
+
+        if (selectedChest != null)
+        {
+            // compare distances
+            float currentDistance = Vector2.Distance(transform.position, selectedChest.transform.position);
+            float newDistance = Vector2.Distance(transform.position, newChest.transform.position);
+
+            if (currentDistance > newDistance)
+            {
+                // assign new chest if it's closer
+                selectedChest = newChest;
+            }
+        }
+        else
+        {
+            // assign new chest if none was selected
+            selectedChest = newChest;
+        }
+    }
 
     // Update is called once per frame
     void Update()
