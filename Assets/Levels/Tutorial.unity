@@ -36430,6 +36430,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab4fad4b6fc4fe42a19b73cb0c8d799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+  - id: s
+    name: ' Dr.Greg'
+    Dialogue: Let's see if it finds the chest.
+  - id: s
+    name: Assistant
+    Dialogue: What's in the chest.
+  - id: s
+    name: ' Dr.Greg'
+    Dialogue: Gravity Boots that allows it to flip it's gravity when it presses F.
+  - id: s
+    name: ' Dr.Greg'
+    Dialogue: Let's countinue our observation.
+  textSpeed: 0.1
+  image: {fileID: 150409865}
+  image2: {fileID: 1768033042}
+  dialogueName: {fileID: 683359308}
+  dialogueText: {fileID: 134553363}
+  DialogueId: 
 --- !u!1 &1289639359
 GameObject:
   m_ObjectHideFlags: 0
@@ -36852,6 +36871,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab4fad4b6fc4fe42a19b73cb0c8d799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+  - id: s
+    name: Dr.Greg
+    Dialogue: S.T.A.N.L.Y. seems to be fully functioning.
+  - id: s
+    name: Assistant
+    Dialogue: What can it do?
+  - id: s
+    name: Dr.Greg
+    Dialogue: It can apply a positive field of energy when it LEFT CLICKS.
+  - id: s
+    name: Dr.Greg
+    Dialogue: It can also apply a negative field of energy when it RIGHT CLICKS.
+  - id: s
+    name: Dr.Greg
+    Dialogue: Let's watch it for now.
+  textSpeed: 0.1
+  image: {fileID: 1201629039}
+  image2: {fileID: 377684355}
+  dialogueName: {fileID: 536050451}
+  dialogueText: {fileID: 2072634365}
+  DialogueId: 
 --- !u!1001 &1432665450
 PrefabInstance:
   m_ObjectHideFlags: 0

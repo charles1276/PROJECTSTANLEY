@@ -19,7 +19,7 @@ public class StartDialogue : MonoBehaviour
          dialogue.Startdialogue();
         
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (Enter)
         {
