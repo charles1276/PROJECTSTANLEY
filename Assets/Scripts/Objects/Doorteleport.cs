@@ -1,14 +1,13 @@
 using UnityEngine;
 
-public class Doorteleport : MonoBehaviour
+public class DoorTeleport : MonoBehaviour
 {
-    public GameObject doorPosition;
-
+    public Vector3 doorPosition;
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.transform.position = other.transform.position;
+            other.gameObject.transform.position = doorPosition;
         }
     }
 }
