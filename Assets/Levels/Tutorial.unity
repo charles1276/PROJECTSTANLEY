@@ -36860,6 +36860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 381959418388490254, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+      propertyPath: m_ScaleFactor
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1477818328802034779, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -36867,6 +36871,14 @@ PrefabInstance:
     - target: {fileID: 1477818328802034779, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391056679882185493, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -330
+      objectReference: {fileID: 0}
+    - target: {fileID: 5391056679882185493, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -298.00586
       objectReference: {fileID: 0}
     - target: {fileID: 7662015358189360571, guid: 7d837ca30e95afb44a911a558b288bf5, type: 3}
       propertyPath: m_Pivot.x
