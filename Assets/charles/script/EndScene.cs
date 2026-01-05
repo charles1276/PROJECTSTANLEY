@@ -54,7 +54,7 @@ public class EndScene : MonoBehaviour
             robotPosition2D.y += 0.009f;
        
         }
-        else if (robotPosition2D.x >= 22f)
+        else if (robotPosition2D.x >= 10f)
         {
             robotPosition2D.x -= 0.006f;
         }
