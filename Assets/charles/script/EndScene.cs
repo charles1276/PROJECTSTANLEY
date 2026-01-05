@@ -54,12 +54,12 @@ public class EndScene : MonoBehaviour
             robotPosition2D.y += 0.009f;
        
         }
-        else if (robotPosition2D.x >= 22f)
+        else if (robotPosition2D.x >= 10f)
         {
             robotPosition2D.x -= 0.006f;
         }
         robot.transform.position = new Vector3(robotPosition2D.x, robotPosition2D.y);
-        if (robotPosition2D.x <= 27f & guardPosition2D.x >= 25.9f)
+        if (robotPosition2D.x <= 28f & guardPosition2D.x >= 25.9f)
         {
             //guard.SetActive(true);
             guardPosition2D.x -= 0.006f;
