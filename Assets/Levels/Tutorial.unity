@@ -36753,7 +36753,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1423317268}
-  - component: {fileID: 1423317269}
   - component: {fileID: 1423317267}
   m_Layer: 5
   m_Name: diolog box
@@ -36864,40 +36863,6 @@ RectTransform:
   m_AnchoredPosition: {x: -190, y: 184}
   m_SizeDelta: {x: 1137.3346, y: 511.25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1423317269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1423317266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ab4fad4b6fc4fe42a19b73cb0c8d799, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-  - id: s
-    name: Dr.Greg
-    Dialogue: S.T.A.N.L.Y. seems to be online
-  - id: s
-    name: Assistant
-    Dialogue: What can it do?
-  - id: s
-    name: Dr.Greg
-    Dialogue: When it presses LEFT CLICK it emits a field of positive energy.
-  - id: s
-    name: Dr.Greg
-    Dialogue: Also when it presses RIGHT CLICK it emits a field of negative energy.
-  - id: s
-    name: Dr.Greg
-    Dialogue: Let's watch it for now.
-  textSpeed: 0.1
-  image: {fileID: 1201629039}
-  image2: {fileID: 377684355}
-  dialogueName: {fileID: 536050451}
-  dialogueText: {fileID: 2072634365}
-  DialogueId: 
 --- !u!1001 &1432665450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37274,7 +37239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a59b4b552a16284d8f8efa15cb88319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueScript: {fileID: 1423317269}
+  dialogueScript: {fileID: 0}
   dialogueScript2: {fileID: 1287492730}
   trigger: {fileID: 1423317266}
   trigger2: {fileID: 1287492727}
