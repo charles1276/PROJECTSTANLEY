@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ObjectHovering : MonoBehaviour
@@ -62,9 +63,7 @@ public class ObjectHovering : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
-
-        Ray mouseRay = Camera.main.ScreenPointToRay(mousePosition);
+        Ray mouseRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit2D mouseRaycast = Physics2D.Raycast(mouseRay.origin, mouseRay.direction, 1f, LayerMask.GetMask("Ground"));
 
         // hovering over object with neutral polarity
