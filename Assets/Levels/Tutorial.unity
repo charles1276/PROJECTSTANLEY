@@ -36389,6 +36389,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d8f0d070-e89d-4cb5-be63-252de6415ced
     m_ActionName: 'Inventory/Previous[/Keyboard/z]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7ffe936e-b33f-4917-87be-b794d08e1323
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -36430,6 +36434,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab4fad4b6fc4fe42a19b73cb0c8d799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+  - id: s
+    name: Dr.Greg
+    Dialogue: Let's see if S.T.A.N.L.Y. finds the box.
+  - id: s
+    name: Assistant
+    Dialogue: Whats in the box?
+  - id: s
+    name: Dr.Greg
+    Dialogue: Boots that changes the it's gravity when it presses F.
+  textSpeed: 0.1
+  image: {fileID: 150409865}
+  image2: {fileID: 1768033042}
+  dialogueName: {fileID: 683359308}
+  dialogueText: {fileID: 134553363}
+  DialogueId: 
 --- !u!1 &1289639359
 GameObject:
   m_ObjectHideFlags: 0
@@ -36811,6 +36831,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: d8f0d070-e89d-4cb5-be63-252de6415ced
     m_ActionName: 'Inventory/Previous[/Keyboard/z]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7ffe936e-b33f-4917-87be-b794d08e1323
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -36852,6 +36876,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab4fad4b6fc4fe42a19b73cb0c8d799, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+  - id: s
+    name: Dr.Greg
+    Dialogue: S.T.A.N.L.Y. seems to be online
+  - id: s
+    name: Assistant
+    Dialogue: What can it do?
+  - id: s
+    name: Dr.Greg
+    Dialogue: When it presses LEFT CLICK it emits a field of positive energy.
+  - id: s
+    name: Dr.Greg
+    Dialogue: Also when it presses RIGHT CLICK it emits a field of negative energy.
+  - id: s
+    name: Dr.Greg
+    Dialogue: Let's watch it for now.
+  textSpeed: 0.1
+  image: {fileID: 1201629039}
+  image2: {fileID: 377684355}
+  dialogueName: {fileID: 536050451}
+  dialogueText: {fileID: 2072634365}
+  DialogueId: 
 --- !u!1001 &1432665450
 PrefabInstance:
   m_ObjectHideFlags: 0
