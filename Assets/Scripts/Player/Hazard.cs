@@ -7,12 +7,12 @@ public class Hazard : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            // reload the current scene to reset the game state
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
             // set player to the last checkpoint position
             other.transform.position = Checkpoint.lastCheckpointPosition;
             other.gameObject.GetComponent<InventoryManager>().inventorySlots = Checkpoint.playerInventory;
-
-            // Reload the current scene to respawn the player at the last checkpoint
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
