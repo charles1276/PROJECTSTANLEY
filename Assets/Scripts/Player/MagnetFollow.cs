@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MagnetFollow : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class MagnetFollow : MonoBehaviour
     void Update()
     {
         //Get mouse position in world space
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         direction = mousePos - (Vector2)Magnet.position;
         //Get Blue and Red positions
 

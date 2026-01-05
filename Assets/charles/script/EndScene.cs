@@ -5,11 +5,13 @@ public class EndScene : MonoBehaviour
     public GameObject robot;
     public  Vector2 robotPosition2D;
     public GameObject guard;
+    
     public Vector2 guardPosition2D;
     public Vector3 guardRotation2D;
     public Sprite guardsprite;
     public SpriteRenderer spriteRenderer;
     public Animator guardAnimator;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,7 +40,8 @@ public class EndScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        guardRotation2D.z = 0f;
+        guardRotation2D.y = 180f;
+        guard.transform.rotation = Quaternion.Euler(guardRotation2D);
         robotPosition2D = robot.transform.position;
         if (robotPosition2D.x >= 25.36f)
         {
@@ -64,14 +67,19 @@ public class EndScene : MonoBehaviour
         }
         if (guardPosition2D.x <= 26f )
         {
-           spriteRenderer = guard.GetComponent<SpriteRenderer>();
-              spriteRenderer.sprite = guardsprite;
+            spriteRenderer = guard.GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = guardsprite;
             guardAnimator = guard.GetComponent<Animator>();
             guardAnimator.enabled = false;
             guardRotation2D.y = 0f;
+
+            
+            
+            guard.transform.rotation = Quaternion.Euler(guardRotation2D); 
         }
-        guardRotation2D.z = 0f;
-        guard.transform.position = new Vector3(guardPosition2D.x, guardPosition2D.y);
+        
+        guard.transform.position = new Vector3(guardPosition2D.x, guardPosition2D.y);   
+        
     }
 
 
