@@ -147,8 +147,7 @@ public class MagnetHandler : MonoBehaviour
         UnassignClickedObject();
 
         // testsdt
-        Vector3 mousePosition = Input.mousePosition;
-        mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        mouseWorldPosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
         // check distance from player to clicked object
         Vector2 middleAttractionVector = mouseWorldPosition - transform.position;
